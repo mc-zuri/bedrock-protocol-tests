@@ -1,0 +1,10 @@
+node_modules/
+.env
+# the clones pnpm install makes: fixes are committed in them, not here
+/checkouts/
+# default SERVERS_DIR and OUT_DIR
+/servers/
+/out/
+# xmake
+/build/
+/.xmake/
