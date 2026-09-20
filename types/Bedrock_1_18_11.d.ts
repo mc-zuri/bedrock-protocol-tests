@@ -728,18 +728,26 @@ export namespace MCProtocol.Bedrock_1_18_11 {
 	};
 	export type packet_disconnect = {
 		hide_disconnect_reason: boolean;
-		message: string;
+		message?: string;
 	};
 	export type packet_resource_packs_info = {
+		/** If the resource pack requires the client accept it. */
 		must_accept: boolean;
+		/** If scripting is enabled. */
 		has_scripts: boolean;
+		/** ForcingServerPacks is currently an unclear field. */
 		force_server_packs: boolean;
+		/** A list of behaviour packs that the client needs to download before joining the server. All of these behaviour packs will be applied together. */
 		behaviour_packs: BehaviourPackInfos;
+		/** A list of resource packs that the client needs to download before joining the server. The order of these resource packs is not relevant in this packet. It is however important in the Resource Pack Stack packet. */
 		texture_packs: TexturePackInfos;
 	};
 	export type packet_resource_pack_stack = {
+		/** If the resource pack must be accepted for the player to join the server. */
 		must_accept: boolean;
+		/** [inline] */
 		behavior_packs: ResourcePackIdVersions;
+		/** [inline] */
 		resource_packs: ResourcePackIdVersions;
 		game_version: string;
 		experiments: Experiments;
@@ -747,10 +755,19 @@ export namespace MCProtocol.Bedrock_1_18_11 {
 	};
 	export type packet_resource_pack_client_response = {
 		response_status: "none" | "refused" | "send_packs" | "have_all_packs" | "completed";
+		/** All of the pack IDs. */
 		resourcepackids: ResourcePackIds;
 	};
+	/**
+	 * Sent by the client to the server to send chat messages, and by the server to the client
+	 * to forward or send messages, which may be chat, popups, tips etc.
+	 * # https://github.com/pmmp/PocketMine-MP/blob/a43b46a93cb127f037c879b5d8c29cda251dd60c/src/pocketmine/network/mcpe/protocol/TextPacket.php
+	 * # https://github.com/Sandertv/gophertunnel/blob/05ac3f843dd60d48b9ca0ab275cda8d9e85d8c43/minecraft/protocol/packet/text.go
+	 */
 	export type packet_text = {
+		/** TextType is the type of the text sent. When a client sends this to the server, it should always be TextTypeChat. If the server sends it, it may be one of the other text types above. */
 		type: "raw" | "chat" | "translation" | "popup" | "jukebox_popup" | "tip" | "system" | "whisper" | "announcement" | "json_whisper" | "json";
+		/** NeedsTranslation specifies if any of the messages need to be translated. It seems that where % is found in translatable text types, these are translated regardless of this bool. Translatable text types include TextTypeTip, TextTypePopup and TextTypeJukeboxPopup. */
 		needs_translation: boolean;
 		source_name?: string;
 		message?: string;
@@ -853,7 +870,7 @@ export namespace MCProtocol.Bedrock_1_18_11 {
 		limited_world_length: number;
 		is_new_nether: boolean;
 		edu_resource_uri: EducationSharedResourceURI;
-		experimental_gameplay_override: boolean;
+		experimental_gameplay_override?: boolean;
 		/** A base64 encoded world ID that is used to identify the world. */
 		level_id: string;
 		/** The name of the world that the player is joining. Note that this field shows up above the player list for the rest of the game session, and cannot be changed. Setting the server name to this field is recommended. */
@@ -2271,7 +2288,6 @@ export namespace MCProtocol.Bedrock_1_18_11 {
 		HasQuiz: boolean;
 		has_external_link_settings: boolean;
 		external_link_settings?: {
-			has: boolean;
 			url: string;
 			display_name: string;
 		};

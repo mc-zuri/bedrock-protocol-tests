@@ -549,6 +549,51 @@ export namespace MCProtocol.Bedrock_1_16_210 {
 			player_entity_id: bigint;
 		};
 	};
+	export type StructureBlockSettings = {
+		/** PaletteName is the name of the palette used in the structure. Currently, it seems that this field is always 'default'. */
+		palette_name: string;
+		/** IgnoreEntities specifies if the structure should ignore entities or include them. If set to false, entities will also show up in the exported structure. */
+		ignore_entities: boolean;
+		/** IgnoreBlocks specifies if the structure should ignore blocks or include them. If set to false, blocks will show up in the exported structure. */
+		ignore_blocks: boolean;
+		/** Size is the size of the area that is about to be exported. The area exported will start at the Position + Offset, and will extend as far as Size specifies. */
+		size: BlockCoordinates;
+		/** Offset is the offset position that was set in the structure block. The area exported is offset by this position. **TODO**: This will be renamed to offset soon */
+		structure_offset: BlockCoordinates;
+		/** LastEditingPlayerUniqueID is the unique ID of the player that last edited the structure block that these settings concern. */
+		last_editing_player_unique_id: bigint;
+		/** Rotation is the rotation that the structure block should obtain. See the constants above for available options. */
+		rotation: number;
+		/** Mirror specifies the way the structure should be mirrored. It is either no mirror at all, mirror on the x/z axis or both. */
+		mirror: number;
+		/** Integrity is usually 1, but may be set to a number between 0 and 1 to omit blocks randomly, using the Seed that follows. */
+		integrity: number;
+		/** Seed is the seed used to omit blocks if Integrity is not equal to one. If the Seed is 0, a random seed is selected to omit blocks. */
+		seed: number;
+		/** Pivot is the pivot around which the structure may be rotated. */
+		pivot: vec3f;
+	};
+	export type TrackedObject = {
+		/** Type is the type of the tracked object. It is either MapObjectTypeEntity or MapObjectTypeBlock. */
+		type: "entity" | "block";
+		/** EntityUniqueID is the unique ID of the entity, if the tracked object was an entity. It needs not to be filled out if Type is not MapObjectTypeEntity. */
+		entity_unique_id?: bigint;
+		/** BlockPosition is the position of the block, if the tracked object was a block. It needs not to be filled out if Type is not MapObjectTypeBlock. */
+		block_position?: BlockCoordinates;
+	};
+	export type MapDecoration = {
+		type: "marker_white" | "marker_green" | "marker_red" | "marker_blue" | "cross_white" | "triangle_red" | "square_white" | "marker_sign" | "marker_pink" | "marker_orange" | "marker_yellow" | "marker_teal" | "triangle_green" | "small_square_white" | "mansion" | "monument" | "no_draw" | "village_desert" | "village_plains" | "village_savanna" | "village_snowy" | "village_taiga" | "jungle_temple" | "witch_hut";
+		/** Rotation is the rotation of the map decoration. It is byte due to the 16 fixed directions that the map decoration may face. */
+		rotation: number;
+		/** X is the offset on the X axis in pixels of the decoration. */
+		x: number;
+		/** Y is the offset on the Y axis in pixels of the decoration. */
+		y: number;
+		/** Label is the name of the map decoration. This name may be of any value. */
+		label: string;
+		/** Colour is the colour of the map decoration. Some map decoration types have a specific colour set automatically, whereas others may be changed. */
+		color_abgr: number;
+	};
 	/**
 	 * Some arbitrary definitions from CBMC, Window IDs are normally
 	 * unique + sequential
@@ -621,17 +666,24 @@ export namespace MCProtocol.Bedrock_1_16_210 {
 	};
 	export type packet_disconnect = {
 		hide_disconnect_reason: boolean;
-		message: string;
+		message?: string;
 	};
 	export type packet_resource_packs_info = {
+		/** If the resource pack requires the client accept it. */
 		must_accept: boolean;
+		/** If scripting is enabled. */
 		has_scripts: boolean;
+		/** A list of behaviour packs that the client needs to download before joining the server. All of these behaviour packs will be applied together. */
 		behaviour_packs: BehaviourPackInfos;
+		/** A list of resource packs that the client needs to download before joining the server. The order of these resource packs is not relevant in this packet. It is however important in the Resource Pack Stack packet. */
 		texture_packs: TexturePackInfos;
 	};
 	export type packet_resource_pack_stack = {
+		/** If the resource pack must be accepted for the player to join the server. */
 		must_accept: boolean;
+		/** [inline] */
 		behavior_packs: ResourcePackIdVersions;
+		/** [inline] */
 		resource_packs: ResourcePackIdVersions;
 		game_version: string;
 		experiments: Experiments;
@@ -639,10 +691,19 @@ export namespace MCProtocol.Bedrock_1_16_210 {
 	};
 	export type packet_resource_pack_client_response = {
 		response_status: "none" | "refused" | "send_packs" | "have_all_packs" | "completed";
+		/** All of the pack IDs. */
 		resourcepackids: ResourcePackIds;
 	};
+	/**
+	 * Sent by the client to the server to send chat messages, and by the server to the client
+	 * to forward or send messages, which may be chat, popups, tips etc.
+	 * # https://github.com/pmmp/PocketMine-MP/blob/a43b46a93cb127f037c879b5d8c29cda251dd60c/src/pocketmine/network/mcpe/protocol/TextPacket.php
+	 * # https://github.com/Sandertv/gophertunnel/blob/05ac3f843dd60d48b9ca0ab275cda8d9e85d8c43/minecraft/protocol/packet/text.go
+	 */
 	export type packet_text = {
+		/** TextType is the type of the text sent. When a client sends this to the server, it should always be TextTypeChat. If the server sends it, it may be one of the other text types above. */
 		type: "raw" | "chat" | "translation" | "popup" | "jukebox_popup" | "tip" | "system" | "whisper" | "announcement" | "json_whisper" | "json";
+		/** NeedsTranslation specifies if any of the messages need to be translated. It seems that where % is found in translatable text types, these are translated regardless of this bool. Translatable text types include TextTypeTip, TextTypePopup and TextTypeJukeboxPopup. */
 		needs_translation: boolean;
 		source_name?: string;
 		message?: string;
@@ -744,7 +805,7 @@ export namespace MCProtocol.Bedrock_1_16_210 {
 		limited_world_width: number;
 		limited_world_length: number;
 		is_new_nether: boolean;
-		experimental_gameplay_override: boolean;
+		experimental_gameplay_override?: boolean;
 		/** A base64 encoded world ID that is used to identify the world. */
 		level_id: string;
 		/** The name of the world that the player is joining. Note that this field shows up above the player list for the rest of the game session, and cannot be changed. Setting the server name to this field is recommended. */
@@ -895,7 +956,7 @@ export namespace MCProtocol.Bedrock_1_16_210 {
 	export type packet_add_painting = {
 		entity_id_self: bigint;
 		runtime_entity_id: bigint;
-		coordinates: BlockCoordinates;
+		coordinates: vec3f;
 		direction: number;
 		title: string;
 	};
@@ -1010,7 +1071,8 @@ export namespace MCProtocol.Bedrock_1_16_210 {
 		face: number;
 	};
 	export type packet_hurt_armor = {
-		health: number;
+		cause: number;
+		damage: number;
 	};
 	export type packet_set_entity_data = {
 		runtime_entity_id: bigint;
@@ -1273,8 +1335,37 @@ export namespace MCProtocol.Bedrock_1_16_210 {
 		position: vec3f;
 		count: number;
 	};
+	export type UpdateMapFlags = {
+		void?: boolean;
+		texture?: boolean;
+		decoration?: boolean;
+		initialisation?: boolean;
+	};
 	export type packet_clientbound_map_item_data = {
-		mapinfo: any;
+		/** MapID is the unique identifier that represents the map that is updated over network. It remains consistent across sessions. */
+		map_id: bigint;
+		/** UpdateFlags is a combination of flags found above that indicate what parts of the map should be updated client-side. */
+		update_flags: UpdateMapFlags;
+		/** Dimension is the dimension of the map that should be updated, for example the overworld (0), the nether (1) or the end (2). */
+		dimension: number;
+		/** LockedMap specifies if the map that was updated was a locked map, which may be done using a cartography table. */
+		locked: boolean;
+		/** The following fields apply only for the MapUpdateFlagInitialisation. MapsIncludedIn holds an array of map IDs that the map updated is included in. This has to do with the scale of the map: Each map holds its own map ID and all map IDs of maps that include this map and have a bigger scale. This means that a scale 0 map will have 5 map IDs in this slice, whereas a scale 4 map will have only 1 (its own). The actual use of this field remains unknown. */
+		included_in?: bigint[];
+		/** Scale is the scale of the map as it is shown in-game. It is written when any of the MapUpdateFlags are set to the UpdateFlags field. */
+		scale?: number;
+		/** The following fields apply only for the MapUpdateFlagDecoration. TrackedObjects is a list of tracked objects on the map, which may either be entities or blocks. The client makes sure these tracked objects are actually tracked. (position updated etc.) */
+		tracked?: {
+			objects: TrackedObject[];
+			decorations: MapDecoration[];
+		};
+		texture?: {
+			width: number;
+			height: number;
+			x_offset: number;
+			y_offset: number;
+			pixels: number[];
+		};
 	};
 	export type packet_map_info_request = {
 		map_id: bigint;
@@ -1304,12 +1395,12 @@ export namespace MCProtocol.Bedrock_1_16_210 {
 	export type packet_boss_event = {
 		boss_entity_id: bigint;
 		type: "show_bar" | "register_player" | "hide_bar" | "unregister_player" | "set_bar_progress" | "set_bar_title" | "update_properties" | "texture";
-		player_id?: bigint;
 		title?: string;
-		bar_progress?: number;
-		darkness_factor?: number;
+		progress?: number;
+		screen_darkening?: number;
 		color?: number;
 		overlay?: number;
+		player_id?: bigint;
 	};
 	export type packet_show_credits = {
 		runtime_entity_id: bigint;
@@ -1524,13 +1615,35 @@ export namespace MCProtocol.Bedrock_1_16_210 {
 		behaviortree: string;
 	};
 	export type packet_structure_block_update = {
-		
+		/** Position is the position of the structure block that is updated. */
+		position: BlockCoordinates;
+		/** StructureName is the name of the structure that was set in the structure block's UI. This is the name used to export the structure to a file. */
+		structure_name: string;
+		/** DataField is the name of a function to run, usually used during natural generation. A description can be found here: https://minecraft.wiki/w/Structure_Block#Data. */
+		data_field: string;
+		/** IncludePlayers specifies if the 'Include Players' toggle has been enabled, meaning players are also exported by the structure block. */
+		include_players: boolean;
+		/** ShowBoundingBox specifies if the structure block should have its bounds outlined. A thin line will encapsulate the bounds of the structure if set to true. */
+		show_bounding_box: boolean;
+		/** StructureBlockType is the type of the structure block updated. A list of structure block types that will be used can be found in the constants above. */
+		structure_block_type: number;
+		/** Settings is a struct of settings that should be used for exporting the structure. These settings are identical to the last sent in the StructureBlockUpdate packet by the client. */
+		settings: StructureBlockSettings;
+		/** RedstoneSaveMode is the mode that should be used to save the structure when used with redstone. In Java Edition, this is always stored in memory, but in Bedrock Edition it can be stored either to disk or memory. See the constants above for the options. */
+		redstone_save_mode: number;
+		/** ShouldTrigger specifies if the structure block should be triggered immediately after this packet reaches the server. */
+		should_trigger: boolean;
 	};
 	export type packet_show_store_offer = {
 		unknown0: string;
 		unknown1: boolean;
 	};
+	/**
+	 * PurchaseReceipt is sent by the client to the server to notify the server it purchased an item from the
+	 * Marketplace store that was offered by the server. The packet is only used for partnered servers.
+	 */
 	export type packet_purchase_receipt = {
+		/** Receipts is a list of receipts, or proofs of purchases, for the offers that have been purchased by the player. */
 		receipts: string[];
 	};
 	export type packet_player_skin = {
@@ -1540,7 +1653,14 @@ export namespace MCProtocol.Bedrock_1_16_210 {
 		old_skin_name: string;
 		is_verified: boolean;
 	};
+	/**
+	 * SubClientLogin is sent when a sub-client joins the server while another client is already connected to it.
+	 * The packet is sent as a result of split-screen game play, and allows up to four players to play using the
+	 * same network connection. After an initial Login packet from the 'main' client, each sub-client that
+	 * connects sends a SubClientLogin to request their own login.
+	 */
 	export type packet_sub_client_login = {
+		/** ConnectionRequest is a string containing information about the player and JWTs that may be used to verify if the player is connected to XBOX Live. The connection request also contains the necessary client public key to initiate encryption. The ConnectionRequest in this packet is identical to the one found in the Login packet. */
 		tokens: LoginTokens;
 	};
 	export type packet_initiate_web_socket_connection = {
@@ -1549,6 +1669,10 @@ export namespace MCProtocol.Bedrock_1_16_210 {
 	export type packet_set_last_hurt_by = {
 		unknown: number;
 	};
+	/**
+	 * BookEdit is sent by the client when it edits a book. It is sent each time a modification was made and the
+	 * player stops its typing 'session', rather than simply after closing the book.
+	 */
 	export type packet_book_edit = {
 		type: "replace_page" | "add_page" | "delete_page" | "swap_pages" | "sign";
 		slot: number;
@@ -1770,71 +1894,161 @@ export namespace MCProtocol.Bedrock_1_16_210 {
 		enabled: boolean;
 	};
 	export type packet_on_screen_texture_animation = {
-		
+		/** AnimationType is the type of the animation to show. The packet provides no further extra data to allow modifying the duration or other properties of the animation. */
+		animation_type: number;
 	};
 	export type packet_map_create_locked_copy = {
-		
+		/** OriginalMapID is the ID of the map that is being copied. The locked copy will obtain all content that is visible on this map, except the content will not change. */
+		original_map_id: bigint;
+		/** NewMapID is the ID of the map that holds the locked copy of the map that OriginalMapID points to. Its contents will be impossible to change. */
+		new_map_id: bigint;
 	};
 	export type packet_structure_template_data_export_request = {
-		
+		/** StructureName is the name of the structure that was set in the structure block's UI. This is the name used to export the structure to a file. */
+		name: string;
+		/** Position is the position of the structure block that has its template data requested. */
+		position: BlockCoordinates;
+		/** Settings is a struct of settings that should be used for exporting the structure. These settings are identical to the last sent in the StructureBlockUpdate packet by the client. */
+		settings: StructureBlockSettings;
+		/** RequestType specifies the type of template data request that the player sent. */
+		request_type: "export_from_save" | "export_from_load" | "query_saved_structure";
 	};
 	export type packet_structure_template_data_export_response = {
-		
+		name: string;
+		success: boolean;
+		nbt?: any;
+		/** ResponseType specifies the response type of the packet. This depends on the RequestType field sent in the StructureTemplateDataRequest packet and is one of the constants above. */
+		response_type: "export" | "query";
 	};
 	export type packet_update_block_properties = {
 		nbt: any;
 	};
+	/**
+	 * ClientCacheBlobStatus is part of the blob cache protocol. It is sent by the client to let the server know
+	 * what blobs it needs and which blobs it already has, in an ACK type system.
+	 */
 	export type packet_client_cache_blob_status = {
+		/** The number of MISSes in this packet */
 		misses: number;
+		/** The number of HITs in this packet */
 		haves: number;
+		/** A list of blob hashes that the client does not have a blob available for. The server should send the blobs matching these hashes as soon as possible. */
 		missing: bigint[];
+		/** A list of hashes that the client does have a cached blob for. Server doesn't need to send. */
 		have: bigint[];
 	};
+	/**
+	 * ClientCacheMissResponse is part of the blob cache protocol. It is sent by the server in response to a
+	 * ClientCacheBlobStatus packet and contains the blob data of all blobs that the client acknowledged not to
+	 * have yet.
+	 */
 	export type packet_client_cache_miss_response = {
 		blobs: Blob[];
 	};
+	/**
+	 * EducationSettings is a packet sent by the server to update Minecraft: Education Edition related settings.
+	 * It is unused by the normal base game.
+	 */
 	export type packet_education_settings = {
+		/** CodeBuilderDefaultURI is the default URI that the code builder is ran on. Using this, a Code Builder program can make code directly affect the server. */
 		CodeBuilderDefaultURI: string;
+		/** CodeBuilderTitle is the title of the code builder shown when connected to the CodeBuilderDefaultURI. */
 		CodeBuilderTitle: string;
+		/** CanResizeCodeBuilder specifies if clients connected to the world should be able to resize the code builder when it is opened. */
 		CanResizeCodeBuilder: boolean;
 		HasOverrideURI: boolean;
 		OverrideURI?: string;
+		/** HasQuiz specifies if the world has a quiz connected to it. */
 		HasQuiz: boolean;
 	};
+	/**
+	 * Emote is sent by both the server and the client. When the client sends an emote, it sends this packet to
+	 * the server, after which the server will broadcast the packet to other players online.
+	 */
 	export type packet_emote = {
+		/** EntityRuntimeID is the entity that sent the emote. When a player sends this packet, it has this field set as its own entity runtime ID. */
 		entity_id: bigint;
+		/** EmoteID is the ID of the emote to send. */
 		emote_id: string;
+		/** Flags is a combination of flags that change the way the Emote packet operates. When the server sends this packet to other players, EmoteFlagServerSide must be present. */
 		flags: number;
 	};
+	/**
+	 * MultiPlayerSettings is sent by the client to update multi-player related settings server-side and sent back
+	 * to online players by the server.
+	 * The MultiPlayerSettings packet is a Minecraft: Education Edition packet. It has no functionality for the
+	 * base game.
+	 */
 	export type packet_multiplayer_settings = {
+		/** ActionType is the action that should be done when this packet is sent. It is one of the constants that may be found above. */
 		action_type: "enable_multiplayer" | "disable_multiplayer" | "refresh_join_code";
 	};
+	/**
+	 * SettingsCommand is sent by the client when it changes a setting in the settings that results in the issuing
+	 * of a command to the server, such as when Show Coordinates is enabled.
+	 */
 	export type packet_settings_command = {
+		/** CommandLine is the full command line that was sent to the server as a result of the setting that the client changed. */
 		command_line: string;
+		/** SuppressOutput specifies if the client requests the suppressing of the output of the command that was executed. Generally this is set to true, as the client won't need a message to confirm the output of the change. */
 		suppress_output: boolean;
 	};
+	/**
+	 * AnvilDamage is sent by the client to request the dealing damage to an anvil. This packet is completely
+	 * pointless and the server should never listen to it.
+	 */
 	export type packet_anvil_damage = {
+		/** Damage is the damage that the client requests to be dealt to the anvil. */
 		damage: number;
+		/** AnvilPosition is the position in the world that the anvil can be found at. */
 		position: BlockCoordinates;
 	};
+	/**
+	 * CompletedUsingItem is sent by the server to tell the client that it should be done using the item it is
+	 * currently using.
+	 */
 	export type packet_completed_using_item = {
+		/** UsedItemID is the item ID of the item that the client completed using. This should typically be the ID of the item held in the hand. */
 		used_item_id: number;
+		/** UseMethod is the method of the using of the item that was completed. It is one of the constants that may be found above. */
 		use_method: "equip_armor" | "eat" | "attack" | "consume" | "throw" | "shoot" | "place" | "fill_bottle" | "fill_bucket" | "pour_bucket" | "use_tool" | "interact" | "retrieved" | "dyed" | "traded";
 	};
+	/**
+	 * NetworkSettings is sent by the server to update a variety of network settings. These settings modify the
+	 * way packets are sent over the network stack.
+	 */
 	export type packet_network_settings = {
+		/** CompressionThreshold is the minimum size of a packet that is compressed when sent. If the size of a packet is under this value, it is not compressed. When set to 0, all packets will be left uncompressed. */
 		compression_threshold: number;
 	};
+	/**
+	 * PlayerAuthInput is sent by the client to allow for server authoritative movement. It is used to synchronise
+	 * the player input with the position server-side.
+	 * The client sends this packet when the ServerAuthoritativeMovementMode field in the StartGame packet is set
+	 * to true, instead of the MovePlayer packet. The client will send this packet once every tick.
+	 */
 	export type packet_player_auth_input = {
+		/** Pitch that the player reports it has. */
 		pitch: number;
+		/** Yaw that player reports it has. */
 		yaw: number;
+		/** Position holds the position that the player reports it has. */
 		position: vec3f;
+		/** MoveVector is a Vec2 that specifies the direction in which the player moved, as a combination of X/Z values which are created using the WASD/controller stick state. */
 		move_vector: vec2f;
+		/** HeadYaw is the horizontal rotation of the head that the player reports it has. */
 		head_yaw: number;
+		/** InputData is a combination of bit flags that together specify the way the player moved last tick. It is a combination of the flags above. */
 		input_data: InputFlag;
+		/** InputMode specifies the way that the client inputs data to the screen. It is one of the constants that may be found above. */
 		input_mode: "unknown" | "mouse" | "touch" | "game_pad" | "motion_controller";
+		/** PlayMode specifies the way that the player is playing. The values it holds, which are rather random, may be found above. */
 		play_mode: "normal" | "teaser" | "screen" | "viewer" | "reality" | "placement" | "living_room" | "exit_level" | "exit_level_living_room" | "num_modes";
+		/** GazeDirection is the direction in which the player is gazing, when the PlayMode is PlayModeReality: In other words, when the player is playing in virtual reality. */
 		gaze_direction?: vec3f;
+		/** Tick is the server tick at which the packet was sent. It is used in relation to CorrectPlayerMovePrediction. */
 		tick: bigint;
+		/** Delta was the delta between the old and the new position. There isn't any practical use for this field as it can be calculated by the server itself. */
 		delta: vec3f;
 		transaction?: {
 			legacy: TransactionLegacy;

@@ -848,12 +848,20 @@ export namespace MCProtocol.Bedrock_1_26_51 {
 	 * Used in inventory transactions.
 	 */
 	export type ContainerSlotType = "anvil_input" | "anvil_material" | "anvil_result" | "smithing_table_input" | "smithing_table_material" | "smithing_table_result" | "armor" | "container" | "beacon_payment" | "brewing_input" | "brewing_result" | "brewing_fuel" | "hotbar_and_inventory" | "crafting_input" | "crafting_output" | "recipe_construction" | "recipe_nature" | "recipe_items" | "recipe_search" | "recipe_search_bar" | "recipe_equipment" | "recipe_book" | "enchanting_input" | "enchanting_lapis" | "furnace_fuel" | "furnace_ingredient" | "furnace_output" | "horse_equip" | "hotbar" | "inventory" | "shulker" | "trade_ingredient1" | "trade_ingredient2" | "trade_result" | "offhand" | "compcreate_input" | "compcreate_output" | "elemconstruct_output" | "matreduce_input" | "matreduce_output" | "labtable_input" | "loom_input" | "loom_dye" | "loom_material" | "loom_result" | "blast_furnace_ingredient" | "smoker_ingredient" | "trade2_ingredient1" | "trade2_ingredient2" | "trade2_result" | "grindstone_input" | "grindstone_additional" | "grindstone_result" | "stonecutter_input" | "stonecutter_result" | "cartography_input" | "cartography_additional" | "cartography_result" | "barrel" | "cursor" | "creative_output" | "smithing_table_template" | "crafter" | "dynamic" | "registry" | "recipe_food" | "recipe_blocks" | "recipe_furnace_items";
-	export type SoundType = "ItemUseOn" | "Hit" | "Step" | "Fly" | "Jump" | "Break" | "Place" | "HeavyStep" | "Gallop" | "Fall" | "Ambient" | "AmbientBaby" | "AmbientInWater" | "Breathe" | "Death" | "DeathInWater" | "DeathToZombie" | "Hurt" | "HurtInWater" | "Mad" | "Boost" | "Bow" | "SquishBig" | "SquishSmall" | "FallBig" | "FallSmall" | "Splash" | "Fizz" | "Flap" | "Swim" | "Drink" | "Eat" | "Takeoff" | "Shake" | "Plop" | "Land" | "Saddle" | "Armor" | "ArmorStandPlace" | "AddChest" | "Throw" | "Attack" | "AttackNoDamage" | "AttackStrong" | "Warn" | "Shear" | "Milk" | "Thunder" | "Explode" | "Fire" | "Ignite" | "Fuse" | "Stare" | "Spawn" | "Shoot" | "BreakBlock" | "Launch" | "Blast" | "LargeBlast" | "Twinkle" | "Remedy" | "Unfect" | "LevelUp" | "BowHit" | "BulletHit" | "ExtinguishFire" | "ItemFizz" | "ChestOpen" | "ChestClosed" | "ShulkerBoxOpen" | "ShulkerBoxClosed" | "EnderChestOpen" | "EnderChestClosed" | "PowerOn" | "PowerOff" | "Attach" | "Detach" | "Deny" | "Tripod" | "Pop" | "DropSlot" | "Note" | "Thorns" | "PistonIn" | "PistonOut" | "Portal" | "Water" | "LavaPop" | "Lava" | "Burp" | "BucketFillWater" | "BucketFillLava" | "BucketEmptyWater" | "BucketEmptyLava" | "ArmorEquipChain" | "ArmorEquipDiamond" | "ArmorEquipGeneric" | "ArmorEquipGold" | "ArmorEquipIron" | "ArmorEquipLeather" | "ArmorEquipElytra" | "Record13" | "RecordCat" | "RecordBlocks" | "RecordChirp" | "RecordFar" | "RecordMall" | "RecordMellohi" | "RecordStal" | "RecordStrad" | "RecordWard" | "Record11" | "RecordWait" | "StopRecord" | "Flop" | "GuardianCurse" | "MobWarning" | "MobWarningBaby" | "Teleport" | "ShulkerOpen" | "ShulkerClose" | "Haggle" | "HaggleYes" | "HaggleNo" | "HaggleIdle" | "ChorusGrow" | "ChorusDeath" | "Glass" | "PotionBrewed" | "CastSpell" | "PrepareAttackSpell" | "PrepareSummon" | "PrepareWololo" | "Fang" | "Charge" | "CameraTakePicture" | "LeashKnotPlace" | "LeashKnotBreak" | "AmbientGrowl" | "AmbientWhine" | "AmbientPant" | "AmbientPurr" | "AmbientPurreow" | "DeathMinVolume" | "DeathMidVolume" | "ImitateBlaze" | "ImitateCaveSpider" | "ImitateCreeper" | "ImitateElderGuardian" | "ImitateEnderDragon" | "ImitateEnderman" | "ImitateEndermite" | "ImitateEvocationIllager" | "ImitateGhast" | "ImitateHusk" | "ImitateIllusionIllager" | "ImitateMagmaCube" | "ImitatePolarBear" | "ImitateShulker" | "ImitateSilverfish" | "ImitateSkeleton" | "ImitateSlime" | "ImitateSpider" | "ImitateStray" | "ImitateVex" | "ImitateVindicationIllager" | "ImitateWitch" | "ImitateWither" | "ImitateWitherSkeleton" | "ImitateWolf" | "ImitateZombie" | "ImitateZombiePigman" | "ImitateZombieVillager" | "EnderEyePlaced" | "EndPortalCreated" | "AnvilUse" | "BottleDragonBreath" | "PortalTravel" | "TridentHit" | "TridentReturn" | "TridentRiptide1" | "TridentRiptide2" | "TridentRiptide3" | "TridentThrow" | "TridentThunder" | "TridentHitGround" | "Default" | "FletchingTableUse" | "ElemConstructOpen" | "IceBombHit" | "BalloonPop" | "LtReactionIceBomb" | "LtReactionBleach" | "LtReactionElephantToothpaste" | "LtReactionElephantToothpaste2" | "LtReactionGlowStick" | "LtReactionGlowStick2" | "LtReactionLuminol" | "LtReactionSalt" | "LtReactionFertilizer" | "LtReactionFireball" | "LtReactionMagnesiumSalt" | "LtReactionMiscFire" | "LtReactionFire" | "LtReactionMiscExplosion" | "LtReactionMiscMystical" | "LtReactionMiscMystical2" | "LtReactionProduct" | "SparklerUse" | "GlowStickUse" | "SparklerActive" | "ConvertToDrowned" | "BucketFillFish" | "BucketEmptyFish" | "BubbleColumnUpwards" | "BubbleColumnDownwards" | "BubblePop" | "BubbleUpInside" | "BubbleDownInside" | "HurtBaby" | "DeathBaby" | "StepBaby" | "SpawnBaby" | "Born" | "TurtleEggBreak" | "TurtleEggCrack" | "TurtleEggHatched" | "LayEgg" | "TurtleEggAttacked" | "BeaconActivate" | "BeaconAmbient" | "BeaconDeactivate" | "BeaconPower" | "ConduitActivate" | "ConduitAmbient" | "ConduitAttack" | "ConduitDeactivate" | "ConduitShort" | "Swoop" | "BambooSaplingPlace" | "PreSneeze" | "Sneeze" | "AmbientTame" | "Scared" | "ScaffoldingClimb" | "CrossbowLoadingStart" | "CrossbowLoadingMiddle" | "CrossbowLoadingEnd" | "CrossbowShoot" | "CrossbowQuickChargeStart" | "CrossbowQuickChargeMiddle" | "CrossbowQuickChargeEnd" | "AmbientAggressive" | "AmbientWorried" | "CantBreed" | "ShieldBlock" | "LecternBookPlace" | "GrindstoneUse" | "Bell" | "CampfireCrackle" | "Roar" | "Stun" | "SweetBerryBushHurt" | "SweetBerryBushPick" | "CartographyTableUse" | "StonecutterUse" | "ComposterEmpty" | "ComposterFill" | "ComposterFillLayer" | "ComposterReady" | "BarrelOpen" | "BarrelClose" | "RaidHorn" | "LoomUse" | "AmbientInRaid" | "UicartographyTableUse" | "UistonecutterUse" | "UiloomUse" | "SmokerUse" | "BlastFurnaceUse" | "SmithingTableUse" | "Screech" | "Sleep" | "FurnaceUse" | "MooshroomConvert" | "MilkSuspiciously" | "Celebrate" | "JumpPrevent" | "AmbientPollinate" | "BeehiveDrip" | "BeehiveEnter" | "BeehiveExit" | "BeehiveWork" | "BeehiveShear" | "HoneybottleDrink" | "AmbientCave" | "Retreat" | "ConvertToZombified" | "Admire" | "StepLava" | "Tempt" | "Panic" | "Angry" | "AmbientMoodWarpedForest" | "AmbientMoodSoulsandValley" | "AmbientMoodNetherWastes" | "AmbientMoodBasaltDeltas" | "AmbientMoodCrimsonForest" | "RespawnAnchorCharge" | "RespawnAnchorDeplete" | "RespawnAnchorSetSpawn" | "RespawnAnchorAmbient" | "SoulEscapeQuiet" | "SoulEscapeLoud" | "RecordPigstep" | "LinkCompassToLodestone" | "UseSmithingTable" | "EquipNetherite" | "AmbientLoopWarpedForest" | "AmbientLoopSoulsandValley" | "AmbientLoopNetherWastes" | "AmbientLoopBasaltDeltas" | "AmbientLoopCrimsonForest" | "AmbientAdditionWarpedForest" | "AmbientAdditionSoulsandValley" | "AmbientAdditionNetherWastes" | "AmbientAdditionBasaltDeltas" | "AmbientAdditionCrimsonForest" | "SculkSensorPowerOn" | "SculkSensorPowerOff" | "BucketFillPowderSnow" | "BucketEmptyPowderSnow" | "PointedDripstoneCauldronDripWater" | "PointedDripstoneCauldronDripLava" | "PointedDripstoneDripWater" | "PointedDripstoneDripLava" | "CaveVinesPickBerries" | "BigDripleafTiltDown" | "BigDripleafTiltUp" | "CopperWaxOn" | "CopperWaxOff" | "Scrape" | "PlayerHurtDrown" | "PlayerHurtOnFire" | "PlayerHurtFreeze" | "UseSpyglass" | "StopUsingSpyglass" | "AmethystBlockChime" | "AmbientScreamer" | "HurtScreamer" | "DeathScreamer" | "MilkScreamer" | "JumpToBlock" | "PreRam" | "PreRamScreamer" | "RamImpact" | "RamImpactScreamer" | "SquidInkSquirt" | "GlowSquidInkSquirt" | "ConvertToStray" | "CakeAddCandle" | "ExtinguishCandle" | "AmbientCandle" | "BlockClick" | "BlockClickFail" | "SculkCatalystBloom" | "SculkShriekerShriek" | "WardenNearbyClose" | "WardenNearbyCloser" | "WardenNearbyClosest" | "WardenSlightlyAngry" | "RecordOtherside" | "Tongue" | "CrackIronGolem" | "RepairIronGolem" | "Listening" | "Heartbeat" | "HornBreak" | "_" | "SculkSpread" | "SculkCharge" | "SculkSensorPlace" | "SculkShriekerPlace" | "GoatCall0" | "GoatCall1" | "GoatCall2" | "GoatCall3" | "GoatCall4" | "GoatCall5" | "GoatCall6" | "GoatCall7" | "GoatCall8" | "GoatCall9" | "GoatHarmony0" | "GoatHarmony1" | "GoatHarmony2" | "GoatHarmony3" | "GoatHarmony4" | "GoatHarmony5" | "GoatHarmony6" | "GoatHarmony7" | "GoatHarmony8" | "GoatHarmony9" | "GoatMelody0" | "GoatMelody1" | "GoatMelody2" | "GoatMelody3" | "GoatMelody4" | "GoatMelody5" | "GoatMelody6" | "GoatMelody7" | "GoatMelody8" | "GoatMelody9" | "GoatBass0" | "GoatBass1" | "GoatBass2" | "GoatBass3" | "GoatBass4" | "GoatBass5" | "GoatBass6" | "GoatBass7" | "GoatBass8" | "GoatBass9" | "ImitateWarden" | "ListeningAngry" | "ItemGiven" | "ItemTaken" | "Disappeared" | "Reappeared" | "DrinkMilk" | "FrogspawnHatched" | "LaySpawn" | "FrogspawnBreak" | "SonicBoom" | "SonicCharge" | "SoundeventItemThrown" | "Record5" | "ConvertToFrog" | "RecordPlaying" | "EnchantingTableUse" | "StepSand" | "DashReady" | "BundleDropContents" | "BundleInsert" | "BundleRemoveOne" | "PressurePlateClickOff" | "PressurePlateClickOn" | "ButtonClickOff" | "ButtonClickOn" | "DoorOpen" | "DoorClose" | "TrapdoorOpen" | "TrapdoorClose" | "FenceGateOpen" | "FenceGateClose" | "Insert" | "Pickup" | "InsertEnchanted" | "PickupEnchanted" | "Brush" | "BrushCompleted" | "ShatterDecoratedPot" | "BreakDecoratedPot" | "SnifferEggCrack" | "SnifferEggHatched" | "WaxedSignInteractFail" | "RecordRelic" | "Bump" | "PumpkinCarve" | "ConvertHuskToZombie" | "PigDeath" | "HoglinZombified" | "AmbientUnderwaterEnter" | "AmbientUnderwaterExit" | "BottleFill" | "BottleEmpty" | "CrafterCraft" | "CrafterFail" | "DecoratedPotInsert" | "DecoratedPotInsertFail" | "CrafterDisableSlot" | "TrialSpawnerOpenShutter" | "TrialSpawnerEjectItem" | "TrialSpawnerDetectPlayer" | "TrialSpawnerSpawnMob" | "TrialSpawnerCloseShutter" | "TrialSpawnerAmbient" | "CopperBulbTurnOn" | "CopperBulbTurnOff" | "AmbientInAir" | "BreezeWindChargeBurst" | "ImitateBreeze" | "ArmadilloBrush" | "ArmadilloScuteDrop" | "EquipWolf" | "UnequipWolf" | "Reflect" | "VaultOpenShutter" | "VaultCloseShutter" | "VaultEjectItem" | "VaultInsertItem" | "VaultInsertItemFail" | "VaultAmbient" | "VaultActivate" | "VaultDeactive" | "HurtReduced" | "WindChargeBurst" | "ImitateBogged" | "WolfArmourCrack" | "WolfArmourBreak" | "WolfArmourRepair" | "MaceSmashAir" | "MaceSmashGround" | "TrialSpawnerChargeActivate" | "TrialSpawnerAmbientOminous" | "OminiousItemSpawnerSpawnItem" | "OminousBottleEndUse" | "MaceHeavySmashGround" | "OminousItemSpawnerSpawnItemBegin" | "ApplyEffectBadOmen" | "ApplyEffectRaidOmen" | "ApplyEffectTrialOmen" | "OminousItemSpawnerAboutToSpawnItem" | "RecordCreator" | "RecordCreatorMusicBox" | "RecordPrecipice" | "VaultRejectRewardedPlayer" | "ImitateDrowned" | "ImitateCreaking" | "BundleInsertFailed" | "SpongeAbsorb" | "BlockCreakingHeartTrail" | "CreakingHeartSpawn" | "Activate" | "Deactivate" | "Freeze" | "Unfreeze" | "Open" | "OpenLong" | "Close" | "CloseLong" | "ImitatePhantom" | "ImitateZoglin" | "ImitateGuardian" | "ImitateRavager" | "ImitatePillager" | "PlaceInWater" | "StateChange" | "ImitateHappyGhast" | "UniqueGeneric" | "RecordTears" | "TheEndLightFlash" | "LeadLeash" | "LeadUnleash" | "LeadBreak" | "Unsaddle" | "EquipCopper" | "RecordLavaChicken" | "PlaceItem" | "SingleItemSwap" | "MultiItemSwap" | "ItemEnchantLunge1" | "ItemEnchantLunge2" | "ItemEnchantLunge3" | "AttackCritical" | "ItemSpearAttackHit" | "ItemSpearAttackMiss" | "ItemWoodenSpearAttackHit" | "ItemWoodenSpearAttackMiss" | "ImitateParched" | "ImitateCamelHusk" | "ItemSpearUse" | "ItemWoodenSpearUse" | "SaddleInWater" | "ItemStoneSpearAttackHit" | "ItemIronSpearAttackHit" | "ItemCopperSpearAttackHit" | "ItemGoldenSpearAttackHit" | "ItemDiamondSpearAttackHit" | "ItemNetheriteSpearAttackHit" | "ItemStoneSpearAttackMiss" | "ItemIronSpearAttackMiss" | "ItemCopperSpearAttackMiss" | "ItemGoldenSpearAttackMiss" | "ItemDiamondSpearAttackMiss" | "ItemNetheriteSpearAttackMiss" | "ItemStoneSpearUse" | "ItemIronSpearUse" | "ItemCopperSpearUse" | "ItemGoldenSpearUse" | "ItemDiamondSpearUse" | "ItemNetheriteSpearUse" | "PauseGrowth" | "ResetGrowth" | "PushedByPlayer" | "Bounce" | "SlimeLanding" | "AbsorbBlock" | "EjectBlock" | "GeyserEruptionStart" | "GeyserEruptionActive" | "RecordBounce" | "BucketFillLandAnimal" | "BucketEmptyLandAnimal" | "GeyserContinuousEruptionStart" | "GeyserContinuousEruptionActive" | "Mount" | "Dismount" | "StrawBedBreakLeave" | "Undefined";
+	export type SoundType = "ItemUseOn" | "Hit" | "Step" | "Fly" | "Jump" | "Break" | "Place" | "HeavyStep" | "Gallop" | "Fall" | "Ambient" | "AmbientBaby" | "AmbientInWater" | "Breathe" | "Death" | "DeathInWater" | "DeathToZombie" | "Hurt" | "HurtInWater" | "Mad" | "Boost" | "Bow" | "SquishBig" | "SquishSmall" | "FallBig" | "FallSmall" | "Splash" | "Fizz" | "Flap" | "Swim" | "Drink" | "Eat" | "Takeoff" | "Shake" | "Plop" | "Land" | "Saddle" | "Armor" | "ArmorStandPlace" | "AddChest" | "Throw" | "Attack" | "AttackNoDamage" | "AttackStrong" | "Warn" | "Shear" | "Milk" | "Thunder" | "Explode" | "Fire" | "Ignite" | "Fuse" | "Stare" | "Spawn" | "Shoot" | "BreakBlock" | "Launch" | "Blast" | "LargeBlast" | "Twinkle" | "Remedy" | "Unfect" | "LevelUp" | "BowHit" | "BulletHit" | "ExtinguishFire" | "ItemFizz" | "ChestOpen" | "ChestClosed" | "ShulkerBoxOpen" | "ShulkerBoxClosed" | "EnderChestOpen" | "EnderChestClosed" | "PowerOn" | "PowerOff" | "Attach" | "Detach" | "Deny" | "Tripod" | "Pop" | "DropSlot" | "Note" | "Thorns" | "PistonIn" | "PistonOut" | "Portal" | "Water" | "LavaPop" | "Lava" | "Burp" | "BucketFillWater" | "BucketFillLava" | "BucketEmptyWater" | "BucketEmptyLava" | "ArmorEquipChain" | "ArmorEquipDiamond" | "ArmorEquipGeneric" | "ArmorEquipGold" | "ArmorEquipIron" | "ArmorEquipLeather" | "ArmorEquipElytra" | "Record13" | "RecordCat" | "RecordBlocks" | "RecordChirp" | "RecordFar" | "RecordMall" | "RecordMellohi" | "RecordStal" | "RecordStrad" | "RecordWard" | "Record11" | "RecordWait" | "StopRecord" | "Flop" | "GuardianCurse" | "MobWarning" | "MobWarningBaby" | "Teleport" | "ShulkerOpen" | "ShulkerClose" | "Haggle" | "HaggleYes" | "HaggleNo" | "HaggleIdle" | "ChorusGrow" | "ChorusDeath" | "Glass" | "PotionBrewed" | "CastSpell" | "PrepareAttackSpell" | "PrepareSummon" | "PrepareWololo" | "Fang" | "Charge" | "CameraTakePicture" | "LeashKnotPlace" | "LeashKnotBreak" | "AmbientGrowl" | "AmbientWhine" | "AmbientPant" | "AmbientPurr" | "AmbientPurreow" | "DeathMinVolume" | "DeathMidVolume" | "ImitateBlaze" | "ImitateCaveSpider" | "ImitateCreeper" | "ImitateElderGuardian" | "ImitateEnderDragon" | "ImitateEnderman" | "ImitateEndermite" | "ImitateEvocationIllager" | "ImitateGhast" | "ImitateHusk" | "ImitateIllusionIllager" | "ImitateMagmaCube" | "ImitatePolarBear" | "ImitateShulker" | "ImitateSilverfish" | "ImitateSkeleton" | "ImitateSlime" | "ImitateSpider" | "ImitateStray" | "ImitateVex" | "ImitateVindicationIllager" | "ImitateWitch" | "ImitateWither" | "ImitateWitherSkeleton" | "ImitateWolf" | "ImitateZombie" | "ImitateZombiePigman" | "ImitateZombieVillager" | "EnderEyePlaced" | "EndPortalCreated" | "AnvilUse" | "BottleDragonBreath" | "PortalTravel" | "TridentHit" | "TridentReturn" | "TridentRiptide1" | "TridentRiptide2" | "TridentRiptide3" | "TridentThrow" | "TridentThunder" | "TridentHitGround" | "Default" | "FletchingTableUse" | "ElemConstructOpen" | "IceBombHit" | "BalloonPop" | "LtReactionIceBomb" | "LtReactionBleach" | "LtReactionElephantToothpaste" | "LtReactionElephantToothpaste2" | "LtReactionGlowStick" | "LtReactionGlowStick2" | "LtReactionLuminol" | "LtReactionSalt" | "LtReactionFertilizer" | "LtReactionFireball" | "LtReactionMagnesiumSalt" | "LtReactionMiscFire" | "LtReactionFire" | "LtReactionMiscExplosion" | "LtReactionMiscMystical" | "LtReactionMiscMystical2" | "LtReactionProduct" | "SparklerUse" | "GlowStickUse" | "SparklerActive" | "ConvertToDrowned" | "BucketFillFish" | "BucketEmptyFish" | "BubbleColumnUpwards" | "BubbleColumnDownwards" | "BubblePop" | "BubbleUpInside" | "BubbleDownInside" | "HurtBaby" | "DeathBaby" | "StepBaby" | "SpawnBaby" | "Born" | "TurtleEggBreak" | "TurtleEggCrack" | "TurtleEggHatched" | "LayEgg" | "TurtleEggAttacked" | "BeaconActivate" | "BeaconAmbient" | "BeaconDeactivate" | "BeaconPower" | "ConduitActivate" | "ConduitAmbient" | "ConduitAttack" | "ConduitDeactivate" | "ConduitShort" | "Swoop" | "BambooSaplingPlace" | "PreSneeze" | "Sneeze" | "AmbientTame" | "Scared" | "ScaffoldingClimb" | "CrossbowLoadingStart" | "CrossbowLoadingMiddle" | "CrossbowLoadingEnd" | "CrossbowShoot" | "CrossbowQuickChargeStart" | "CrossbowQuickChargeMiddle" | "CrossbowQuickChargeEnd" | "AmbientAggressive" | "AmbientWorried" | "CantBreed" | "ShieldBlock" | "LecternBookPlace" | "GrindstoneUse" | "Bell" | "CampfireCrackle" | "Roar" | "Stun" | "SweetBerryBushHurt" | "SweetBerryBushPick" | "CartographyTableUse" | "StonecutterUse" | "ComposterEmpty" | "ComposterFill" | "ComposterFillLayer" | "ComposterReady" | "BarrelOpen" | "BarrelClose" | "RaidHorn" | "LoomUse" | "AmbientInRaid" | "UicartographyTableUse" | "UistonecutterUse" | "UiloomUse" | "SmokerUse" | "BlastFurnaceUse" | "SmithingTableUse" | "Screech" | "Sleep" | "FurnaceUse" | "MooshroomConvert" | "MilkSuspiciously" | "Celebrate" | "JumpPrevent" | "AmbientPollinate" | "BeehiveDrip" | "BeehiveEnter" | "BeehiveExit" | "BeehiveWork" | "BeehiveShear" | "HoneybottleDrink" | "AmbientCave" | "Retreat" | "ConvertToZombified" | "Admire" | "StepLava" | "Tempt" | "Panic" | "Angry" | "AmbientMoodWarpedForest" | "AmbientMoodSoulsandValley" | "AmbientMoodNetherWastes" | "AmbientMoodBasaltDeltas" | "AmbientMoodCrimsonForest" | "RespawnAnchorCharge" | "RespawnAnchorDeplete" | "RespawnAnchorSetSpawn" | "RespawnAnchorAmbient" | "SoulEscapeQuiet" | "SoulEscapeLoud" | "RecordPigstep" | "LinkCompassToLodestone" | "UseSmithingTable" | "EquipNetherite" | "AmbientLoopWarpedForest" | "AmbientLoopSoulsandValley" | "AmbientLoopNetherWastes" | "AmbientLoopBasaltDeltas" | "AmbientLoopCrimsonForest" | "AmbientAdditionWarpedForest" | "AmbientAdditionSoulsandValley" | "AmbientAdditionNetherWastes" | "AmbientAdditionBasaltDeltas" | "AmbientAdditionCrimsonForest" | "SculkSensorPowerOn" | "SculkSensorPowerOff" | "BucketFillPowderSnow" | "BucketEmptyPowderSnow" | "PointedDripstoneCauldronDripWater" | "PointedDripstoneCauldronDripLava" | "PointedDripstoneDripWater" | "PointedDripstoneDripLava" | "CaveVinesPickBerries" | "BigDripleafTiltDown" | "BigDripleafTiltUp" | "CopperWaxOn" | "CopperWaxOff" | "Scrape" | "PlayerHurtDrown" | "PlayerHurtOnFire" | "PlayerHurtFreeze" | "UseSpyglass" | "StopUsingSpyglass" | "AmethystBlockChime" | "AmbientScreamer" | "HurtScreamer" | "DeathScreamer" | "MilkScreamer" | "JumpToBlock" | "PreRam" | "PreRamScreamer" | "RamImpact" | "RamImpactScreamer" | "SquidInkSquirt" | "GlowSquidInkSquirt" | "ConvertToStray" | "CakeAddCandle" | "ExtinguishCandle" | "AmbientCandle" | "BlockClick" | "BlockClickFail" | "SculkCatalystBloom" | "SculkShriekerShriek" | "WardenNearbyClose" | "WardenNearbyCloser" | "WardenNearbyClosest" | "WardenSlightlyAngry" | "RecordOtherside" | "Tongue" | "CrackIronGolem" | "RepairIronGolem" | "Listening" | "Heartbeat" | "HornBreak" | "_378" | "SculkSpread" | "SculkCharge" | "SculkSensorPlace" | "SculkShriekerPlace" | "GoatCall0" | "GoatCall1" | "GoatCall2" | "GoatCall3" | "GoatCall4" | "GoatCall5" | "GoatCall6" | "GoatCall7" | "GoatCall8" | "GoatCall9" | "GoatHarmony0" | "GoatHarmony1" | "GoatHarmony2" | "GoatHarmony3" | "GoatHarmony4" | "GoatHarmony5" | "GoatHarmony6" | "GoatHarmony7" | "GoatHarmony8" | "GoatHarmony9" | "GoatMelody0" | "GoatMelody1" | "GoatMelody2" | "GoatMelody3" | "GoatMelody4" | "GoatMelody5" | "GoatMelody6" | "GoatMelody7" | "GoatMelody8" | "GoatMelody9" | "GoatBass0" | "GoatBass1" | "GoatBass2" | "GoatBass3" | "GoatBass4" | "GoatBass5" | "GoatBass6" | "GoatBass7" | "GoatBass8" | "GoatBass9" | "_423" | "_424" | "_425" | "ImitateWarden" | "ListeningAngry" | "ItemGiven" | "ItemTaken" | "Disappeared" | "Reappeared" | "DrinkMilk" | "FrogspawnHatched" | "LaySpawn" | "FrogspawnBreak" | "SonicBoom" | "SonicCharge" | "SoundeventItemThrown" | "Record5" | "ConvertToFrog" | "RecordPlaying" | "EnchantingTableUse" | "StepSand" | "DashReady" | "BundleDropContents" | "BundleInsert" | "BundleRemoveOne" | "PressurePlateClickOff" | "PressurePlateClickOn" | "ButtonClickOff" | "ButtonClickOn" | "DoorOpen" | "DoorClose" | "TrapdoorOpen" | "TrapdoorClose" | "FenceGateOpen" | "FenceGateClose" | "Insert" | "Pickup" | "InsertEnchanted" | "PickupEnchanted" | "Brush" | "BrushCompleted" | "ShatterDecoratedPot" | "BreakDecoratedPot" | "SnifferEggCrack" | "SnifferEggHatched" | "WaxedSignInteractFail" | "RecordRelic" | "Bump" | "PumpkinCarve" | "ConvertHuskToZombie" | "PigDeath" | "HoglinZombified" | "AmbientUnderwaterEnter" | "AmbientUnderwaterExit" | "BottleFill" | "BottleEmpty" | "CrafterCraft" | "CrafterFail" | "DecoratedPotInsert" | "DecoratedPotInsertFail" | "CrafterDisableSlot" | "TrialSpawnerOpenShutter" | "TrialSpawnerEjectItem" | "TrialSpawnerDetectPlayer" | "TrialSpawnerSpawnMob" | "TrialSpawnerCloseShutter" | "TrialSpawnerAmbient" | "CopperBulbTurnOn" | "CopperBulbTurnOff" | "AmbientInAir" | "BreezeWindChargeBurst" | "ImitateBreeze" | "ArmadilloBrush" | "ArmadilloScuteDrop" | "EquipWolf" | "UnequipWolf" | "Reflect" | "VaultOpenShutter" | "VaultCloseShutter" | "VaultEjectItem" | "VaultInsertItem" | "VaultInsertItemFail" | "VaultAmbient" | "VaultActivate" | "VaultDeactive" | "HurtReduced" | "WindChargeBurst" | "ImitateBogged" | "WolfArmourCrack" | "WolfArmourBreak" | "WolfArmourRepair" | "MaceSmashAir" | "MaceSmashGround" | "TrialSpawnerChargeActivate" | "TrialSpawnerAmbientOminous" | "OminiousItemSpawnerSpawnItem" | "OminousBottleEndUse" | "MaceHeavySmashGround" | "OminousItemSpawnerSpawnItemBegin" | "_522" | "ApplyEffectBadOmen" | "ApplyEffectRaidOmen" | "ApplyEffectTrialOmen" | "OminousItemSpawnerAboutToSpawnItem" | "RecordCreator" | "RecordCreatorMusicBox" | "RecordPrecipice" | "VaultRejectRewardedPlayer" | "ImitateDrowned" | "ImitateCreaking" | "BundleInsertFailed" | "SpongeAbsorb" | "_535" | "BlockCreakingHeartTrail" | "CreakingHeartSpawn" | "Activate" | "Deactivate" | "Freeze" | "Unfreeze" | "Open" | "OpenLong" | "Close" | "CloseLong" | "ImitatePhantom" | "ImitateZoglin" | "ImitateGuardian" | "ImitateRavager" | "ImitatePillager" | "PlaceInWater" | "StateChange" | "ImitateHappyGhast" | "UniqueGeneric" | "RecordTears" | "TheEndLightFlash" | "LeadLeash" | "LeadUnleash" | "LeadBreak" | "Unsaddle" | "EquipCopper" | "RecordLavaChicken" | "PlaceItem" | "SingleItemSwap" | "MultiItemSwap" | "ItemEnchantLunge1" | "ItemEnchantLunge2" | "ItemEnchantLunge3" | "AttackCritical" | "ItemSpearAttackHit" | "ItemSpearAttackMiss" | "ItemWoodenSpearAttackHit" | "ItemWoodenSpearAttackMiss" | "ImitateParched" | "ImitateCamelHusk" | "ItemSpearUse" | "ItemWoodenSpearUse" | "SaddleInWater" | "ItemStoneSpearAttackHit" | "ItemIronSpearAttackHit" | "ItemCopperSpearAttackHit" | "ItemGoldenSpearAttackHit" | "ItemDiamondSpearAttackHit" | "ItemNetheriteSpearAttackHit" | "ItemStoneSpearAttackMiss" | "ItemIronSpearAttackMiss" | "ItemCopperSpearAttackMiss" | "ItemGoldenSpearAttackMiss" | "ItemDiamondSpearAttackMiss" | "ItemNetheriteSpearAttackMiss" | "ItemStoneSpearUse" | "ItemIronSpearUse" | "ItemCopperSpearUse" | "ItemGoldenSpearUse" | "ItemDiamondSpearUse" | "ItemNetheriteSpearUse" | "PauseGrowth" | "ResetGrowth" | "PushedByPlayer" | "Bounce" | "SlimeLanding" | "AbsorbBlock" | "EjectBlock" | "GeyserEruptionStart" | "GeyserEruptionActive" | "RecordBounce" | "BucketFillLandAnimal" | "BucketEmptyLandAnimal" | "GeyserContinuousEruptionStart" | "GeyserContinuousEruptionActive" | "Mount" | "Dismount" | "StrawBedBreakLeave" | "Undefined";
 	/**
 	 * As of 1.26.30, sounds are now sent as strings with their registry name
 	 */
 	export type ServerSoundHandle = bigint;
 	export type SoundEventIdentifier = string;
+	export type SoundDataUpdate = {
+		type: "stop" | "set_volume" | "set_pitch" | "fade" | "seek_to" | "pause" | "resume";
+		volume?: number;
+		pitch?: number;
+		duration?: number;
+		target_volume?: number;
+		seconds?: number;
+	};
 	/**
 	 * TODO: remove?
 	 */
@@ -946,16 +954,29 @@ export namespace MCProtocol.Bedrock_1_26_51 {
 	export type CameraSplineInstruction = {
 		/** TotalTime is the total time for the spline animation. */
 		total_time: number;
-		has_spline_type: boolean;
-		spline_type?: string;
+		spline_type: "catmullrom" | "linear";
 		/** Curve is the list of curve points defining the spline. */
 		curve: vec3f[];
-		/** ProgressKeyFrames is a list of key frames for the spline progress. */
-		progress_key_frames: CameraProgressOption[];
-		/** RotationOptions is a list of rotation keyframes for the spline. */
-		rotation_options: CameraRotationOption[];
-		spline_identifier?: string;
-		load_from_json?: boolean;
+		/** ProgressKeyFrames is a list of progress key frames for the spline. */
+		progress_key_frames: {
+			/** Value is the normalised progress of this frame along the spline, from 0.0 at the start to 1.0 at the end. */
+			value: number;
+			/** Time is the time in seconds at which this progress should be applied. */
+			time: number;
+			/** EaseType is the easing function used to interpolate towards this progress key frame. */
+			ease_type: string;
+		}[];
+		/** RotationOptions is a list of rotation key frames for the spline. */
+		rotation_options: {
+			/** Value is the rotation value of this key frame. */
+			value: vec3f;
+			/** Time is the time in seconds at which this rotation should be applied. */
+			time: number;
+			/** EaseType is the easing function used to interpolate towards this rotation key frame. */
+			ease_type: string;
+		}[];
+		spline_identifier: string;
+		load_from_json: boolean;
 	};
 	export type CameraProgressOption = {
 		value: number;
@@ -1012,8 +1033,6 @@ export namespace MCProtocol.Bedrock_1_26_51 {
 		store_name: string;
 	};
 	export type PresenceInfo = {
-		experience_name?: string;
-		world_name?: string;
 		rich_presence_id?: string;
 	};
 	export type ServerJoinInformation = {
@@ -1408,9 +1427,7 @@ export namespace MCProtocol.Bedrock_1_26_51 {
 	};
 	export type AttributeLayerSettings = {
 		priority: number;
-		weight_type: "float" | "string";
-		float_weight?: number;
-		string_weight?: string;
+		weight: number;
 		enabled: boolean;
 		transitions_paused: boolean;
 	};
@@ -1526,8 +1543,8 @@ export namespace MCProtocol.Bedrock_1_26_51 {
 		layout: number;
 	};
 	export type mcpe_packet = {
-		name: "login" | "play_status" | "server_to_client_handshake" | "client_to_server_handshake" | "disconnect" | "resource_packs_info" | "resource_pack_stack" | "resource_pack_client_response" | "text" | "set_time" | "start_game" | "add_player" | "add_entity" | "remove_entity" | "add_item_entity" | "server_post_move" | "take_item_entity" | "move_entity" | "move_player" | "rider_jump" | "update_block" | "add_painting" | "tick_sync" | "level_sound_event_old" | "level_event" | "block_event" | "entity_event" | "mob_effect" | "update_attributes" | "inventory_transaction" | "mob_equipment" | "mob_armor_equipment" | "interact" | "block_pick_request" | "entity_pick_request" | "player_action" | "hurt_armor" | "set_entity_data" | "set_entity_motion" | "set_entity_link" | "set_health" | "set_spawn_position" | "animate" | "respawn" | "container_open" | "container_close" | "player_hotbar" | "inventory_content" | "inventory_slot" | "container_set_data" | "crafting_data" | "crafting_event" | "gui_data_pick_item" | "adventure_settings" | "block_entity_data" | "player_input" | "level_chunk" | "set_commands_enabled" | "set_difficulty" | "change_dimension" | "set_player_game_type" | "player_list" | "simple_event" | "event" | "spawn_experience_orb" | "clientbound_map_item_data" | "map_info_request" | "request_chunk_radius" | "chunk_radius_update" | "game_rules_changed" | "camera" | "boss_event" | "show_credits" | "available_commands" | "command_request" | "command_block_update" | "command_output" | "update_trade" | "update_equipment" | "resource_pack_data_info" | "resource_pack_chunk_data" | "resource_pack_chunk_request" | "transfer" | "play_sound" | "stop_sound" | "set_title" | "add_behavior_tree" | "structure_block_update" | "show_store_offer" | "purchase_receipt" | "player_skin" | "sub_client_login" | "initiate_web_socket_connection" | "set_last_hurt_by" | "book_edit" | "npc_request" | "photo_transfer" | "modal_form_request" | "modal_form_response" | "server_settings_request" | "server_settings_response" | "show_profile" | "set_default_game_type" | "remove_objective" | "set_display_objective" | "set_score" | "lab_table" | "update_block_synced" | "move_entity_delta" | "set_scoreboard_identity" | "set_local_player_as_initialized" | "update_soft_enum" | "network_stack_latency" | "script_custom_event" | "spawn_particle_effect" | "available_entity_identifiers" | "level_sound_event_v2" | "network_chunk_publisher_update" | "biome_definition_list" | "level_sound_event" | "level_event_generic" | "lectern_update" | "video_stream_connect" | "client_cache_status" | "on_screen_texture_animation" | "map_create_locked_copy" | "structure_template_data_export_request" | "structure_template_data_export_response" | "update_block_properties" | "client_cache_blob_status" | "client_cache_miss_response" | "education_settings" | "emote" | "multiplayer_settings" | "settings_command" | "anvil_damage" | "completed_using_item" | "network_settings" | "player_auth_input" | "creative_content" | "player_enchant_options" | "item_stack_request" | "item_stack_response" | "player_armor_damage" | "code_builder" | "update_player_game_type" | "emote_list" | "position_tracking_db_broadcast" | "position_tracking_db_request" | "debug_info" | "packet_violation_warning" | "motion_prediction_hints" | "animate_entity" | "camera_shake" | "player_fog" | "correct_player_move_prediction" | "item_registry" | "filter_text_packet" | "primitive_shapes" | "sync_entity_property" | "add_volume_entity" | "remove_volume_entity" | "simulation_type" | "npc_dialogue" | "edu_uri_resource_packet" | "create_photo" | "update_subchunk_blocks" | "photo_info_request" | "subchunk" | "subchunk_request" | "client_start_item_cooldown" | "script_message" | "code_builder_source" | "ticking_areas_load_status" | "dimension_data" | "agent_action" | "change_mob_property" | "lesson_progress" | "request_ability" | "request_permissions" | "toast_request" | "update_abilities" | "update_adventure_settings" | "death_info" | "editor_network" | "feature_registry" | "server_stats" | "request_network_settings" | "game_test_request" | "game_test_results" | "update_client_input_locks" | "client_cheat_ability" | "camera_presets" | "unlocked_recipes" | "camera_instruction" | "compressed_biome_definitions" | "trim_data" | "open_sign" | "agent_animation" | "refresh_entitlements" | "toggle_crafter_slot_request" | "set_player_inventory_options" | "set_hud" | "award_achievement" | "clientbound_close_form" | "serverbound_loading_screen" | "jigsaw_structure_data" | "current_structure_feature" | "serverbound_diagnostics" | "camera_aim_assist" | "container_registry_cleanup" | "movement_effect" | "set_movement_authority" | "camera_aim_assist_presets" | "client_camera_aim_assist" | "client_movement_prediction_sync" | "update_client_options" | "player_video_capture" | "player_update_entity_overrides" | "player_location" | "clientbound_controls_scheme" | "server_script_debug_drawer" | "serverbound_pack_setting_change" | "clientbound_data_store" | "graphics_override_parameter" | "serverbound_data_store" | "clientbound_data_driven_ui_show_screen" | "clientbound_data_driven_ui_close_screen" | "clientbound_data_driven_ui_reload" | "clientbound_texture_shift" | "voxel_shapes" | "camera_spline" | "camera_aim_assist_actor_priority" | "resource_packs_ready_for_validation" | "locator_bar" | "party_changed" | "serverbound_data_driven_screen_closed" | "sync_world_clocks" | "clientbound_attribute_layer_sync" | "server_store_info" | "server_presence_info" | "clientbound_update_sound_data" | "send_party_destination_cookie" | "party_destination_cookie_response" | "set_player_furnace_options" | "record_started";
-		params: packet_login | packet_play_status | packet_server_to_client_handshake | packet_client_to_server_handshake | packet_disconnect | packet_resource_packs_info | packet_resource_pack_stack | packet_resource_pack_client_response | packet_text | packet_set_time | packet_start_game | packet_add_player | packet_add_entity | packet_remove_entity | packet_add_item_entity | packet_take_item_entity | packet_move_entity | packet_move_player | packet_rider_jump | packet_update_block | packet_add_painting | packet_tick_sync | packet_level_sound_event_old | packet_level_event | packet_block_event | packet_entity_event | packet_mob_effect | packet_update_attributes | packet_inventory_transaction | packet_mob_equipment | packet_mob_armor_equipment | packet_interact | packet_block_pick_request | packet_entity_pick_request | packet_player_action | packet_hurt_armor | packet_set_entity_data | packet_set_entity_motion | packet_set_entity_link | packet_set_health | packet_set_spawn_position | packet_animate | packet_respawn | packet_container_open | packet_container_close | packet_player_hotbar | packet_inventory_content | packet_inventory_slot | packet_container_set_data | packet_crafting_data | packet_crafting_event | packet_gui_data_pick_item | packet_adventure_settings | packet_block_entity_data | packet_player_input | packet_level_chunk | packet_set_commands_enabled | packet_set_difficulty | packet_change_dimension | packet_set_player_game_type | packet_player_list | packet_simple_event | packet_event | packet_spawn_experience_orb | packet_clientbound_map_item_data | packet_map_info_request | packet_request_chunk_radius | packet_chunk_radius_update | packet_game_rules_changed | packet_camera | packet_boss_event | packet_show_credits | packet_available_commands | packet_command_request | packet_command_block_update | packet_command_output | packet_update_trade | packet_update_equipment | packet_resource_pack_data_info | packet_resource_pack_chunk_data | packet_resource_pack_chunk_request | packet_transfer | packet_play_sound | packet_stop_sound | packet_set_title | packet_add_behavior_tree | packet_structure_block_update | packet_show_store_offer | packet_purchase_receipt | packet_player_skin | packet_sub_client_login | packet_initiate_web_socket_connection | packet_set_last_hurt_by | packet_book_edit | packet_npc_request | packet_photo_transfer | packet_modal_form_request | packet_modal_form_response | packet_server_settings_request | packet_server_settings_response | packet_show_profile | packet_set_default_game_type | packet_remove_objective | packet_set_display_objective | packet_set_score | packet_lab_table | packet_update_block_synced | packet_move_entity_delta | packet_set_scoreboard_identity | packet_set_local_player_as_initialized | packet_update_soft_enum | packet_network_stack_latency | packet_script_custom_event | packet_spawn_particle_effect | packet_available_entity_identifiers | packet_level_sound_event_v2 | packet_network_chunk_publisher_update | packet_biome_definition_list | packet_level_sound_event | packet_level_event_generic | packet_lectern_update | packet_video_stream_connect | packet_client_cache_status | packet_on_screen_texture_animation | packet_map_create_locked_copy | packet_structure_template_data_export_request | packet_structure_template_data_export_response | packet_update_block_properties | packet_client_cache_blob_status | packet_client_cache_miss_response | packet_education_settings | packet_emote | packet_multiplayer_settings | packet_settings_command | packet_anvil_damage | packet_completed_using_item | packet_network_settings | packet_player_auth_input | packet_creative_content | packet_player_enchant_options | packet_item_stack_request | packet_item_stack_response | packet_player_armor_damage | packet_code_builder | packet_update_player_game_type | packet_emote_list | packet_position_tracking_db_request | packet_position_tracking_db_broadcast | packet_debug_info | packet_packet_violation_warning | packet_motion_prediction_hints | packet_animate_entity | packet_camera_shake | packet_player_fog | packet_correct_player_move_prediction | packet_item_registry | packet_filter_text_packet | packet_primitive_shapes | packet_sync_entity_property | packet_add_volume_entity | packet_remove_volume_entity | packet_simulation_type | packet_npc_dialogue | packet_edu_uri_resource_packet | packet_create_photo | packet_update_subchunk_blocks | packet_photo_info_request | packet_subchunk | packet_subchunk_request | packet_client_start_item_cooldown | packet_script_message | packet_code_builder_source | packet_ticking_areas_load_status | packet_dimension_data | packet_agent_action | packet_change_mob_property | packet_lesson_progress | packet_request_ability | packet_request_permissions | packet_toast_request | packet_update_abilities | packet_update_adventure_settings | packet_death_info | packet_editor_network | packet_feature_registry | packet_server_stats | packet_request_network_settings | packet_game_test_request | packet_game_test_results | packet_update_client_input_locks | packet_client_cheat_ability | packet_camera_presets | packet_unlocked_recipes | packet_camera_instruction | packet_compressed_biome_definitions | packet_trim_data | packet_open_sign | packet_agent_animation | packet_refresh_entitlements | packet_toggle_crafter_slot_request | packet_set_player_inventory_options | packet_set_hud | packet_award_achievement | packet_server_post_move | packet_clientbound_close_form | packet_serverbound_loading_screen | packet_jigsaw_structure_data | packet_current_structure_feature | packet_serverbound_diagnostics | packet_camera_aim_assist | packet_container_registry_cleanup | packet_movement_effect | packet_set_movement_authority | packet_camera_aim_assist_presets | packet_client_camera_aim_assist | packet_client_movement_prediction_sync | packet_update_client_options | packet_player_video_capture | packet_player_update_entity_overrides | packet_player_location | packet_clientbound_controls_scheme | packet_server_script_debug_drawer | packet_serverbound_pack_setting_change | packet_clientbound_data_store | packet_graphics_override_parameter | packet_serverbound_data_store | packet_clientbound_data_driven_ui_show_screen | packet_clientbound_data_driven_ui_close_screen | packet_clientbound_data_driven_ui_reload | packet_clientbound_texture_shift | packet_voxel_shapes | packet_camera_spline | packet_camera_aim_assist_actor_priority | packet_resource_packs_ready_for_validation | packet_locator_bar | packet_party_changed | packet_serverbound_data_driven_screen_closed | packet_sync_world_clocks | packet_clientbound_attribute_layer_sync | packet_server_store_info | packet_server_presence_info | packet_clientbound_update_sound_data | packet_send_party_destination_cookie | packet_party_destination_cookie_response | packet_set_player_furnace_options | packet_record_started;
+		name: "login" | "play_status" | "server_to_client_handshake" | "client_to_server_handshake" | "disconnect" | "resource_packs_info" | "resource_pack_stack" | "resource_pack_client_response" | "text" | "set_time" | "start_game" | "add_player" | "add_entity" | "remove_entity" | "add_item_entity" | "server_post_move" | "take_item_entity" | "move_entity" | "move_player" | "rider_jump" | "update_block" | "add_painting" | "tick_sync" | "level_sound_event_old" | "level_event" | "block_event" | "entity_event" | "mob_effect" | "update_attributes" | "inventory_transaction" | "mob_equipment" | "mob_armor_equipment" | "interact" | "block_pick_request" | "entity_pick_request" | "player_action" | "hurt_armor" | "set_entity_data" | "set_entity_motion" | "set_entity_link" | "set_health" | "set_spawn_position" | "animate" | "respawn" | "container_open" | "container_close" | "player_hotbar" | "inventory_content" | "inventory_slot" | "container_set_data" | "crafting_data" | "crafting_event" | "gui_data_pick_item" | "adventure_settings" | "block_entity_data" | "player_input" | "level_chunk" | "set_commands_enabled" | "set_difficulty" | "change_dimension" | "set_player_game_type" | "player_list" | "simple_event" | "event" | "spawn_experience_orb" | "clientbound_map_item_data" | "map_info_request" | "request_chunk_radius" | "chunk_radius_update" | "game_rules_changed" | "camera" | "boss_event" | "show_credits" | "available_commands" | "command_request" | "command_block_update" | "command_output" | "update_trade" | "update_equipment" | "resource_pack_data_info" | "resource_pack_chunk_data" | "resource_pack_chunk_request" | "transfer" | "play_sound" | "stop_sound" | "set_title" | "add_behavior_tree" | "structure_block_update" | "show_store_offer" | "purchase_receipt" | "player_skin" | "sub_client_login" | "initiate_web_socket_connection" | "set_last_hurt_by" | "book_edit" | "npc_request" | "photo_transfer" | "modal_form_request" | "modal_form_response" | "server_settings_request" | "server_settings_response" | "show_profile" | "set_default_game_type" | "remove_objective" | "set_display_objective" | "set_score" | "lab_table" | "update_block_synced" | "move_entity_delta" | "set_scoreboard_identity" | "set_local_player_as_initialized" | "update_soft_enum" | "network_stack_latency" | "script_custom_event" | "spawn_particle_effect" | "available_entity_identifiers" | "level_sound_event_v2" | "network_chunk_publisher_update" | "biome_definition_list" | "level_sound_event" | "level_event_generic" | "lectern_update" | "video_stream_connect" | "client_cache_status" | "on_screen_texture_animation" | "map_create_locked_copy" | "structure_template_data_export_request" | "structure_template_data_export_response" | "update_block_properties" | "client_cache_blob_status" | "client_cache_miss_response" | "education_settings" | "emote" | "multiplayer_settings" | "settings_command" | "anvil_damage" | "completed_using_item" | "network_settings" | "player_auth_input" | "creative_content" | "player_enchant_options" | "item_stack_request" | "item_stack_response" | "player_armor_damage" | "code_builder" | "update_player_game_type" | "emote_list" | "position_tracking_db_broadcast" | "position_tracking_db_request" | "debug_info" | "packet_violation_warning" | "motion_prediction_hints" | "animate_entity" | "camera_shake" | "player_fog" | "correct_player_move_prediction" | "item_registry" | "filter_text_packet" | "debug_renderer" | "sync_entity_property" | "add_volume_entity" | "remove_volume_entity" | "simulation_type" | "npc_dialogue" | "edu_uri_resource_packet" | "create_photo" | "update_subchunk_blocks" | "photo_info_request" | "subchunk" | "subchunk_request" | "client_start_item_cooldown" | "script_message" | "code_builder_source" | "ticking_areas_load_status" | "dimension_data" | "agent_action" | "change_mob_property" | "lesson_progress" | "request_ability" | "request_permissions" | "toast_request" | "update_abilities" | "update_adventure_settings" | "death_info" | "editor_network" | "feature_registry" | "server_stats" | "request_network_settings" | "game_test_request" | "game_test_results" | "update_client_input_locks" | "client_cheat_ability" | "camera_presets" | "unlocked_recipes" | "camera_instruction" | "compressed_biome_definitions" | "trim_data" | "open_sign" | "agent_animation" | "refresh_entitlements" | "toggle_crafter_slot_request" | "set_player_inventory_options" | "set_hud" | "award_achievement" | "clientbound_close_form" | "serverbound_loading_screen" | "jigsaw_structure_data" | "current_structure_feature" | "serverbound_diagnostics" | "camera_aim_assist" | "container_registry_cleanup" | "movement_effect" | "set_movement_authority" | "camera_aim_assist_presets" | "client_camera_aim_assist" | "client_movement_prediction_sync" | "update_client_options" | "player_video_capture" | "player_update_entity_overrides" | "player_location" | "clientbound_controls_scheme" | "server_script_debug_drawer" | "serverbound_pack_setting_change" | "clientbound_data_store" | "graphics_override_parameter" | "serverbound_data_store" | "clientbound_data_driven_ui_show_screen" | "clientbound_data_driven_ui_close_screen" | "clientbound_data_driven_ui_reload" | "clientbound_texture_shift" | "voxel_shapes" | "camera_spline" | "camera_aim_assist_actor_priority" | "resource_packs_ready_for_validation" | "locator_bar" | "party_changed" | "serverbound_data_driven_screen_closed" | "sync_world_clocks" | "clientbound_attribute_layer_sync" | "server_store_info" | "server_presence_info" | "clientbound_update_sound_data" | "send_party_destination_cookie" | "party_destination_cookie_response" | "set_player_furnace_options" | "record_started";
+		params: packet_login | packet_play_status | packet_server_to_client_handshake | packet_client_to_server_handshake | packet_disconnect | packet_resource_packs_info | packet_resource_pack_stack | packet_resource_pack_client_response | packet_text | packet_set_time | packet_start_game | packet_add_player | packet_add_entity | packet_remove_entity | packet_add_item_entity | packet_take_item_entity | packet_move_entity | packet_move_player | packet_rider_jump | packet_update_block | packet_add_painting | packet_tick_sync | packet_level_sound_event_old | packet_level_event | packet_block_event | packet_entity_event | packet_mob_effect | packet_update_attributes | packet_inventory_transaction | packet_mob_equipment | packet_mob_armor_equipment | packet_interact | packet_block_pick_request | packet_entity_pick_request | packet_player_action | packet_hurt_armor | packet_set_entity_data | packet_set_entity_motion | packet_set_entity_link | packet_set_health | packet_set_spawn_position | packet_animate | packet_respawn | packet_container_open | packet_container_close | packet_player_hotbar | packet_inventory_content | packet_inventory_slot | packet_container_set_data | packet_crafting_data | packet_crafting_event | packet_gui_data_pick_item | packet_adventure_settings | packet_block_entity_data | packet_player_input | packet_level_chunk | packet_set_commands_enabled | packet_set_difficulty | packet_change_dimension | packet_set_player_game_type | packet_player_list | packet_simple_event | packet_event | packet_spawn_experience_orb | packet_clientbound_map_item_data | packet_map_info_request | packet_request_chunk_radius | packet_chunk_radius_update | packet_game_rules_changed | packet_camera | packet_boss_event | packet_show_credits | packet_available_commands | packet_command_request | packet_command_block_update | packet_command_output | packet_update_trade | packet_update_equipment | packet_resource_pack_data_info | packet_resource_pack_chunk_data | packet_resource_pack_chunk_request | packet_transfer | packet_play_sound | packet_stop_sound | packet_set_title | packet_add_behavior_tree | packet_structure_block_update | packet_show_store_offer | packet_purchase_receipt | packet_player_skin | packet_sub_client_login | packet_initiate_web_socket_connection | packet_set_last_hurt_by | packet_book_edit | packet_npc_request | packet_photo_transfer | packet_modal_form_request | packet_modal_form_response | packet_server_settings_request | packet_server_settings_response | packet_show_profile | packet_set_default_game_type | packet_remove_objective | packet_set_display_objective | packet_set_score | packet_lab_table | packet_update_block_synced | packet_move_entity_delta | packet_set_scoreboard_identity | packet_set_local_player_as_initialized | packet_update_soft_enum | packet_network_stack_latency | packet_script_custom_event | packet_spawn_particle_effect | packet_available_entity_identifiers | packet_level_sound_event_v2 | packet_network_chunk_publisher_update | packet_biome_definition_list | packet_level_sound_event | packet_level_event_generic | packet_lectern_update | packet_video_stream_connect | packet_client_cache_status | packet_on_screen_texture_animation | packet_map_create_locked_copy | packet_structure_template_data_export_request | packet_structure_template_data_export_response | packet_update_block_properties | packet_client_cache_blob_status | packet_client_cache_miss_response | packet_education_settings | packet_emote | packet_multiplayer_settings | packet_settings_command | packet_anvil_damage | packet_completed_using_item | packet_network_settings | packet_player_auth_input | packet_creative_content | packet_player_enchant_options | packet_item_stack_request | packet_item_stack_response | packet_player_armor_damage | packet_code_builder | packet_update_player_game_type | packet_emote_list | packet_position_tracking_db_request | packet_position_tracking_db_broadcast | packet_debug_info | packet_packet_violation_warning | packet_motion_prediction_hints | packet_animate_entity | packet_camera_shake | packet_player_fog | packet_correct_player_move_prediction | packet_item_registry | packet_filter_text_packet | packet_debug_renderer | packet_sync_entity_property | packet_add_volume_entity | packet_remove_volume_entity | packet_simulation_type | packet_npc_dialogue | packet_edu_uri_resource_packet | packet_create_photo | packet_update_subchunk_blocks | packet_photo_info_request | packet_subchunk | packet_subchunk_request | packet_client_start_item_cooldown | packet_script_message | packet_code_builder_source | packet_ticking_areas_load_status | packet_dimension_data | packet_agent_action | packet_change_mob_property | packet_lesson_progress | packet_request_ability | packet_request_permissions | packet_toast_request | packet_update_abilities | packet_update_adventure_settings | packet_death_info | packet_editor_network | packet_feature_registry | packet_server_stats | packet_request_network_settings | packet_game_test_request | packet_game_test_results | packet_update_client_input_locks | packet_client_cheat_ability | packet_camera_presets | packet_unlocked_recipes | packet_camera_instruction | packet_compressed_biome_definitions | packet_trim_data | packet_open_sign | packet_agent_animation | packet_refresh_entitlements | packet_toggle_crafter_slot_request | packet_set_player_inventory_options | packet_set_hud | packet_award_achievement | packet_server_post_move | packet_clientbound_close_form | packet_serverbound_loading_screen | packet_jigsaw_structure_data | packet_current_structure_feature | packet_serverbound_diagnostics | packet_camera_aim_assist | packet_container_registry_cleanup | packet_movement_effect | packet_set_movement_authority | packet_camera_aim_assist_presets | packet_client_camera_aim_assist | packet_client_movement_prediction_sync | packet_update_client_options | packet_player_video_capture | packet_player_update_entity_overrides | packet_player_location | packet_clientbound_controls_scheme | packet_server_script_debug_drawer | packet_serverbound_pack_setting_change | packet_clientbound_data_store | packet_graphics_override_parameter | packet_serverbound_data_store | packet_clientbound_data_driven_ui_show_screen | packet_clientbound_data_driven_ui_close_screen | packet_clientbound_data_driven_ui_reload | packet_clientbound_texture_shift | packet_voxel_shapes | packet_camera_spline | packet_camera_aim_assist_actor_priority | packet_resource_packs_ready_for_validation | packet_locator_bar | packet_party_changed | packet_serverbound_data_driven_screen_closed | packet_sync_world_clocks | packet_clientbound_attribute_layer_sync | packet_server_store_info | packet_server_presence_info | packet_clientbound_update_sound_data | packet_send_party_destination_cookie | packet_party_destination_cookie_response | packet_set_player_furnace_options | packet_record_started;
 	};
 	/**
 	 * load the packet map file (auto-generated)
@@ -1753,7 +1770,7 @@ export namespace MCProtocol.Bedrock_1_26_51 {
 		limited_world_length: number;
 		is_new_nether: boolean;
 		edu_resource_uri: EducationSharedResourceURI;
-		experimental_gameplay_override: boolean;
+		experimental_gameplay_override?: boolean;
 		/** ChatRestrictionLevel specifies the level of restriction on in-game chat. */
 		chat_restriction_level: "none" | "dropped" | "disabled";
 		/** DisablePlayerInteractions is true if the client should ignore other players when interacting with the world. */
@@ -2187,7 +2204,7 @@ export namespace MCProtocol.Bedrock_1_26_51 {
 	 */
 	export type packet_inventory_slot = {
 		/** WindowID is the ID of the window that the packet modifies. It must point to one of the windows that the client currently has opened. */
-		window_id: WindowIDVarint;
+		window_id: WindowID;
 		/** Slot is the index of the slot that the packet modifies. The new item will be set to the slot at this index. */
 		slot: number;
 		container?: FullContainerName;
@@ -2732,8 +2749,7 @@ export namespace MCProtocol.Bedrock_1_26_51 {
 		position: BlockCoordinates;
 		/** StructureName is the name of the structure that was set in the structure block's UI. This is the name used to export the structure to a file. */
 		structure_name: string;
-		/** FilteredStructureName is a filtered version of StructureName with all the profanity removed. The client will use this over StructureName if this field is not empty and they have the "Filter Profanity" setting enabled. */
-		filtered_structure_name: string;
+		filtered_structure_name?: string;
 		/** DataField is the name of a function to run, usually used during natural generation. A description can be found here: https://minecraft.wiki/w/Structure_Block#Data. */
 		data_field: string;
 		/** IncludePlayers specifies if the 'Include Players' toggle has been enabled, meaning players are also exported by the structure block. */
@@ -3261,7 +3277,6 @@ export namespace MCProtocol.Bedrock_1_26_51 {
 		HasQuiz: boolean;
 		has_external_link_settings: boolean;
 		external_link_settings?: {
-			has: boolean;
 			url: string;
 			display_name: string;
 		};
@@ -3649,10 +3664,13 @@ export namespace MCProtocol.Bedrock_1_26_51 {
 		from_server: boolean;
 	};
 	/**
-	 * PrimitiveShapes is a packet sent by the server to instruct the client to render one or more shapes in the world.
+	 * ClientBoundDebugRenderer is sent by the server to spawn an outlined cube on client-side.
 	 */
-	export type packet_primitive_shapes = {
-		shapes: PrimitiveShape[];
+	export type packet_debug_renderer = {
+		/** The action, as a string: invalid, cleardebugmarkers or adddebugmarkercube. */
+		type: string;
+		has_data: boolean;
+		data?: DebugMarkerData;
 	};
 	/**
 	 * Sent by the server to synchronize/update entity properties as NBT, an alternative to Set Entity Data.
@@ -3683,6 +3701,7 @@ export namespace MCProtocol.Bedrock_1_26_51 {
 	export type packet_remove_volume_entity = {
 		/** The Runtime Entity ID */
 		entity_id: bigint;
+		dimension: number;
 	};
 	/**
 	 * SimulationType is an in-progress packet. We currently do not know the use case.
@@ -3912,12 +3931,14 @@ export namespace MCProtocol.Bedrock_1_26_51 {
 	};
 	/**
 	 * EditorNetwork is a packet sent from the server to the client and vise-versa to communicate editor-mode related
-	 * information. It carries a single compound tag containing the relevant information.
+	 * information. It carries a payload of whatever serialized data the individual editor network payload generates.
 	 */
 	export type packet_editor_network = {
 		route_to_manager: boolean;
-		/** Payload is a network little endian compound tag holding data relevant to the editor. */
-		payload: any;
+		/** RawVariantName is the name of the editor network payload variant that RawVariantData carries. */
+		raw_variant_name: string;
+		/** RawVariantData is the serialized data that the named payload variant generated. */
+		raw_variant_data: string;
 	};
 	/**
 	 * FeatureRegistry is a packet used to notify the client about the world generation features the server is currently
@@ -4000,10 +4021,12 @@ export namespace MCProtocol.Bedrock_1_26_51 {
 		};
 		clear?: boolean;
 		fade?: {
-			fade_in_duration: number;
-			wait_duration: number;
-			fade_out_duration: number;
-			color_rgb: vec3f;
+			time?: {
+				fade_in_duration: number;
+				wait_duration: number;
+				fade_out_duration: number;
+			};
+			color_rgb?: vec3f;
 		};
 		target?: {
 			offset?: vec3f;
@@ -4013,7 +4036,7 @@ export namespace MCProtocol.Bedrock_1_26_51 {
 		fov?: {
 			field_of_view: number;
 			ease_time: number;
-			ease_type: EaseType;
+			ease_type: string;
 			clear: boolean;
 		};
 		spline?: CameraSplineInstruction;
@@ -4114,7 +4137,7 @@ export namespace MCProtocol.Bedrock_1_26_51 {
 		memory_category_values: MemoryCategoryCounter[];
 		entity_diagnostics: EntityDiagnosticTimingInfo[];
 		system_diagnostics: SystemDiagnosticTimingInfo[];
-		system_categories: SystemCategory[];
+		system_categories?: SystemCategory[];
 		whisker_scopes: WhiskerScopeDataSummary[];
 	};
 	export type packet_camera_aim_assist = {
@@ -4228,13 +4251,14 @@ export namespace MCProtocol.Bedrock_1_26_51 {
 	 * PlayerUpdateEntityOverrides is sent by the server to modify an entity's properties individually.
 	 */
 	export type packet_player_update_entity_overrides = {
-		/** EntityRuntimeID is the runtime ID of the entity. The runtime ID is unique for each world session, and entities are generally identified in packets using this runtime ID. */
+		/** EntityUniqueID is the unique ID of the entity whose property overrides are being updated. The unique ID is a value that remains consistent across different sessions of the same world, but most servers simply fill the runtime ID of the entity out for this field. */
 		runtime_id: bigint;
 		/** PropertyIndex is the index of the property to modify. The index is unique for each property of an entity. */
 		property_index: number;
 		/** Type is the type of action to perform with the property. It is one of the constants above. As of 1.26.40 it is sent twice: once as an unsigned varint and once as the legacy byte. */
 		type: "clear_all" | "remove" | "set_int" | "set_float";
-		legacy_type: number;
+		/** TypeName is the name of the override operation named by Type: "clearoverrides", "removeoverride", "setintoverride" or "setfloatoverride". */
+		type_name: string;
 		value?: number;
 	};
 	export type packet_player_location = {
@@ -4251,24 +4275,10 @@ export namespace MCProtocol.Bedrock_1_26_51 {
 		scheme: "locked_player_relative_strafe" | "camera_relative" | "camera_relative_strafe" | "player_relative" | "player_relative_strafe";
 	};
 	/**
-	 * ServerScriptDebugDrawer instructs the client to render debug shapes for development visualisations.
+	 * ServerScriptDebugDrawer is sent by the server to instruct the client to render one or more shapes in the world.
 	 */
 	export type packet_server_script_debug_drawer = {
-		shapes: {
-			network_id: bigint;
-			shape_type?: "line" | "box" | "sphere" | "circle" | "text" | "arrow";
-			location?: vec3f;
-			scale?: number;
-			rotation?: vec3f;
-			time_left?: number;
-			color?: number;
-			text?: string;
-			box_bound?: vec3f;
-			line_end_location?: vec3f;
-			arrow_head_length?: number;
-			arrow_head_radius?: number;
-			segment_count?: number;
-		}[];
+		shapes: PrimitiveShape[];
 	};
 	/**
 	 * ServerBoundPackSettingChange
@@ -4289,9 +4299,9 @@ export namespace MCProtocol.Bedrock_1_26_51 {
 		float_value?: number;
 		vec3_value?: vec3f;
 		biome_identifier: string;
+		player_id?: string;
 		parameter_type: GraphicsOverrideParameterType;
 		reset: boolean;
-		player_id?: string;
 	};
 	export type packet_serverbound_data_store = {
 		name: string;
@@ -4344,7 +4354,7 @@ export namespace MCProtocol.Bedrock_1_26_51 {
 		party_info?: PartyInfo;
 	};
 	export type packet_serverbound_data_driven_screen_closed = {
-		form_id?: number;
+		form_id: number;
 		close_reason: string;
 	};
 	export type packet_sync_world_clocks = {
@@ -4371,34 +4381,21 @@ export namespace MCProtocol.Bedrock_1_26_51 {
 	export type packet_server_presence_info = {
 		presence_info?: PresenceInfo;
 	};
+	/**
+	 * ClientboundUpdateSoundData is sent by the server to update a sound that is currently playing, identified by
+	 * the handle the server sent in the PlaySound packet that started it. The update data is repeated seven times,
+	 * but only the last slot is actually used by the client for the value.
+	 */
 	export type packet_clientbound_update_sound_data = {
+		/** ServerSoundHandle is the handle of the sound to update, as sent in the PlaySound packet that started it. */
 		server_sound_handle: ServerSoundHandle;
-		stop?: {
-			unused: number;
-		};
-		volume?: {
-			unused: number;
-			volume: number;
-		};
-		pitch?: {
-			unused: number;
-			pitch: number;
-		};
-		fade?: {
-			unused: number;
-			target_volume: number;
-			duration: number;
-		};
-		seek_to?: {
-			unused: number;
-			seconds: number;
-		};
-		pause?: {
-			unused: number;
-		};
-		resume?: {
-			unused: number;
-		};
+		stop: SoundDataUpdate;
+		set_volume: SoundDataUpdate;
+		set_pitch: SoundDataUpdate;
+		fade: SoundDataUpdate;
+		seek_to: SoundDataUpdate;
+		pause: SoundDataUpdate;
+		resume: SoundDataUpdate;
 	};
 	export type packet_send_party_destination_cookie = {
 		cookie: string;
@@ -4488,6 +4485,7 @@ export namespace MCProtocol.Bedrock_1_26_51 {
 		current_structure_feature: (packet: packet_current_structure_feature) => void;
 		death_info: (packet: packet_death_info) => void;
 		debug_info: (packet: packet_debug_info) => void;
+		debug_renderer: (packet: packet_debug_renderer) => void;
 		dimension_data: (packet: packet_dimension_data) => void;
 		disconnect: (packet: packet_disconnect) => void;
 		editor_network: (packet: packet_editor_network) => void;
@@ -4550,7 +4548,6 @@ export namespace MCProtocol.Bedrock_1_26_51 {
 		player_update_entity_overrides: (packet: packet_player_update_entity_overrides) => void;
 		player_video_capture: (packet: packet_player_video_capture) => void;
 		position_tracking_db_broadcast: (packet: packet_position_tracking_db_broadcast) => void;
-		primitive_shapes: (packet: packet_primitive_shapes) => void;
 		record_started: (packet: packet_record_started) => void;
 		remove_entity: (packet: packet_remove_entity) => void;
 		remove_objective: (packet: packet_remove_objective) => void;
@@ -4565,6 +4562,7 @@ export namespace MCProtocol.Bedrock_1_26_51 {
 		script_custom_event: (packet: packet_script_custom_event) => void;
 		send_party_destination_cookie: (packet: packet_send_party_destination_cookie) => void;
 		server_presence_info: (packet: packet_server_presence_info) => void;
+		server_script_debug_drawer: (packet: packet_server_script_debug_drawer) => void;
 		server_settings_response: (packet: packet_server_settings_response) => void;
 		server_stats: (packet: packet_server_stats) => void;
 		server_store_info: (packet: packet_server_store_info) => void;
@@ -4694,7 +4692,6 @@ export namespace MCProtocol.Bedrock_1_26_51 {
 		rider_jump: (packet: packet_rider_jump) => void;
 		script_custom_event: (packet: packet_script_custom_event) => void;
 		script_message: (packet: packet_script_message) => void;
-		server_script_debug_drawer: (packet: packet_server_script_debug_drawer) => void;
 		server_settings_request: (packet: packet_server_settings_request) => void;
 		serverbound_data_driven_screen_closed: (packet: packet_serverbound_data_driven_screen_closed) => void;
 		serverbound_data_store: (packet: packet_serverbound_data_store) => void;

@@ -769,7 +769,7 @@ export namespace MCProtocol.Bedrock_1_26_10 {
 	 * Used in inventory transactions.
 	 */
 	export type ContainerSlotType = "anvil_input" | "anvil_material" | "anvil_result" | "smithing_table_input" | "smithing_table_material" | "smithing_table_result" | "armor" | "container" | "beacon_payment" | "brewing_input" | "brewing_result" | "brewing_fuel" | "hotbar_and_inventory" | "crafting_input" | "crafting_output" | "recipe_construction" | "recipe_nature" | "recipe_items" | "recipe_search" | "recipe_search_bar" | "recipe_equipment" | "recipe_book" | "enchanting_input" | "enchanting_lapis" | "furnace_fuel" | "furnace_ingredient" | "furnace_output" | "horse_equip" | "hotbar" | "inventory" | "shulker" | "trade_ingredient1" | "trade_ingredient2" | "trade_result" | "offhand" | "compcreate_input" | "compcreate_output" | "elemconstruct_output" | "matreduce_input" | "matreduce_output" | "labtable_input" | "loom_input" | "loom_dye" | "loom_material" | "loom_result" | "blast_furnace_ingredient" | "smoker_ingredient" | "trade2_ingredient1" | "trade2_ingredient2" | "trade2_result" | "grindstone_input" | "grindstone_additional" | "grindstone_result" | "stonecutter_input" | "stonecutter_result" | "cartography_input" | "cartography_additional" | "cartography_result" | "barrel" | "cursor" | "creative_output" | "smithing_table_template" | "crafter" | "dynamic" | "registry" | "recipe_food" | "recipe_blocks" | "recipe_furnace_items";
-	export type SoundType = "ItemUseOn" | "Hit" | "Step" | "Fly" | "Jump" | "Break" | "Place" | "HeavyStep" | "Gallop" | "Fall" | "Ambient" | "AmbientBaby" | "AmbientInWater" | "Breathe" | "Death" | "DeathInWater" | "DeathToZombie" | "Hurt" | "HurtInWater" | "Mad" | "Boost" | "Bow" | "SquishBig" | "SquishSmall" | "FallBig" | "FallSmall" | "Splash" | "Fizz" | "Flap" | "Swim" | "Drink" | "Eat" | "Takeoff" | "Shake" | "Plop" | "Land" | "Saddle" | "Armor" | "ArmorStandPlace" | "AddChest" | "Throw" | "Attack" | "AttackNoDamage" | "AttackStrong" | "Warn" | "Shear" | "Milk" | "Thunder" | "Explode" | "Fire" | "Ignite" | "Fuse" | "Stare" | "Spawn" | "Shoot" | "BreakBlock" | "Launch" | "Blast" | "LargeBlast" | "Twinkle" | "Remedy" | "Unfect" | "LevelUp" | "BowHit" | "BulletHit" | "ExtinguishFire" | "ItemFizz" | "ChestOpen" | "ChestClosed" | "ShulkerBoxOpen" | "ShulkerBoxClosed" | "EnderChestOpen" | "EnderChestClosed" | "PowerOn" | "PowerOff" | "Attach" | "Detach" | "Deny" | "Tripod" | "Pop" | "DropSlot" | "Note" | "Thorns" | "PistonIn" | "PistonOut" | "Portal" | "Water" | "LavaPop" | "Lava" | "Burp" | "BucketFillWater" | "BucketFillLava" | "BucketEmptyWater" | "BucketEmptyLava" | "ArmorEquipChain" | "ArmorEquipDiamond" | "ArmorEquipGeneric" | "ArmorEquipGold" | "ArmorEquipIron" | "ArmorEquipLeather" | "ArmorEquipElytra" | "Record13" | "RecordCat" | "RecordBlocks" | "RecordChirp" | "RecordFar" | "RecordMall" | "RecordMellohi" | "RecordStal" | "RecordStrad" | "RecordWard" | "Record11" | "RecordWait" | "StopRecord" | "Flop" | "GuardianCurse" | "MobWarning" | "MobWarningBaby" | "Teleport" | "ShulkerOpen" | "ShulkerClose" | "Haggle" | "HaggleYes" | "HaggleNo" | "HaggleIdle" | "ChorusGrow" | "ChorusDeath" | "Glass" | "PotionBrewed" | "CastSpell" | "PrepareAttackSpell" | "PrepareSummon" | "PrepareWololo" | "Fang" | "Charge" | "CameraTakePicture" | "LeashKnotPlace" | "LeashKnotBreak" | "AmbientGrowl" | "AmbientWhine" | "AmbientPant" | "AmbientPurr" | "AmbientPurreow" | "DeathMinVolume" | "DeathMidVolume" | "ImitateBlaze" | "ImitateCaveSpider" | "ImitateCreeper" | "ImitateElderGuardian" | "ImitateEnderDragon" | "ImitateEnderman" | "ImitateEndermite" | "ImitateEvocationIllager" | "ImitateGhast" | "ImitateHusk" | "ImitateIllusionIllager" | "ImitateMagmaCube" | "ImitatePolarBear" | "ImitateShulker" | "ImitateSilverfish" | "ImitateSkeleton" | "ImitateSlime" | "ImitateSpider" | "ImitateStray" | "ImitateVex" | "ImitateVindicationIllager" | "ImitateWitch" | "ImitateWither" | "ImitateWitherSkeleton" | "ImitateWolf" | "ImitateZombie" | "ImitateZombiePigman" | "ImitateZombieVillager" | "EnderEyePlaced" | "EndPortalCreated" | "AnvilUse" | "BottleDragonBreath" | "PortalTravel" | "TridentHit" | "TridentReturn" | "TridentRiptide1" | "TridentRiptide2" | "TridentRiptide3" | "TridentThrow" | "TridentThunder" | "TridentHitGround" | "Default" | "FletchingTableUse" | "ElemConstructOpen" | "IceBombHit" | "BalloonPop" | "LtReactionIceBomb" | "LtReactionBleach" | "LtReactionElephantToothpaste" | "LtReactionElephantToothpaste2" | "LtReactionGlowStick" | "LtReactionGlowStick2" | "LtReactionLuminol" | "LtReactionSalt" | "LtReactionFertilizer" | "LtReactionFireball" | "LtReactionMagnesiumSalt" | "LtReactionMiscFire" | "LtReactionFire" | "LtReactionMiscExplosion" | "LtReactionMiscMystical" | "LtReactionMiscMystical2" | "LtReactionProduct" | "SparklerUse" | "GlowStickUse" | "SparklerActive" | "ConvertToDrowned" | "BucketFillFish" | "BucketEmptyFish" | "BubbleColumnUpwards" | "BubbleColumnDownwards" | "BubblePop" | "BubbleUpInside" | "BubbleDownInside" | "HurtBaby" | "DeathBaby" | "StepBaby" | "SpawnBaby" | "Born" | "TurtleEggBreak" | "TurtleEggCrack" | "TurtleEggHatched" | "LayEgg" | "TurtleEggAttacked" | "BeaconActivate" | "BeaconAmbient" | "BeaconDeactivate" | "BeaconPower" | "ConduitActivate" | "ConduitAmbient" | "ConduitAttack" | "ConduitDeactivate" | "ConduitShort" | "Swoop" | "BambooSaplingPlace" | "PreSneeze" | "Sneeze" | "AmbientTame" | "Scared" | "ScaffoldingClimb" | "CrossbowLoadingStart" | "CrossbowLoadingMiddle" | "CrossbowLoadingEnd" | "CrossbowShoot" | "CrossbowQuickChargeStart" | "CrossbowQuickChargeMiddle" | "CrossbowQuickChargeEnd" | "AmbientAggressive" | "AmbientWorried" | "CantBreed" | "ShieldBlock" | "LecternBookPlace" | "GrindstoneUse" | "Bell" | "CampfireCrackle" | "Roar" | "Stun" | "SweetBerryBushHurt" | "SweetBerryBushPick" | "CartographyTableUse" | "StonecutterUse" | "ComposterEmpty" | "ComposterFill" | "ComposterFillLayer" | "ComposterReady" | "BarrelOpen" | "BarrelClose" | "RaidHorn" | "LoomUse" | "AmbientInRaid" | "UicartographyTableUse" | "UistonecutterUse" | "UiloomUse" | "SmokerUse" | "BlastFurnaceUse" | "SmithingTableUse" | "Screech" | "Sleep" | "FurnaceUse" | "MooshroomConvert" | "MilkSuspiciously" | "Celebrate" | "JumpPrevent" | "AmbientPollinate" | "BeehiveDrip" | "BeehiveEnter" | "BeehiveExit" | "BeehiveWork" | "BeehiveShear" | "HoneybottleDrink" | "AmbientCave" | "Retreat" | "ConvertToZombified" | "Admire" | "StepLava" | "Tempt" | "Panic" | "Angry" | "AmbientMoodWarpedForest" | "AmbientMoodSoulsandValley" | "AmbientMoodNetherWastes" | "AmbientMoodBasaltDeltas" | "AmbientMoodCrimsonForest" | "RespawnAnchorCharge" | "RespawnAnchorDeplete" | "RespawnAnchorSetSpawn" | "RespawnAnchorAmbient" | "SoulEscapeQuiet" | "SoulEscapeLoud" | "RecordPigstep" | "LinkCompassToLodestone" | "UseSmithingTable" | "EquipNetherite" | "AmbientLoopWarpedForest" | "AmbientLoopSoulsandValley" | "AmbientLoopNetherWastes" | "AmbientLoopBasaltDeltas" | "AmbientLoopCrimsonForest" | "AmbientAdditionWarpedForest" | "AmbientAdditionSoulsandValley" | "AmbientAdditionNetherWastes" | "AmbientAdditionBasaltDeltas" | "AmbientAdditionCrimsonForest" | "SculkSensorPowerOn" | "SculkSensorPowerOff" | "BucketFillPowderSnow" | "BucketEmptyPowderSnow" | "PointedDripstoneCauldronDripWater" | "PointedDripstoneCauldronDripLava" | "PointedDripstoneDripWater" | "PointedDripstoneDripLava" | "CaveVinesPickBerries" | "BigDripleafTiltDown" | "BigDripleafTiltUp" | "CopperWaxOn" | "CopperWaxOff" | "Scrape" | "PlayerHurtDrown" | "PlayerHurtOnFire" | "PlayerHurtFreeze" | "UseSpyglass" | "StopUsingSpyglass" | "AmethystBlockChime" | "AmbientScreamer" | "HurtScreamer" | "DeathScreamer" | "MilkScreamer" | "JumpToBlock" | "PreRam" | "PreRamScreamer" | "RamImpact" | "RamImpactScreamer" | "SquidInkSquirt" | "GlowSquidInkSquirt" | "ConvertToStray" | "CakeAddCandle" | "ExtinguishCandle" | "AmbientCandle" | "BlockClick" | "BlockClickFail" | "SculkCatalystBloom" | "SculkShriekerShriek" | "WardenNearbyClose" | "WardenNearbyCloser" | "WardenNearbyClosest" | "WardenSlightlyAngry" | "RecordOtherside" | "Tongue" | "CrackIronGolem" | "RepairIronGolem" | "Listening" | "Heartbeat" | "HornBreak" | "_" | "SculkSpread" | "SculkCharge" | "SculkSensorPlace" | "SculkShriekerPlace" | "GoatCall0" | "GoatCall1" | "GoatCall2" | "GoatCall3" | "GoatCall4" | "GoatCall5" | "GoatCall6" | "GoatCall7" | "GoatCall8" | "GoatCall9" | "GoatHarmony0" | "GoatHarmony1" | "GoatHarmony2" | "GoatHarmony3" | "GoatHarmony4" | "GoatHarmony5" | "GoatHarmony6" | "GoatHarmony7" | "GoatHarmony8" | "GoatHarmony9" | "GoatMelody0" | "GoatMelody1" | "GoatMelody2" | "GoatMelody3" | "GoatMelody4" | "GoatMelody5" | "GoatMelody6" | "GoatMelody7" | "GoatMelody8" | "GoatMelody9" | "GoatBass0" | "GoatBass1" | "GoatBass2" | "GoatBass3" | "GoatBass4" | "GoatBass5" | "GoatBass6" | "GoatBass7" | "GoatBass8" | "GoatBass9" | "ImitateWarden" | "ListeningAngry" | "ItemGiven" | "ItemTaken" | "Disappeared" | "Reappeared" | "DrinkMilk" | "FrogspawnHatched" | "LaySpawn" | "FrogspawnBreak" | "SonicBoom" | "SonicCharge" | "SoundeventItemThrown" | "Record5" | "ConvertToFrog" | "RecordPlaying" | "EnchantingTableUse" | "StepSand" | "DashReady" | "BundleDropContents" | "BundleInsert" | "BundleRemoveOne" | "PressurePlateClickOff" | "PressurePlateClickOn" | "ButtonClickOff" | "ButtonClickOn" | "DoorOpen" | "DoorClose" | "TrapdoorOpen" | "TrapdoorClose" | "FenceGateOpen" | "FenceGateClose" | "Insert" | "Pickup" | "InsertEnchanted" | "PickupEnchanted" | "Brush" | "BrushCompleted" | "ShatterDecoratedPot" | "BreakDecoratedPot" | "SnifferEggCrack" | "SnifferEggHatched" | "WaxedSignInteractFail" | "RecordRelic" | "Bump" | "PumpkinCarve" | "ConvertHuskToZombie" | "PigDeath" | "HoglinZombified" | "AmbientUnderwaterEnter" | "AmbientUnderwaterExit" | "BottleFill" | "BottleEmpty" | "CrafterCraft" | "CrafterFail" | "DecoratedPotInsert" | "DecoratedPotInsertFail" | "CrafterDisableSlot" | "TrialSpawnerOpenShutter" | "TrialSpawnerEjectItem" | "TrialSpawnerDetectPlayer" | "TrialSpawnerSpawnMob" | "TrialSpawnerCloseShutter" | "TrialSpawnerAmbient" | "CopperBulbTurnOn" | "CopperBulbTurnOff" | "AmbientInAir" | "BreezeWindChargeBurst" | "ImitateBreeze" | "ArmadilloBrush" | "ArmadilloScuteDrop" | "EquipWolf" | "UnequipWolf" | "Reflect" | "VaultOpenShutter" | "VaultCloseShutter" | "VaultEjectItem" | "VaultInsertItem" | "VaultInsertItemFail" | "VaultAmbient" | "VaultActivate" | "VaultDeactive" | "HurtReduced" | "WindChargeBurst" | "ImitateBogged" | "WolfArmourCrack" | "WolfArmourBreak" | "WolfArmourRepair" | "MaceSmashAir" | "MaceSmashGround" | "TrialSpawnerChargeActivate" | "TrialSpawnerAmbientOminous" | "OminiousItemSpawnerSpawnItem" | "OminousBottleEndUse" | "MaceHeavySmashGround" | "OminousItemSpawnerSpawnItemBegin" | "ApplyEffectBadOmen" | "ApplyEffectRaidOmen" | "ApplyEffectTrialOmen" | "OminousItemSpawnerAboutToSpawnItem" | "RecordCreator" | "RecordCreatorMusicBox" | "RecordPrecipice" | "VaultRejectRewardedPlayer" | "ImitateDrowned" | "ImitateCreaking" | "BundleInsertFailed" | "SpongeAbsorb" | "BlockCreakingHeartTrail" | "CreakingHeartSpawn" | "Activate" | "Deactivate" | "Freeze" | "Unfreeze" | "Open" | "OpenLong" | "Close" | "CloseLong" | "ImitatePhantom" | "ImitateZoglin" | "ImitateGuardian" | "ImitateRavager" | "ImitatePillager" | "PlaceInWater" | "StateChange" | "ImitateHappyGhast" | "UniqueGeneric" | "RecordTears" | "TheEndLightFlash" | "LeadLeash" | "LeadUnleash" | "LeadBreak" | "Unsaddle" | "EquipCopper" | "RecordLavaChicken" | "PlaceItem" | "SingleItemSwap" | "MultiItemSwap" | "ItemEnchantLunge1" | "ItemEnchantLunge2" | "ItemEnchantLunge3" | "AttackCritical" | "ItemSpearAttackHit" | "ItemSpearAttackMiss" | "ItemWoodenSpearAttackHit" | "ItemWoodenSpearAttackMiss" | "ImitateParched" | "ImitateCamelHusk" | "ItemSpearUse" | "ItemWoodenSpearUse" | "SaddleInWater" | "ItemStoneSpearAttackHit" | "ItemIronSpearAttackHit" | "ItemCopperSpearAttackHit" | "ItemGoldenSpearAttackHit" | "ItemDiamondSpearAttackHit" | "ItemNetheriteSpearAttackHit" | "ItemStoneSpearAttackMiss" | "ItemIronSpearAttackMiss" | "ItemCopperSpearAttackMiss" | "ItemGoldenSpearAttackMiss" | "ItemDiamondSpearAttackMiss" | "ItemNetheriteSpearAttackMiss" | "ItemStoneSpearUse" | "ItemIronSpearUse" | "ItemCopperSpearUse" | "ItemGoldenSpearUse" | "ItemDiamondSpearUse" | "ItemNetheriteSpearUse" | "PauseGrowth" | "ResetGrowth";
+	export type SoundType = "ItemUseOn" | "Hit" | "Step" | "Fly" | "Jump" | "Break" | "Place" | "HeavyStep" | "Gallop" | "Fall" | "Ambient" | "AmbientBaby" | "AmbientInWater" | "Breathe" | "Death" | "DeathInWater" | "DeathToZombie" | "Hurt" | "HurtInWater" | "Mad" | "Boost" | "Bow" | "SquishBig" | "SquishSmall" | "FallBig" | "FallSmall" | "Splash" | "Fizz" | "Flap" | "Swim" | "Drink" | "Eat" | "Takeoff" | "Shake" | "Plop" | "Land" | "Saddle" | "Armor" | "ArmorStandPlace" | "AddChest" | "Throw" | "Attack" | "AttackNoDamage" | "AttackStrong" | "Warn" | "Shear" | "Milk" | "Thunder" | "Explode" | "Fire" | "Ignite" | "Fuse" | "Stare" | "Spawn" | "Shoot" | "BreakBlock" | "Launch" | "Blast" | "LargeBlast" | "Twinkle" | "Remedy" | "Unfect" | "LevelUp" | "BowHit" | "BulletHit" | "ExtinguishFire" | "ItemFizz" | "ChestOpen" | "ChestClosed" | "ShulkerBoxOpen" | "ShulkerBoxClosed" | "EnderChestOpen" | "EnderChestClosed" | "PowerOn" | "PowerOff" | "Attach" | "Detach" | "Deny" | "Tripod" | "Pop" | "DropSlot" | "Note" | "Thorns" | "PistonIn" | "PistonOut" | "Portal" | "Water" | "LavaPop" | "Lava" | "Burp" | "BucketFillWater" | "BucketFillLava" | "BucketEmptyWater" | "BucketEmptyLava" | "ArmorEquipChain" | "ArmorEquipDiamond" | "ArmorEquipGeneric" | "ArmorEquipGold" | "ArmorEquipIron" | "ArmorEquipLeather" | "ArmorEquipElytra" | "Record13" | "RecordCat" | "RecordBlocks" | "RecordChirp" | "RecordFar" | "RecordMall" | "RecordMellohi" | "RecordStal" | "RecordStrad" | "RecordWard" | "Record11" | "RecordWait" | "StopRecord" | "Flop" | "GuardianCurse" | "MobWarning" | "MobWarningBaby" | "Teleport" | "ShulkerOpen" | "ShulkerClose" | "Haggle" | "HaggleYes" | "HaggleNo" | "HaggleIdle" | "ChorusGrow" | "ChorusDeath" | "Glass" | "PotionBrewed" | "CastSpell" | "PrepareAttackSpell" | "PrepareSummon" | "PrepareWololo" | "Fang" | "Charge" | "CameraTakePicture" | "LeashKnotPlace" | "LeashKnotBreak" | "AmbientGrowl" | "AmbientWhine" | "AmbientPant" | "AmbientPurr" | "AmbientPurreow" | "DeathMinVolume" | "DeathMidVolume" | "ImitateBlaze" | "ImitateCaveSpider" | "ImitateCreeper" | "ImitateElderGuardian" | "ImitateEnderDragon" | "ImitateEnderman" | "ImitateEndermite" | "ImitateEvocationIllager" | "ImitateGhast" | "ImitateHusk" | "ImitateIllusionIllager" | "ImitateMagmaCube" | "ImitatePolarBear" | "ImitateShulker" | "ImitateSilverfish" | "ImitateSkeleton" | "ImitateSlime" | "ImitateSpider" | "ImitateStray" | "ImitateVex" | "ImitateVindicationIllager" | "ImitateWitch" | "ImitateWither" | "ImitateWitherSkeleton" | "ImitateWolf" | "ImitateZombie" | "ImitateZombiePigman" | "ImitateZombieVillager" | "EnderEyePlaced" | "EndPortalCreated" | "AnvilUse" | "BottleDragonBreath" | "PortalTravel" | "TridentHit" | "TridentReturn" | "TridentRiptide1" | "TridentRiptide2" | "TridentRiptide3" | "TridentThrow" | "TridentThunder" | "TridentHitGround" | "Default" | "FletchingTableUse" | "ElemConstructOpen" | "IceBombHit" | "BalloonPop" | "LtReactionIceBomb" | "LtReactionBleach" | "LtReactionElephantToothpaste" | "LtReactionElephantToothpaste2" | "LtReactionGlowStick" | "LtReactionGlowStick2" | "LtReactionLuminol" | "LtReactionSalt" | "LtReactionFertilizer" | "LtReactionFireball" | "LtReactionMagnesiumSalt" | "LtReactionMiscFire" | "LtReactionFire" | "LtReactionMiscExplosion" | "LtReactionMiscMystical" | "LtReactionMiscMystical2" | "LtReactionProduct" | "SparklerUse" | "GlowStickUse" | "SparklerActive" | "ConvertToDrowned" | "BucketFillFish" | "BucketEmptyFish" | "BubbleColumnUpwards" | "BubbleColumnDownwards" | "BubblePop" | "BubbleUpInside" | "BubbleDownInside" | "HurtBaby" | "DeathBaby" | "StepBaby" | "SpawnBaby" | "Born" | "TurtleEggBreak" | "TurtleEggCrack" | "TurtleEggHatched" | "LayEgg" | "TurtleEggAttacked" | "BeaconActivate" | "BeaconAmbient" | "BeaconDeactivate" | "BeaconPower" | "ConduitActivate" | "ConduitAmbient" | "ConduitAttack" | "ConduitDeactivate" | "ConduitShort" | "Swoop" | "BambooSaplingPlace" | "PreSneeze" | "Sneeze" | "AmbientTame" | "Scared" | "ScaffoldingClimb" | "CrossbowLoadingStart" | "CrossbowLoadingMiddle" | "CrossbowLoadingEnd" | "CrossbowShoot" | "CrossbowQuickChargeStart" | "CrossbowQuickChargeMiddle" | "CrossbowQuickChargeEnd" | "AmbientAggressive" | "AmbientWorried" | "CantBreed" | "ShieldBlock" | "LecternBookPlace" | "GrindstoneUse" | "Bell" | "CampfireCrackle" | "Roar" | "Stun" | "SweetBerryBushHurt" | "SweetBerryBushPick" | "CartographyTableUse" | "StonecutterUse" | "ComposterEmpty" | "ComposterFill" | "ComposterFillLayer" | "ComposterReady" | "BarrelOpen" | "BarrelClose" | "RaidHorn" | "LoomUse" | "AmbientInRaid" | "UicartographyTableUse" | "UistonecutterUse" | "UiloomUse" | "SmokerUse" | "BlastFurnaceUse" | "SmithingTableUse" | "Screech" | "Sleep" | "FurnaceUse" | "MooshroomConvert" | "MilkSuspiciously" | "Celebrate" | "JumpPrevent" | "AmbientPollinate" | "BeehiveDrip" | "BeehiveEnter" | "BeehiveExit" | "BeehiveWork" | "BeehiveShear" | "HoneybottleDrink" | "AmbientCave" | "Retreat" | "ConvertToZombified" | "Admire" | "StepLava" | "Tempt" | "Panic" | "Angry" | "AmbientMoodWarpedForest" | "AmbientMoodSoulsandValley" | "AmbientMoodNetherWastes" | "AmbientMoodBasaltDeltas" | "AmbientMoodCrimsonForest" | "RespawnAnchorCharge" | "RespawnAnchorDeplete" | "RespawnAnchorSetSpawn" | "RespawnAnchorAmbient" | "SoulEscapeQuiet" | "SoulEscapeLoud" | "RecordPigstep" | "LinkCompassToLodestone" | "UseSmithingTable" | "EquipNetherite" | "AmbientLoopWarpedForest" | "AmbientLoopSoulsandValley" | "AmbientLoopNetherWastes" | "AmbientLoopBasaltDeltas" | "AmbientLoopCrimsonForest" | "AmbientAdditionWarpedForest" | "AmbientAdditionSoulsandValley" | "AmbientAdditionNetherWastes" | "AmbientAdditionBasaltDeltas" | "AmbientAdditionCrimsonForest" | "SculkSensorPowerOn" | "SculkSensorPowerOff" | "BucketFillPowderSnow" | "BucketEmptyPowderSnow" | "PointedDripstoneCauldronDripWater" | "PointedDripstoneCauldronDripLava" | "PointedDripstoneDripWater" | "PointedDripstoneDripLava" | "CaveVinesPickBerries" | "BigDripleafTiltDown" | "BigDripleafTiltUp" | "CopperWaxOn" | "CopperWaxOff" | "Scrape" | "PlayerHurtDrown" | "PlayerHurtOnFire" | "PlayerHurtFreeze" | "UseSpyglass" | "StopUsingSpyglass" | "AmethystBlockChime" | "AmbientScreamer" | "HurtScreamer" | "DeathScreamer" | "MilkScreamer" | "JumpToBlock" | "PreRam" | "PreRamScreamer" | "RamImpact" | "RamImpactScreamer" | "SquidInkSquirt" | "GlowSquidInkSquirt" | "ConvertToStray" | "CakeAddCandle" | "ExtinguishCandle" | "AmbientCandle" | "BlockClick" | "BlockClickFail" | "SculkCatalystBloom" | "SculkShriekerShriek" | "WardenNearbyClose" | "WardenNearbyCloser" | "WardenNearbyClosest" | "WardenSlightlyAngry" | "RecordOtherside" | "Tongue" | "CrackIronGolem" | "RepairIronGolem" | "Listening" | "Heartbeat" | "HornBreak" | "_378" | "SculkSpread" | "SculkCharge" | "SculkSensorPlace" | "SculkShriekerPlace" | "GoatCall0" | "GoatCall1" | "GoatCall2" | "GoatCall3" | "GoatCall4" | "GoatCall5" | "GoatCall6" | "GoatCall7" | "GoatCall8" | "GoatCall9" | "GoatHarmony0" | "GoatHarmony1" | "GoatHarmony2" | "GoatHarmony3" | "GoatHarmony4" | "GoatHarmony5" | "GoatHarmony6" | "GoatHarmony7" | "GoatHarmony8" | "GoatHarmony9" | "GoatMelody0" | "GoatMelody1" | "GoatMelody2" | "GoatMelody3" | "GoatMelody4" | "GoatMelody5" | "GoatMelody6" | "GoatMelody7" | "GoatMelody8" | "GoatMelody9" | "GoatBass0" | "GoatBass1" | "GoatBass2" | "GoatBass3" | "GoatBass4" | "GoatBass5" | "GoatBass6" | "GoatBass7" | "GoatBass8" | "GoatBass9" | "_423" | "_424" | "_425" | "ImitateWarden" | "ListeningAngry" | "ItemGiven" | "ItemTaken" | "Disappeared" | "Reappeared" | "DrinkMilk" | "FrogspawnHatched" | "LaySpawn" | "FrogspawnBreak" | "SonicBoom" | "SonicCharge" | "SoundeventItemThrown" | "Record5" | "ConvertToFrog" | "RecordPlaying" | "EnchantingTableUse" | "StepSand" | "DashReady" | "BundleDropContents" | "BundleInsert" | "BundleRemoveOne" | "PressurePlateClickOff" | "PressurePlateClickOn" | "ButtonClickOff" | "ButtonClickOn" | "DoorOpen" | "DoorClose" | "TrapdoorOpen" | "TrapdoorClose" | "FenceGateOpen" | "FenceGateClose" | "Insert" | "Pickup" | "InsertEnchanted" | "PickupEnchanted" | "Brush" | "BrushCompleted" | "ShatterDecoratedPot" | "BreakDecoratedPot" | "SnifferEggCrack" | "SnifferEggHatched" | "WaxedSignInteractFail" | "RecordRelic" | "Bump" | "PumpkinCarve" | "ConvertHuskToZombie" | "PigDeath" | "HoglinZombified" | "AmbientUnderwaterEnter" | "AmbientUnderwaterExit" | "BottleFill" | "BottleEmpty" | "CrafterCraft" | "CrafterFail" | "DecoratedPotInsert" | "DecoratedPotInsertFail" | "CrafterDisableSlot" | "TrialSpawnerOpenShutter" | "TrialSpawnerEjectItem" | "TrialSpawnerDetectPlayer" | "TrialSpawnerSpawnMob" | "TrialSpawnerCloseShutter" | "TrialSpawnerAmbient" | "CopperBulbTurnOn" | "CopperBulbTurnOff" | "AmbientInAir" | "BreezeWindChargeBurst" | "ImitateBreeze" | "ArmadilloBrush" | "ArmadilloScuteDrop" | "EquipWolf" | "UnequipWolf" | "Reflect" | "VaultOpenShutter" | "VaultCloseShutter" | "VaultEjectItem" | "VaultInsertItem" | "VaultInsertItemFail" | "VaultAmbient" | "VaultActivate" | "VaultDeactive" | "HurtReduced" | "WindChargeBurst" | "ImitateBogged" | "WolfArmourCrack" | "WolfArmourBreak" | "WolfArmourRepair" | "MaceSmashAir" | "MaceSmashGround" | "TrialSpawnerChargeActivate" | "TrialSpawnerAmbientOminous" | "OminiousItemSpawnerSpawnItem" | "OminousBottleEndUse" | "MaceHeavySmashGround" | "OminousItemSpawnerSpawnItemBegin" | "_522" | "ApplyEffectBadOmen" | "ApplyEffectRaidOmen" | "ApplyEffectTrialOmen" | "OminousItemSpawnerAboutToSpawnItem" | "RecordCreator" | "RecordCreatorMusicBox" | "RecordPrecipice" | "VaultRejectRewardedPlayer" | "ImitateDrowned" | "ImitateCreaking" | "BundleInsertFailed" | "SpongeAbsorb" | "_535" | "BlockCreakingHeartTrail" | "CreakingHeartSpawn" | "Activate" | "Deactivate" | "Freeze" | "Unfreeze" | "Open" | "OpenLong" | "Close" | "CloseLong" | "ImitatePhantom" | "ImitateZoglin" | "ImitateGuardian" | "ImitateRavager" | "ImitatePillager" | "PlaceInWater" | "StateChange" | "ImitateHappyGhast" | "UniqueGeneric" | "RecordTears" | "TheEndLightFlash" | "LeadLeash" | "LeadUnleash" | "LeadBreak" | "Unsaddle" | "EquipCopper" | "RecordLavaChicken" | "PlaceItem" | "SingleItemSwap" | "MultiItemSwap" | "ItemEnchantLunge1" | "ItemEnchantLunge2" | "ItemEnchantLunge3" | "AttackCritical" | "ItemSpearAttackHit" | "ItemSpearAttackMiss" | "ItemWoodenSpearAttackHit" | "ItemWoodenSpearAttackMiss" | "ImitateParched" | "ImitateCamelHusk" | "ItemSpearUse" | "ItemWoodenSpearUse" | "SaddleInWater" | "ItemStoneSpearAttackHit" | "ItemIronSpearAttackHit" | "ItemCopperSpearAttackHit" | "ItemGoldenSpearAttackHit" | "ItemDiamondSpearAttackHit" | "ItemNetheriteSpearAttackHit" | "ItemStoneSpearAttackMiss" | "ItemIronSpearAttackMiss" | "ItemCopperSpearAttackMiss" | "ItemGoldenSpearAttackMiss" | "ItemDiamondSpearAttackMiss" | "ItemNetheriteSpearAttackMiss" | "ItemStoneSpearUse" | "ItemIronSpearUse" | "ItemCopperSpearUse" | "ItemGoldenSpearUse" | "ItemDiamondSpearUse" | "ItemNetheriteSpearUse" | "PauseGrowth" | "ResetGrowth";
 	/**
 	 * TODO: remove?
 	 */
@@ -860,16 +860,29 @@ export namespace MCProtocol.Bedrock_1_26_10 {
 	export type CameraSplineInstruction = {
 		/** TotalTime is the total time for the spline animation. */
 		total_time: number;
-		has_spline_type: boolean;
-		spline_type?: string;
+		spline_type: "catmullrom" | "linear";
 		/** Curve is the list of curve points defining the spline. */
 		curve: vec3f[];
-		/** ProgressKeyFrames is a list of key frames for the spline progress. */
-		progress_key_frames: CameraProgressOption[];
-		/** RotationOptions is a list of rotation keyframes for the spline. */
-		rotation_options: CameraRotationOption[];
-		spline_identifier?: string;
-		load_from_json?: boolean;
+		/** ProgressKeyFrames is a list of progress key frames for the spline. */
+		progress_key_frames: {
+			/** Value is the normalised progress of this frame along the spline, from 0.0 at the start to 1.0 at the end. */
+			value: number;
+			/** Time is the time in seconds at which this progress should be applied. */
+			time: number;
+			/** EaseType is the easing function used to interpolate towards this progress key frame. */
+			ease_type: string;
+		}[];
+		/** RotationOptions is a list of rotation key frames for the spline. */
+		rotation_options: {
+			/** Value is the rotation value of this key frame. */
+			value: vec3f;
+			/** Time is the time in seconds at which this rotation should be applied. */
+			time: number;
+			/** EaseType is the easing function used to interpolate towards this rotation key frame. */
+			ease_type: string;
+		}[];
+		spline_identifier: string;
+		load_from_json: boolean;
 	};
 	export type CameraProgressOption = {
 		value: number;
@@ -1549,7 +1562,7 @@ export namespace MCProtocol.Bedrock_1_26_10 {
 		limited_world_length: number;
 		is_new_nether: boolean;
 		edu_resource_uri: EducationSharedResourceURI;
-		experimental_gameplay_override: boolean;
+		experimental_gameplay_override?: boolean;
 		/** ChatRestrictionLevel specifies the level of restriction on in-game chat. */
 		chat_restriction_level: "none" | "dropped" | "disabled";
 		/** DisablePlayerInteractions is true if the client should ignore other players when interacting with the world. */
@@ -3065,7 +3078,6 @@ export namespace MCProtocol.Bedrock_1_26_10 {
 		HasQuiz: boolean;
 		has_external_link_settings: boolean;
 		external_link_settings?: {
-			has: boolean;
 			url: string;
 			display_name: string;
 		};
@@ -3181,13 +3193,13 @@ export namespace MCProtocol.Bedrock_1_26_10 {
 			data: TransactionUseItem;
 		};
 		item_stack_request?: ItemStackRequest;
-		vehicle_rotation?: vec2f;
-		predicted_vehicle?: bigint;
 		block_action?: {
 			action: Action;
 			position?: vec3i;
 			face?: number;
 		}[];
+		vehicle_rotation?: vec2f;
+		predicted_vehicle?: bigint;
 		analogue_move_vector: vec2f;
 		camera_orientation: vec3f;
 		raw_move_vector: vec2f;
@@ -3550,6 +3562,7 @@ export namespace MCProtocol.Bedrock_1_26_10 {
 	export type packet_remove_volume_entity = {
 		/** The Runtime Entity ID */
 		entity_id: bigint;
+		dimension: number;
 	};
 	/**
 	 * SimulationType is an in-progress packet. We currently do not know the use case.
@@ -3814,12 +3827,14 @@ export namespace MCProtocol.Bedrock_1_26_10 {
 	};
 	/**
 	 * EditorNetwork is a packet sent from the server to the client and vise-versa to communicate editor-mode related
-	 * information. It carries a single compound tag containing the relevant information.
+	 * information. It carries a payload of whatever serialized data the individual editor network payload generates.
 	 */
 	export type packet_editor_network = {
 		route_to_manager: boolean;
-		/** Payload is a network little endian compound tag holding data relevant to the editor. */
-		payload: any;
+		/** RawVariantName is the name of the editor network payload variant that RawVariantData carries. */
+		raw_variant_name: string;
+		/** RawVariantData is the serialized data that the named payload variant generated. */
+		raw_variant_data: string;
 	};
 	/**
 	 * FeatureRegistry is a packet used to notify the client about the world generation features the server is currently
@@ -3902,10 +3917,12 @@ export namespace MCProtocol.Bedrock_1_26_10 {
 		};
 		clear?: boolean;
 		fade?: {
-			fade_in_duration: number;
-			wait_duration: number;
-			fade_out_duration: number;
-			color_rgb: vec3f;
+			time?: {
+				fade_in_duration: number;
+				wait_duration: number;
+				fade_out_duration: number;
+			};
+			color_rgb?: vec3f;
 		};
 		target?: {
 			offset?: vec3f;
@@ -3915,7 +3932,7 @@ export namespace MCProtocol.Bedrock_1_26_10 {
 		fov?: {
 			field_of_view: number;
 			ease_time: number;
-			ease_type: EaseType;
+			ease_type: string;
 			clear: boolean;
 		};
 		spline?: CameraSplineInstruction;
@@ -4122,7 +4139,7 @@ export namespace MCProtocol.Bedrock_1_26_10 {
 	 * PlayerUpdateEntityOverrides is sent by the server to modify an entity's properties individually.
 	 */
 	export type packet_player_update_entity_overrides = {
-		/** EntityRuntimeID is the runtime ID of the entity. The runtime ID is unique for each world session, and entities are generally identified in packets using this runtime ID. */
+		/** EntityUniqueID is the unique ID of the entity whose property overrides are being updated. The unique ID is a value that remains consistent across different sessions of the same world, but most servers simply fill the runtime ID of the entity out for this field. */
 		runtime_id: bigint;
 		/** PropertyIndex is the index of the property to modify. The index is unique for each property of an entity. */
 		property_index: number;
@@ -4145,6 +4162,7 @@ export namespace MCProtocol.Bedrock_1_26_10 {
 	 */
 	export type packet_server_script_debug_drawer = {
 		shapes: {
+			/** NetworkID identifies the matching shape on the client and on the server. */
 			network_id: bigint;
 			shape_type?: "line" | "box" | "sphere" | "circle" | "text" | "arrow";
 			location?: vec3f;
@@ -4152,12 +4170,24 @@ export namespace MCProtocol.Bedrock_1_26_10 {
 			rotation?: vec3f;
 			time_left?: number;
 			color?: number;
-			text?: string;
-			box_bound?: vec3f;
-			line_end_location?: vec3f;
-			arrow_head_length?: number;
-			arrow_head_radius?: number;
-			segment_count?: number;
+			dimension_id?: number;
+			attached_to_entity_id?: bigint;
+			/** ExtraDataType selects which variant of the extra shape payload follows. The payload holds data specific to the kind of shape, such as the text string for a text shape. */
+			extra_data_type: "none" | "arrow" | "text" | "box" | "line" | "sphere";
+			extra_data: {
+				end_location?: vec3f;
+				arrow_head_length?: number;
+				arrow_head_radius?: number;
+				segment_count?: number;
+			} | {
+				text: string;
+			} | {
+				box_bound: vec3f;
+			} | {
+				line_end_location: vec3f;
+			} | {
+				segment_count: number;
+			};
 		}[];
 	};
 	/**
@@ -4230,11 +4260,11 @@ export namespace MCProtocol.Bedrock_1_26_10 {
 		waypoints: LocatorBarWaypoint[];
 	};
 	export type packet_party_changed = {
-		party_id: string;
+		party_id?: string;
 	};
 	export type packet_serverbound_data_driven_screen_closed = {
-		form_id?: number;
-		close_reason: "programmatic_close" | "programmatic_close_all" | "client_canceled" | "user_busy" | "invalid_form";
+		form_id: number;
+		close_reason: string;
 	};
 	export type packet_sync_world_clocks = {
 		payload_type: "sync_state" | "initialize_registry" | "add_time_marker" | "remove_time_marker";
@@ -4391,6 +4421,7 @@ export namespace MCProtocol.Bedrock_1_26_10 {
 		respawn: (packet: packet_respawn) => void;
 		rider_jump: (packet: packet_rider_jump) => void;
 		script_custom_event: (packet: packet_script_custom_event) => void;
+		server_script_debug_drawer: (packet: packet_server_script_debug_drawer) => void;
 		server_settings_response: (packet: packet_server_settings_response) => void;
 		server_stats: (packet: packet_server_stats) => void;
 		server_to_client_handshake: (packet: packet_server_to_client_handshake) => void;
@@ -4517,7 +4548,6 @@ export namespace MCProtocol.Bedrock_1_26_10 {
 		rider_jump: (packet: packet_rider_jump) => void;
 		script_custom_event: (packet: packet_script_custom_event) => void;
 		script_message: (packet: packet_script_message) => void;
-		server_script_debug_drawer: (packet: packet_server_script_debug_drawer) => void;
 		server_settings_request: (packet: packet_server_settings_request) => void;
 		serverbound_data_driven_screen_closed: (packet: packet_serverbound_data_driven_screen_closed) => void;
 		serverbound_data_store: (packet: packet_serverbound_data_store) => void;
