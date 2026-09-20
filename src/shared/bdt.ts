@@ -65,17 +65,21 @@ export function readPackets (file: string): PacketRecord[] {
   return records
 }
 
-export function encodePackets (version: string, records: { buffer: Buffer, meta: PacketMeta | null }[]): Buffer {
-  const time = Buffer.alloc(8)
-  const parts: Buffer[] = [writeVarint(Buffer.byteLength(version)), Buffer.from(version)]
-  for (const r of records) {
-    if (r.meta) {
-      const json = Buffer.from(JSON.stringify(r.meta))
-      parts.push(Buffer.from('L'), time, writeVarint(json.length), json)
-    }
-    const len = Buffer.alloc(4)
-    len.writeInt32LE(r.buffer.length)
-    parts.push(Buffer.from('C'), time, len, r.buffer)
+const NO_TIME = Buffer.alloc(8)
+
+// one packet, with its meta record before it: what a packet file grows by
+export function encodeRecord (buffer: Buffer, meta: PacketMeta | null): Buffer {
+  const parts: Buffer[] = []
+  if (meta) {
+    const json = Buffer.from(JSON.stringify(meta))
+    parts.push(Buffer.from('L'), NO_TIME, writeVarint(json.length), json)
   }
+  const len = Buffer.alloc(4)
+  len.writeInt32LE(buffer.length)
+  parts.push(Buffer.from('C'), NO_TIME, len, buffer)
   return Buffer.concat(parts)
+}
+
+export function encodePackets (version: string, records: { buffer: Buffer, meta: PacketMeta | null }[]): Buffer {
+  return Buffer.concat([writeVarint(Buffer.byteLength(version)), Buffer.from(version), ...records.map(r => encodeRecord(r.buffer, r.meta))])
 }

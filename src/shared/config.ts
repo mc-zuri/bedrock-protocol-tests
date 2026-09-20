@@ -22,6 +22,7 @@ export const generatedFile = (version: string) => join(OUT_DIR, version, 'genera
 export const reportFile = (version: string) => join(OUT_DIR, version, 'report.json')
 export const SERVER_PORT_BASE = int('SERVER_PORT_BASE', 41032)
 export const JOBS = int('JOBS', 4)
+export const RELAY_PORT = int('RELAY_PORT', 19132)
 
 export const CHECKOUTS_DIR = join(ROOT, 'checkouts')
 export const BEDROCK_PROTOCOL_DIR = join(CHECKOUTS_DIR, 'bedrock-protocol')

@@ -11,6 +11,7 @@
     "postinstall": "node src/checkouts/setup.ts",
     "servers": "node --env-file-if-exists=.env src/servers/main.ts",
     "capture": "node --env-file-if-exists=.env src/capture/main.ts",
+    "relay": "node --env-file-if-exists=.env src/capture/relay.ts",
     "build:native": "xmake -y",
     "export": "xmake -y -q && build\\windows\\x64\\release\\bpx_launch.exe",
     "protocol": "node src/checkouts/protocol.ts",

@@ -39,6 +39,7 @@ cp .env.example .env    # optional: server location, output location, ports, par
 |---|---|
 | `pnpm servers` | downloads each missing server into `SERVERS_DIR/<version>/` (exactly the build `versions.json` names) and sets its `server.properties` (offline, RakNet, its own ports) |
 | `pnpm capture` | joins each server that has no captures yet (`JOBS` at a time) and writes `OUT_DIR/<version>/captured-packets.bin` |
+| `pnpm relay 1.26.51` | starts that build's server with a bedrock-protocol relay in front of it (port `RELAY_PORT`, 19132), for a real client to join: every packet either side sends is validated as it passes and appended to `captured-packets.bin` |
 | `pnpm export` | builds `src/native` and exports each server's packets (`JOBS` at a time) to `OUT_DIR/<version>/generated-packets.bin` (needs the captures) |
 | `pnpm validate` | validates everything in `OUT_DIR` and writes `OUT_DIR/<version>/report.json` |
 | `pnpm validate start_game 52` | only these packets (name or id) |
@@ -47,6 +48,11 @@ cp .env.example .env    # optional: server location, output location, ports, par
 
 Each step can be limited to builds: `pnpm capture 1.21.0`, `pnpm export 1.21.0 1.26.40`, `pnpm validate -V 1.21.0`.
 `pnpm validate --help` lists its options.
+
+`pnpm relay` is how the captures grow past one packet of each kind: join `127.0.0.1:19132` with a client of that version and
+play. It prints each new kind of failure as it happens and ends on Ctrl+C or `stop`. Packets whose bytes are already in
+the file are not appended again, and the client's `login` is validated but never stored (it carries the player's Xbox
+token).
 
 A capture is kept until its `captured-packets.bin` is deleted. `pnpm export` prints one line per build: what it exported,
 or why not. A build that failed keeps its logs in `out/<version>/.export/` (`bpx.log` names each scenario the game did
