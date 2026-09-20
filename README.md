@@ -5,6 +5,10 @@ Checks that [bedrock-protocol](https://github.com/PrismarineJS/bedrock-protocol)
 real game produces, for every Bedrock Dedicated Server build in `versions.json` (1.16.201 to 1.26.50). Both libraries are
 local clones in `checkouts/`, so this is also the place to fix them.
 
+bedrock-protocol is cloned from [mc-zuri/bedrock-protocol](https://github.com/mc-zuri/bedrock-protocol), branch
+`fix-nbtloop-size`, until upstream has [that fix](https://github.com/mc-zuri/bedrock-protocol/commit/40f9756f79c5751ef7518cdd711111f4eb56ab04):
+without it `level_event_generic` reads back short.
+
 The packets come from the servers themselves:
 
 - **exported** (`src/native`): a DLL injected into each server builds every packet in every shape it can, writes it with

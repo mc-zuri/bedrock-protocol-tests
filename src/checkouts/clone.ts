@@ -3,16 +3,20 @@ import { existsSync } from 'node:fs'
 import { join } from 'node:path'
 import { BEDROCK_PROTOCOL_DIR, NODE_MINECRAFT_DATA_DIR } from '../shared/config.ts'
 
-const checkouts = [
+interface Checkout { url: string, dir: string, submodules: boolean, branch?: string }
+
+const checkouts: Checkout[] = [
   { url: 'https://github.com/PrismarineJS/node-minecraft-data', dir: NODE_MINECRAFT_DATA_DIR, submodules: true },
-  { url: 'https://github.com/PrismarineJS/bedrock-protocol', dir: BEDROCK_PROTOCOL_DIR, submodules: false }
+  // the fork until PrismarineJS/bedrock-protocol has the nbtLoop size fix: without it level_event_generic never validates
+  { url: 'https://github.com/mc-zuri/bedrock-protocol', dir: BEDROCK_PROTOCOL_DIR, submodules: false, branch: 'fix-nbtloop-size' }
 ]
 
 export function cloneCheckouts (): void {
-  for (const { url, dir, submodules } of checkouts) {
+  for (const { url, dir, submodules, branch } of checkouts) {
     if (!existsSync(dir)) {
-      console.log(`cloning ${url} into ${dir}`)
-      execFileSync('git', ['clone', ...(submodules ? ['--recurse-submodules'] : []), url, dir], { stdio: 'inherit' })
+      console.log(`cloning ${url}${branch ? ` (${branch})` : ''} into ${dir}`)
+      const options = [...(submodules ? ['--recurse-submodules'] : []), ...(branch ? ['--branch', branch] : [])]
+      execFileSync('git', ['clone', ...options, url, dir], { stdio: 'inherit' })
     } else if (submodules && !existsSync(join(dir, 'minecraft-data', 'data'))) {
       // cloned without --recurse-submodules: its submodule is still empty
       execFileSync('git', ['submodule', 'update', '--init'], { cwd: dir, stdio: 'inherit' })
