@@ -1,0 +1,2359 @@
+export namespace MCProtocol.Bedrock_1_16_210 {
+	export type ByteArray = Buffer;
+	export type SignedByteArray = Buffer;
+	export type LittleString = string;
+	export type LatinString = string;
+	export type uuid = string;
+	export type byterot = number;
+	export type restBuffer = Buffer;
+	export type encapsulated = any;
+	export type nbt = any;
+	export type lnbt = any;
+	export type nbtLoop = any;
+	export type enum_size_based_on_values_len = "byte" | "short" | "int";
+	export type MapInfo = any;
+	/**
+	 * !StartDocs: Types
+	 */
+	export type BehaviourPackInfos = {
+		uuid: string;
+		version: string;
+		size: bigint;
+		content_key: string;
+		sub_pack_name: string;
+		content_identity: string;
+		has_scripts: boolean;
+	}[];
+	export type TexturePackInfos = {
+		uuid: string;
+		version: string;
+		size: bigint;
+		content_key: string;
+		sub_pack_name: string;
+		content_identity: string;
+		has_scripts: boolean;
+		rtx_enabled: boolean;
+	}[];
+	export type ResourcePackIdVersions = {
+		/** The ID of the resource pack. */
+		uuid: string;
+		/** The version of the resource pack. */
+		version: string;
+		/** The subpack name of the resource pack. */
+		name: string;
+	}[];
+	export type ResourcePackIds = string[];
+	export type Experiment = {
+		name: string;
+		enabled: boolean;
+	};
+	export type Experiments = Experiment[];
+	export type GameMode = "survival" | "creative" | "adventure" | "survival_spectator" | "creative_spectator" | "fallback";
+	export type GameRule = {
+		name: string;
+		type: "bool" | "int" | "float";
+		value: boolean | number;
+	};
+	export type GameRules = GameRule[];
+	/**
+	 * CacheBlob represents a blob as used in the client side blob cache protocol. It holds a hash of its data and
+	 * the full data of it.
+	 */
+	export type Blob = {
+		/** Hash is the hash of the blob. The hash is computed using xxHash, and must be deterministic for the same chunk data. */
+		hash: bigint;
+		/** Payload is the data of the blob. When sent, the client will associate the Hash of the blob with the Payload in it. */
+		payload: ByteArray;
+	};
+	/**
+	 * # This is not sent anymore in protocol versions > 419 (Bedrock Edition v1.16.100)
+	 * # A list of all blocks registered on the server.
+	 */
+	export type BlockPalette = {
+		name: string;
+		state: any;
+	}[];
+	/**
+	 * A list of all items with their legacy IDs which are available in the game.
+	 * Failing to send any of the items that are in the game will crash mobile clients.
+	 */
+	export type Itemstates = {
+		name: string;
+		runtime_id: number;
+		component_based: boolean;
+	}[];
+	export type Item = {
+		network_id: number;
+		blocking_tick?: bigint;
+	};
+	export type vec3i = {
+		x: number;
+		y: number;
+		z: number;
+	};
+	export type vec3u = {
+		x: number;
+		y: number;
+		z: number;
+	};
+	export type vec3f = {
+		x: number;
+		y: number;
+		z: number;
+	};
+	export type vec2f = {
+		x: number;
+		z: number;
+	};
+	export type MetadataDictionary = {
+		/** https://github.com/pmmp/PocketMine-MP/blob/stable/src/pocketmine/entity/Entity.php#L101 */
+		key: "flags" | "health" | "variant" | "color" | "nametag" | "owner_eid" | "target_eid" | "air" | "potion_color" | "potion_ambient" | "jump_duration" | "hurt_time" | "hurt_direction" | "paddle_time_left" | "paddle_time_right" | "experience_value" | "minecart_display_block" | "minecart_display_offset" | "minecart_has_display" | "horse_type" | "creeper_swell" | "creeper_swell_direction" | "charge_amount" | "enderman_held_runtime_id" | "entity_age" | "player_flags" | "player_index" | "player_bed_position" | "fireball_power_x" | "fireball_power_y" | "fireball_power_z" | "aux_power" | "fish_x" | "fish_z" | "fish_angle" | "potion_aux_value" | "lead_holder_eid" | "scale" | "interactive_tag" | "npc_skin_id" | "url_tag" | "max_airdata_max_air" | "mark_variant" | "container_type" | "container_base_size" | "container_extra_slots_per_strength" | "block_target" | "wither_invulnerable_ticks" | "wither_target_1" | "wither_target_2" | "wither_target_3" | "wither_aerial_attack" | "boundingbox_width" | "boundingbox_height" | "fuse_length" | "rider_seat_position" | "rider_rotation_locked" | "rider_max_rotation" | "rider_min_rotation" | "rider_seat_rotation_offset" | "area_effect_cloud_radius" | "area_effect_cloud_waiting" | "area_effect_cloud_particle_id" | "shulker_peek_id" | "shulker_attach_face" | "shulker_attached" | "shulker_attach_pos" | "trading_player_eid" | "trading_career" | "has_command_block" | "command_block_command" | "command_block_last_output" | "command_block_track_output" | "controlling_rider_seat_number" | "strength" | "max_strength" | "evoker_spell_casting_color" | "limited_life" | "armor_stand_pose_index" | "ender_crystal_time_offset" | "always_show_nametag" | "color_2" | "name_author" | "score_tag" | "balloon_attached_entity" | "pufferfish_size" | "bubble_time" | "agent" | "sitting_amount" | "sitting_amount_previous" | "eating_counter" | "flags_extended" | "laying_amount" | "laying_amount_previous" | "area_effect_cloud_duration" | "area_effect_cloud_spawn_time" | "area_effect_cloud_change_rate" | "area_effect_cloud_change_on_pickup" | "area_effect_cloud_pickup_count" | "interact_text" | "trade_tier" | "max_trade_tier" | "trade_experience" | "skin_id" | "spawning_frames" | "command_block_tick_delay" | "command_block_execute_on_first_tick" | "ambient_sound_interval" | "ambient_sound_interval_range" | "ambient_sound_event_name" | "fall_damage_multiplier" | "name_raw_text" | "can_ride_target" | "low_tier_cured_discount" | "high_tier_cured_discount" | "nearby_cured_discount" | "nearby_cured_discount_timestamp" | "hitbox" | "is_buoyant" | "buoyancy_data" | "goat_horn_count";
+		type: "byte" | "short" | "int" | "float" | "string" | "compound" | "vec3i" | "long" | "vec3f";
+		value: MetadataFlags1 | MetadataFlags2 | number | string | any | vec3i | bigint | vec3f;
+	}[];
+	export type MetadataFlags1 = {
+		onfire?: boolean;
+		sneaking?: boolean;
+		riding?: boolean;
+		sprinting?: boolean;
+		action?: boolean;
+		invisible?: boolean;
+		tempted?: boolean;
+		inlove?: boolean;
+		saddled?: boolean;
+		powered?: boolean;
+		ignited?: boolean;
+		baby?: boolean;
+		converting?: boolean;
+		critical?: boolean;
+		can_show_nametag?: boolean;
+		always_show_nametag?: boolean;
+		no_ai?: boolean;
+		silent?: boolean;
+		wallclimbing?: boolean;
+		can_climb?: boolean;
+		swimmer?: boolean;
+		can_fly?: boolean;
+		walker?: boolean;
+		resting?: boolean;
+		sitting?: boolean;
+		angry?: boolean;
+		interested?: boolean;
+		charged?: boolean;
+		tamed?: boolean;
+		orphaned?: boolean;
+		leashed?: boolean;
+		sheared?: boolean;
+		gliding?: boolean;
+		elder?: boolean;
+		moving?: boolean;
+		breathing?: boolean;
+		chested?: boolean;
+		stackable?: boolean;
+		showbase?: boolean;
+		rearing?: boolean;
+		vibrating?: boolean;
+		idling?: boolean;
+		evoker_spell?: boolean;
+		charge_attack?: boolean;
+		wasd_controlled?: boolean;
+		can_power_jump?: boolean;
+		linger?: boolean;
+		has_collision?: boolean;
+		affected_by_gravity?: boolean;
+		fire_immune?: boolean;
+		dancing?: boolean;
+		enchanted?: boolean;
+		show_trident_rope?: boolean;
+		container_private?: boolean;
+		transforming?: boolean;
+		spin_attack?: boolean;
+		swimming?: boolean;
+		bribed?: boolean;
+		pregnant?: boolean;
+		laying_egg?: boolean;
+		rider_can_pick?: boolean;
+		transition_sitting?: boolean;
+		eating?: boolean;
+		laying_down?: boolean;
+	};
+	export type MetadataFlags2 = {
+		sneezing?: boolean;
+		trusting?: boolean;
+		rolling?: boolean;
+		scared?: boolean;
+		in_scaffolding?: boolean;
+		over_scaffolding?: boolean;
+		fall_through_scaffolding?: boolean;
+		blocking?: boolean;
+		transition_blocking?: boolean;
+		blocked_using_shield?: boolean;
+		blocked_using_damaged_shield?: boolean;
+		sleeping?: boolean;
+		wants_to_wake?: boolean;
+		trade_interest?: boolean;
+		door_breaker?: boolean;
+		breaking_obstruction?: boolean;
+		door_opener?: boolean;
+		illager_captain?: boolean;
+		stunned?: boolean;
+		roaring?: boolean;
+		delayed_attacking?: boolean;
+		avoiding_mobs?: boolean;
+		avoiding_block?: boolean;
+		facing_target_to_range_attack?: boolean;
+		hidden_when_invisible?: boolean;
+		is_in_ui?: boolean;
+		stalking?: boolean;
+		emoting?: boolean;
+		celebrating?: boolean;
+		admiring?: boolean;
+		celebrating_special?: boolean;
+	};
+	export type Link = {
+		ridden_entity_id: bigint;
+		rider_entity_id: bigint;
+		type: number;
+		immediate: boolean;
+		rider_initiated: boolean;
+	};
+	export type Links = Link[];
+	export type EntityAttributes = {
+		name: string;
+		min: number;
+		value: number;
+		max: number;
+	}[];
+	export type Rotation = {
+		yaw: number;
+		pitch: number;
+		head_yaw: number;
+	};
+	export type BlockCoordinates = {
+		x: number;
+		y: number;
+		z: number;
+	};
+	export type PlayerAttributes = {
+		min: number;
+		max: number;
+		current: number;
+		default: number;
+		name: string;
+	}[];
+	/**
+	 * UseItemTransactionData represents an inventory transaction data object sent when the client uses an item on
+	 * a block. Also used in PlayerAuthoritativeInput packet
+	 */
+	export type TransactionUseItem = {
+		/** ActionType is the type of the UseItem inventory transaction. It is one of the action types found above, and specifies the way the player interacted with the block. */
+		action_type: "click_block" | "click_air" | "break_block";
+		/** BlockPosition is the position of the block that was interacted with. This is only really a correct block position if ActionType is not UseItemActionClickAir. */
+		block_position: BlockCoordinates;
+		/** BlockFace is the face of the block that was interacted with. When clicking the block, it is the face clicked. When breaking the block, it is the face that was last being hit until the block broke. */
+		face: number;
+		/** HotBarSlot is the hot bar slot that the player was holding while clicking the block. It should be used to ensure that the hot bar slot and held item are correctly synchronised with the server. */
+		hotbar_slot: number;
+		/** HeldItem is the item that was held to interact with the block. The server should check if this item is actually present in the HotBarSlot. */
+		held_item: Item;
+		/** Position is the position of the player at the time of interaction. For clicking a block, this is the position at that time, whereas for breaking the block it is the position at the time of breaking. */
+		player_pos: vec3f;
+		/** ClickedPosition is the position that was clicked relative to the block's base coordinate. It can be used to find out exactly where a player clicked the block. */
+		click_pos: vec3f;
+		/** BlockRuntimeID is the runtime ID of the block that was clicked. It may be used by the server to verify that the player's world client-side is synchronised with the server's. */
+		block_runtime_id: number;
+	};
+	/**
+	 * Actions is a list of actions that took place, that form the inventory transaction together. Each of
+	 * these actions hold one slot in which one item was changed to another. In general, the combination of
+	 * all of these actions results in a balanced inventory transaction. This should be checked to ensure that
+	 * no items are cheated into the inventory.
+	 */
+	export type TransactionActions = {
+		network_ids: boolean;
+		actions: {
+			source_type: "container" | "global" | "world_interaction" | "creative" | "craft_slot" | "craft";
+			inventory_id?: number;
+			action?: number;
+			flags?: number;
+			slot: number;
+			old_item: Item;
+			new_item: Item;
+			new_item_stack_id?: number;
+		}[];
+	};
+	/**
+	 * The Minecraft bedrock inventory system was refactored, but not all inventory actions use the new packet.
+	 * This data structure holds actions that have not been updated to the new system.
+	 */
+	export type TransactionLegacy = {
+		/** LegacyRequestID is an ID that is only non-zero at times when sent by the client. The server should always send 0 for this. When this field is not 0, the LegacySetItemSlots slice below will have values in it. LegacyRequestID ties in with the ItemStackResponse packet. If this field is non-0, the server should respond with an ItemStackResponse packet. Some inventory actions such as dropping an item out of the hotbar are still one using this packet, and the ItemStackResponse packet needs to tie in with it. */
+		legacy_request_id: number;
+		/** `legacy_transactions` are only present if the LegacyRequestID is non-zero. These item slots inform the server of the slots that were changed during the inventory transaction, and the server should send back an ItemStackResponse packet with these slots present in it. (Or false with no slots, if rejected.) */
+		legacy_transactions?: {
+			container_id: number;
+			changed_slots: {
+				slot_id: number;
+			}[];
+		}[];
+	};
+	export type Transaction = {
+		/** Old transaction system data */
+		legacy: TransactionLegacy;
+		/** What type of transaction took place */
+		transaction_type: "normal" | "inventory_mismatch" | "item_use" | "item_use_on_entity" | "item_release";
+		/** The list of inventory internal actions in this packet, e.g. inventory GUI actions */
+		actions: TransactionActions;
+		/** Extra data if an intenal inventory transaction did not take place, e.g. use of an item */
+		transaction_data: TransactionUseItem | {
+			entity_runtime_id: bigint;
+			action_type: "interact" | "attack";
+			hotbar_slot: number;
+			held_item: Item;
+			player_pos: vec3f;
+			click_pos: vec3f;
+		} | {
+			action_type: "release" | "consume";
+			hotbar_slot: number;
+			held_item: Item;
+			head_pos: vec3f;
+		};
+	};
+	/**
+	 * An "ItemStack" here represents an Item instance. You can think about it like a pointer
+	 * to an item class. The data for the class gets updated with the data in the `item` field
+	 */
+	export type ItemStack = {
+		/** StackNetworkID is the network ID of the item stack. If the stack is empty, 0 is always written for this field. If not, the field should be set to 1 if the server authoritative inventories are disabled in the StartGame packet, or to a unique stack ID if it is enabled. */
+		stack_id: number;
+		/** Stack is the actual item stack of the item instance. */
+		item: Item;
+	};
+	export type ItemStacks = ItemStack[];
+	export type RecipeIngredient = {
+		network_id: number;
+		network_data?: number;
+		count?: number;
+	};
+	export type PotionTypeRecipes = {
+		input_item_id: number;
+		input_item_meta: number;
+		ingredient_id: number;
+		ingredient_meta: number;
+		output_item_id: number;
+		output_item_meta: number;
+	}[];
+	export type PotionContainerChangeRecipes = {
+		input_item_id: number;
+		ingredient_id: number;
+		output_item_id: number;
+	}[];
+	export type Recipes = {
+		type: "shapeless" | "shaped" | "furnace" | "furnace_with_metadata" | "multi" | "shulker_box" | "shapeless_chemistry" | "shaped_chemistry";
+		recipe: {
+			recipe_id: LatinString;
+			input: RecipeIngredient[];
+			output: Item[];
+			uuid: string;
+			block: string;
+			priority: number;
+			network_id: number;
+		} | {
+			recipe_id: LatinString;
+			width: number;
+			height: number;
+			input: RecipeIngredient[][];
+			output: Item[];
+			uuid: string;
+			block: string;
+			priority: number;
+			network_id: number;
+		} | {
+			input_id: number;
+			output: Item;
+			block: string;
+		} | {
+			input_id: number;
+			input_meta: number;
+			output: Item;
+			block: string;
+		} | {
+			uuid: string;
+			network_id: number;
+		};
+	}[];
+	export type SkinImage = {
+		width: number;
+		height: number;
+		data: string;
+	};
+	export type Skin = {
+		skin_id: string;
+		play_fab_id: string;
+		skin_resource_pack: string;
+		skin_data: SkinImage;
+		animations: {
+			skin_image: SkinImage;
+			animation_type: number;
+			animation_frames: number;
+			expression_type: number;
+		}[];
+		cape_data: SkinImage;
+		geometry_data: string;
+		animation_data: string;
+		premium: string;
+		persona: boolean;
+		cape_on_classic: boolean;
+		cape_id: string;
+		full_skin_id: string;
+		arm_size: string;
+		skin_color: string;
+		personal_pieces: {
+			piece_id: string;
+			piece_type: string;
+			pack_id: string;
+			is_default_piece: boolean;
+			product_id: string;
+		}[];
+		piece_tint_colors: {
+			piece_type: string;
+			colors: string[];
+		}[];
+	};
+	export type PlayerRecords = {
+		type: "add" | "remove";
+		records_count: number;
+		records: {
+			uuid: string;
+			entity_unique_id: bigint;
+			username: string;
+			xbox_user_id: string;
+			platform_chat_id: string;
+			build_platform: number;
+			skin_data: Skin;
+			is_teacher: boolean;
+			is_host: boolean;
+		} | {
+			uuid: string;
+		}[];
+		verified: boolean[];
+	};
+	export type ScoreEntries = {
+		type: "change" | "remove";
+		entries: {
+			scoreboard_id: bigint;
+			objective_name: string;
+			score: number;
+			entry_type?: "player" | "entity" | "fake_player";
+			entity_unique_id?: bigint | undefined;
+			custom_name?: string | undefined;
+		}[];
+	};
+	export type ScoreboardIdentityEntries = {
+		type: "TYPE_REGISTER_IDENTITY" | "TYPE_CLEAR_IDENTITY";
+		entries: {
+			scoreboard_id: bigint;
+			entity_unique_id?: bigint;
+		}[];
+	};
+	export type Enchant = {
+		id: number;
+		level: number;
+	};
+	export type EnchantOptions = {
+		cost: number;
+		slot_flags: number;
+		equip_enchants: Enchant[];
+		held_enchants: Enchant[];
+		self_enchants: Enchant[];
+		name: string;
+		option_id: number;
+	}[];
+	export type Action = "start_break" | "abort_break" | "stop_break" | "get_updated_block" | "drop_item" | "start_sleeping" | "stop_sleeping" | "respawn" | "jump" | "start_sprint" | "stop_sprint" | "start_sneak" | "stop_sneak" | "creative_player_destroy_block" | "dimension_change_ack" | "start_glide" | "stop_glide" | "build_denied" | "crack_break" | "change_skin" | "set_enchatnment_seed" | "swimming" | "stop_swimming" | "start_spin_attack" | "stop_spin_attack" | "interact_block" | "predict_break" | "continue_break";
+	/**
+	 * Source and Destination point to the source slot from which Count of the item stack were taken and the
+	 * destination slot to which this item was moved.
+	 */
+	export type StackRequestSlotInfo = {
+		/** ContainerID is the ID of the container that the slot was in. */
+		slot_type: ContainerSlotType;
+		/** Slot is the index of the slot within the container with the ContainerID above. */
+		slot: number;
+		/** StackNetworkID is the unique stack ID that the client assumes to be present in this slot. The server must check if these IDs match. If they do not match, servers should reject the stack request that the action holding this info was in. */
+		stack_id: number;
+	};
+	/**
+	 * ItemStackRequest is sent by the client to change item stacks in an inventory. It is essentially a
+	 * replacement of the InventoryTransaction packet added in 1.16 for inventory specific actions, such as moving
+	 * items around or crafting. The InventoryTransaction packet is still used for actions such as placing blocks
+	 * and interacting with entities.
+	 */
+	export type ItemStackRequest = {
+		/** RequestID is a unique ID for the request. This ID is used by the server to send a response for this specific request in the ItemStackResponse packet. */
+		request_id: number;
+		actions: {
+			type_id: "take" | "place" | "swap" | "drop" | "destroy" | "consume" | "create" | "lab_table_combine" | "beacon_payment" | "mine_block" | "craft_recipe" | "craft_recipe_auto" | "craft_creative" | "optional" | "non_implemented" | "results_deprecated";
+			count?: number;
+			source?: StackRequestSlotInfo;
+			destination?: StackRequestSlotInfo;
+			randomly?: boolean;
+			result_slot_id?: number;
+			primary_effect?: number;
+			secondary_effect?: number;
+			hotbar_slot?: number;
+			predicted_durability?: number;
+			network_id?: number;
+			recipe_network_id?: number;
+			times_crafted?: number;
+			item_id?: number;
+			filtered_string_index?: number;
+			result_items?: Item[];
+		}[];
+		custom_names: string[];
+	};
+	/**
+	 * ItemStackResponse is a response to an individual ItemStackRequest.
+	 */
+	export type ItemStackResponses = {
+		/** Status specifies if the request with the RequestID below was successful. If this is the case, the ContainerInfo below will have information on what slots ended up changing. If not, the container info will be empty. A non-0 status means an error occurred and will result in the action being reverted. */
+		status: "ok" | "error";
+		/** RequestID is the unique ID of the request that this response is in reaction to. If rejected, the client will undo the actions from the request with this ID. */
+		request_id: number;
+		containers?: {
+			slot_type: ContainerSlotType;
+			slots: {
+				slot: number;
+				hotbar_slot: number;
+				count: number;
+				item_stack_id: number;
+				custom_name: string;
+				durability_correction: number;
+			}[];
+		}[];
+	}[];
+	export type ItemComponentList = {
+		/** Name is the name of the item, which is a name like 'minecraft:stick'. */
+		name: string;
+		/** Data is a map containing the components and properties of the item. */
+		nbt: any;
+	}[];
+	export type CommandOrigin = {
+		/** Origin is one of the values above that specifies the origin of the command. The origin may change, depending on what part of the client actually called the command. The command may be issued by a websocket server, for example. */
+		type: "player" | "block" | "minecart_block" | "dev_console" | "test" | "automation_player" | "client_automation" | "dedicated_server" | "entity" | "virtual" | "game_argument" | "entity_server";
+		/** UUID is the UUID of the command called. This UUID is a bit odd as it is not specified by the server. It is not clear what exactly this UUID is meant to identify, but it is unique for each command called. */
+		uuid: string;
+		/** RequestID is an ID that identifies the request of the client. The server should send a CommandOrigin with the same request ID to ensure it can be matched with the request by the caller of the command. This is especially important for websocket servers and it seems that this field is only non-empty for these websocket servers. */
+		request_id: string;
+		/** PlayerUniqueID is an ID that identifies the player, the same as the one found in the AdventureSettings packet. Filling it out with 0 seems to work. PlayerUniqueID is only written if Origin is CommandOriginDevConsole or CommandOriginTest. */
+		player_entity_id?: {
+			player_entity_id: bigint;
+		};
+	};
+	/**
+	 * Some arbitrary definitions from CBMC, Window IDs are normally
+	 * unique + sequential
+	 */
+	export type WindowID = "inventory" | "first" | "last" | "offhand" | "armor" | "creative" | "hotbar" | "fixed_inventory" | "ui" | "drop_contents" | "beacon" | "trading_output" | "trading_use_inputs" | "trading_input_2" | "trading_input_1" | "enchant_output" | "enchant_material" | "enchant_input" | "anvil_output" | "anvil_result" | "anvil_material" | "container_input" | "crafting_use_ingredient" | "crafting_result" | "crafting_remove_ingredient" | "crafting_add_ingredient" | "none";
+	export type WindowIDVarint = "inventory" | "first" | "last" | "offhand" | "armor" | "creative" | "hotbar" | "fixed_inventory" | "ui" | "drop_contents" | "beacon" | "trading_output" | "trading_use_inputs" | "trading_input_2" | "trading_input_1" | "enchant_output" | "enchant_material" | "enchant_input" | "anvil_output" | "anvil_result" | "anvil_material" | "container_input" | "crafting_use_ingredient" | "crafting_result" | "crafting_remove_ingredient" | "crafting_add_ingredient" | "none";
+	export type WindowType = "container" | "workbench" | "furnace" | "enchantment" | "brewing_stand" | "anvil" | "dispenser" | "dropper" | "hopper" | "cauldron" | "minecart_chest" | "minecart_hopper" | "horse" | "beacon" | "structure_editor" | "trading" | "command_block" | "jukebox" | "armor" | "hand" | "compound_creator" | "element_constructor" | "material_reducer" | "lab_table" | "loom" | "lectern" | "grindstone" | "blast_furnace" | "smoker" | "stonecutter" | "cartography" | "hud" | "jigsaw_editor" | "smithing_table" | "none" | "inventory";
+	/**
+	 * Used in inventory transactions.
+	 */
+	export type ContainerSlotType = "anvil_input" | "anvil_material" | "anvil_result" | "smithing_table_input" | "smithing_table_material" | "smithing_table_result" | "armor" | "container" | "beacon_payment" | "brewing_input" | "brewing_result" | "brewing_fuel" | "hotbar_and_inventory" | "crafting_input" | "crafting_output" | "recipe_construction" | "recipe_nature" | "recipe_items" | "recipe_search" | "recipe_search_bar" | "recipe_equipment" | "enchanting_input" | "enchanting_lapis" | "furnace_fuel" | "furnace_ingredient" | "furnace_output" | "horse_equip" | "hotbar" | "inventory" | "shulker" | "trade_ingredient1" | "trade_ingredient2" | "trade_result" | "offhand" | "compcreate_input" | "compcreate_output" | "elemconstruct_output" | "matreduce_input" | "matreduce_output" | "labtable_input" | "loom_input" | "loom_dye" | "loom_material" | "loom_result" | "blast_furnace_ingredient" | "smoker_ingredient" | "trade2_ingredient1" | "trade2_ingredient2" | "trade2_result" | "grindstone_input" | "grindstone_additional" | "grindstone_result" | "stonecutter_input" | "stonecutter_result" | "cartography_input" | "cartography_additional" | "cartography_result" | "barrel" | "cursor" | "creative_output";
+	/**
+	 * TODO: remove?
+	 */
+	export type LegacyEntityType = "chicken" | "cow" | "pig" | "sheep" | "wolf" | "villager" | "mooshroom" | "squid" | "rabbit" | "bat" | "iron_golem" | "snow_golem" | "ocelot" | "horse" | "donkey" | "mule" | "skeleton_horse" | "zombie_horse" | "polar_bear" | "llama" | "parrot" | "dolphin" | "zombie" | "creeper" | "skeleton" | "spider" | "zombie_pigman" | "slime" | "enderman" | "silverfish" | "cave_spider" | "ghast" | "magma_cube" | "blaze" | "zombie_villager" | "witch" | "stray" | "husk" | "wither_skeleton" | "guardian" | "elder_guardian" | "npc" | "wither" | "ender_dragon" | "shulker" | "endermite" | "agent" | "vindicator" | "phantom" | "armor_stand" | "tripod_camera" | "player" | "item" | "tnt" | "falling_block" | "moving_block" | "xp_bottle" | "xp_orb" | "eye_of_ender_signal" | "ender_crystal" | "fireworks_rocket" | "thrown_trident" | "turtle" | "cat" | "shulker_bullet" | "fishing_hook" | "chalkboard" | "dragon_fireball" | "arrow" | "snowball" | "egg" | "painting" | "minecart" | "fireball" | "splash_potion" | "ender_pearl" | "leash_knot" | "wither_skull" | "boat" | "wither_skull_dangerous" | "lightning_bolt" | "small_fireball" | "area_effect_cloud" | "hopper_minecart" | "tnt_minecart" | "chest_minecart" | "command_block_minecart" | "lingering_potion" | "llama_spit" | "evocation_fang" | "evocation_illager" | "vex" | "ice_bomb" | "balloon" | "pufferfish" | "salmon" | "drowned" | "tropicalfish" | "cod" | "panda";
+	export type mcpe_packet = {
+		name: "login" | "play_status" | "server_to_client_handshake" | "client_to_server_handshake" | "disconnect" | "resource_packs_info" | "resource_pack_stack" | "resource_pack_client_response" | "text" | "set_time" | "start_game" | "add_player" | "add_entity" | "remove_entity" | "add_item_entity" | "take_item_entity" | "move_entity" | "move_player" | "rider_jump" | "update_block" | "add_painting" | "tick_sync" | "level_sound_event_old" | "level_event" | "block_event" | "entity_event" | "mob_effect" | "update_attributes" | "inventory_transaction" | "mob_equipment" | "mob_armor_equipment" | "interact" | "block_pick_request" | "entity_pick_request" | "player_action" | "hurt_armor" | "set_entity_data" | "set_entity_motion" | "set_entity_link" | "set_health" | "set_spawn_position" | "animate" | "respawn" | "container_open" | "container_close" | "player_hotbar" | "inventory_content" | "inventory_slot" | "container_set_data" | "crafting_data" | "crafting_event" | "gui_data_pick_item" | "adventure_settings" | "block_entity_data" | "player_input" | "level_chunk" | "set_commands_enabled" | "set_difficulty" | "change_dimension" | "set_player_game_type" | "player_list" | "simple_event" | "event" | "spawn_experience_orb" | "clientbound_map_item_data" | "map_info_request" | "request_chunk_radius" | "chunk_radius_update" | "item_frame_drop_item" | "game_rules_changed" | "camera" | "boss_event" | "show_credits" | "available_commands" | "command_request" | "command_block_update" | "command_output" | "update_trade" | "update_equipment" | "resource_pack_data_info" | "resource_pack_chunk_data" | "resource_pack_chunk_request" | "transfer" | "play_sound" | "stop_sound" | "set_title" | "add_behavior_tree" | "structure_block_update" | "show_store_offer" | "purchase_receipt" | "player_skin" | "sub_client_login" | "initiate_web_socket_connection" | "set_last_hurt_by" | "book_edit" | "npc_request" | "photo_transfer" | "modal_form_request" | "modal_form_response" | "server_settings_request" | "server_settings_response" | "show_profile" | "set_default_game_type" | "remove_objective" | "set_display_objective" | "set_score" | "lab_table" | "update_block_synced" | "move_entity_delta" | "set_scoreboard_identity" | "set_local_player_as_initialized" | "update_soft_enum" | "network_stack_latency" | "script_custom_event" | "spawn_particle_effect" | "available_entity_identifiers" | "level_sound_event_v2" | "network_chunk_publisher_update" | "biome_definition_list" | "level_sound_event" | "level_event_generic" | "lectern_update" | "video_stream_connect" | "add_ecs_entity" | "remove_ecs_entity" | "client_cache_status" | "on_screen_texture_animation" | "map_create_locked_copy" | "structure_template_data_export_request" | "structure_template_data_export_response" | "update_block_properties" | "client_cache_blob_status" | "client_cache_miss_response" | "education_settings" | "emote" | "multiplayer_settings" | "settings_command" | "anvil_damage" | "completed_using_item" | "network_settings" | "player_auth_input" | "creative_content" | "player_enchant_options" | "item_stack_request" | "item_stack_response" | "player_armor_damage" | "code_builder" | "update_player_game_type" | "emote_list" | "position_tracking_db_broadcast" | "position_tracking_db_request" | "debug_info" | "packet_violation_warning" | "motion_prediction_hints" | "animate_entity" | "camera_shake" | "player_fog" | "correct_player_move_prediction" | "item_component" | "filter_text_packet" | "debug_renderer";
+		params: packet_login | packet_play_status | packet_server_to_client_handshake | packet_client_to_server_handshake | packet_disconnect | packet_resource_packs_info | packet_resource_pack_stack | packet_resource_pack_client_response | packet_text | packet_set_time | packet_start_game | packet_add_player | packet_add_entity | packet_remove_entity | packet_add_item_entity | packet_take_item_entity | packet_move_entity | packet_move_player | packet_rider_jump | packet_update_block | packet_add_painting | packet_tick_sync | packet_level_sound_event_old | packet_level_event | packet_block_event | packet_entity_event | packet_mob_effect | packet_update_attributes | packet_inventory_transaction | packet_mob_equipment | packet_mob_armor_equipment | packet_interact | packet_block_pick_request | packet_entity_pick_request | packet_player_action | packet_hurt_armor | packet_set_entity_data | packet_set_entity_motion | packet_set_entity_link | packet_set_health | packet_set_spawn_position | packet_animate | packet_respawn | packet_container_open | packet_container_close | packet_player_hotbar | packet_inventory_content | packet_inventory_slot | packet_container_set_data | packet_crafting_data | packet_crafting_event | packet_gui_data_pick_item | packet_adventure_settings | packet_block_entity_data | packet_player_input | packet_level_chunk | packet_set_commands_enabled | packet_set_difficulty | packet_change_dimension | packet_set_player_game_type | packet_player_list | packet_simple_event | packet_event | packet_spawn_experience_orb | packet_clientbound_map_item_data | packet_map_info_request | packet_request_chunk_radius | packet_chunk_radius_update | packet_item_frame_drop_item | packet_game_rules_changed | packet_camera | packet_boss_event | packet_show_credits | packet_available_commands | packet_command_request | packet_command_block_update | packet_command_output | packet_update_trade | packet_update_equipment | packet_resource_pack_data_info | packet_resource_pack_chunk_data | packet_resource_pack_chunk_request | packet_transfer | packet_play_sound | packet_stop_sound | packet_set_title | packet_add_behavior_tree | packet_structure_block_update | packet_show_store_offer | packet_purchase_receipt | packet_player_skin | packet_sub_client_login | packet_initiate_web_socket_connection | packet_set_last_hurt_by | packet_book_edit | packet_npc_request | packet_photo_transfer | packet_modal_form_request | packet_modal_form_response | packet_server_settings_request | packet_server_settings_response | packet_show_profile | packet_set_default_game_type | packet_remove_objective | packet_set_display_objective | packet_set_score | packet_lab_table | packet_update_block_synced | packet_move_entity_delta | packet_set_scoreboard_identity | packet_set_local_player_as_initialized | packet_update_soft_enum | packet_network_stack_latency | packet_script_custom_event | packet_spawn_particle_effect | packet_available_entity_identifiers | packet_level_sound_event_v2 | packet_network_chunk_publisher_update | packet_biome_definition_list | packet_level_sound_event | packet_level_event_generic | packet_lectern_update | packet_video_stream_connect | packet_add_ecs_entity | packet_remove_ecs_entity | packet_client_cache_status | packet_on_screen_texture_animation | packet_map_create_locked_copy | packet_structure_template_data_export_request | packet_structure_template_data_export_response | packet_update_block_properties | packet_client_cache_blob_status | packet_client_cache_miss_response | packet_education_settings | packet_emote | packet_multiplayer_settings | packet_settings_command | packet_anvil_damage | packet_completed_using_item | packet_network_settings | packet_player_auth_input | packet_creative_content | packet_player_enchant_options | packet_item_stack_request | packet_item_stack_response | packet_player_armor_damage | packet_code_builder | packet_update_player_game_type | packet_emote_list | packet_position_tracking_db_request | packet_position_tracking_db_broadcast | packet_debug_info | packet_packet_violation_warning | packet_motion_prediction_hints | packet_animate_entity | packet_camera_shake | packet_player_fog | packet_correct_player_move_prediction | packet_item_component | packet_filter_text_packet | packet_debug_renderer;
+	};
+	/**
+	 * load the packet map file
+	 * todo: docs
+	 * # Login Sequence
+	 * The login process is as follows:
+	 * 
+	 * C→S: [Login](#packet_login)
+	 * S→C: [Server To Client Handshake](#packet_server_to_client_handshake)
+	 * C→S: [Client To Server Handshake](#packet_client_to_server_handshake)
+	 * S→C: [Play Status (Login success)](#packet_play_status)
+	 * To spawn, the following packets should be sent, in order, after the ones above:
+	 * 
+	 * S→C: [Resource Packs Info](#packet_resource_packs_info)
+	 * C→S: [Resource Pack Client Response](#packet_resource_pack_client_response)
+	 * S→C: [Resource Pack Stack](#packet_resource_pack_stack)
+	 * C→S: [Resource Pack Client Response](#packet_resource_pack_client_response)
+	 * S→C: [Start Game](#packet_start_game)
+	 * S→C: [Creative Content](#packet_creative_content)
+	 * S→C: [Biome Definition List](#packet_biome_definition_list)
+	 * S→C: [Chunks](#packet_level_chunk)
+	 * S→C: [Play Status (Player spawn)](#packet_play_status)
+	 * If there are no resource packs being sent, a Resource Pack Stack can be sent directly
+	 * after Resource Packs Info to avoid the client responses.
+	 */
+	export type packet_login = {
+		/** Protocol version (Big Endian!) */
+		protocol_version: number;
+		tokens: LoginTokens;
+	};
+	export type LoginTokens = {
+		/** JSON array of JWT data: contains the display name, UUID and XUID It should be signed by the Mojang public key */
+		identity: LittleString;
+		/** Skin related data */
+		client: LittleString;
+	};
+	export type packet_play_status = {
+		status: "login_success" | "failed_client" | "failed_spawn" | "player_spawn" | "failed_invalid_tenant" | "failed_vanilla_edu" | "failed_edu_vanilla" | "failed_server_full";
+	};
+	export type packet_server_to_client_handshake = {
+		/** Contains the salt to complete the Diffie-Hellman key exchange */
+		token: string;
+	};
+	/**
+	 * Sent by the client in response to a Server To Client Handshake packet
+	 * sent by the server. It is the first encrypted packet in the login handshake
+	 * and serves as a confirmation that encryption is correctly initialized client side.
+	 * It has no fields.
+	 */
+	export type packet_client_to_server_handshake = {
+		
+	};
+	export type packet_disconnect = {
+		hide_disconnect_reason: boolean;
+		message: string;
+	};
+	export type packet_resource_packs_info = {
+		must_accept: boolean;
+		has_scripts: boolean;
+		behaviour_packs: BehaviourPackInfos;
+		texture_packs: TexturePackInfos;
+	};
+	export type packet_resource_pack_stack = {
+		must_accept: boolean;
+		behavior_packs: ResourcePackIdVersions;
+		resource_packs: ResourcePackIdVersions;
+		game_version: string;
+		experiments: Experiments;
+		experiments_previously_used: boolean;
+	};
+	export type packet_resource_pack_client_response = {
+		response_status: "none" | "refused" | "send_packs" | "have_all_packs" | "completed";
+		resourcepackids: ResourcePackIds;
+	};
+	export type packet_text = {
+		type: "raw" | "chat" | "translation" | "popup" | "jukebox_popup" | "tip" | "system" | "whisper" | "announcement" | "json_whisper" | "json";
+		needs_translation: boolean;
+		source_name?: string;
+		message?: string;
+		parameters?: string[];
+		xuid: string;
+		platform_chat_id: string;
+	};
+	/**
+	 * For additional information and examples of all the chat types above, see here: https://imgur.com/a/KhcFscg
+	 * Sent by the server to update the current time client-side. The client actually advances time
+	 * client-side by itself, so this packet does not need to be sent each tick. It is merely a means
+	 * of synchronizing time between server and client.
+	 */
+	export type packet_set_time = {
+		/** Time is the current time. The time is not limited to 24000 (time of day), but continues progressing after that. */
+		time: number;
+	};
+	/**
+	 * Sent by the server to send information about the world the player will be spawned in.
+	 */
+	export type packet_start_game = {
+		/** The unique ID of the player. The unique ID is a value that remains consistent across different sessions of the same world, but most unofficial servers simply fill the runtime ID of the entity out for this field. */
+		entity_id: bigint;
+		/** The runtime ID of the player. The runtime ID is unique for each world session, and entities are generally identified in packets using this runtime ID. */
+		runtime_entity_id: bigint;
+		/** PlayerGameMode is the game mode the player currently has. It is a value from 0-4, with 0 being survival mode, 1 being creative mode, 2 being adventure mode, 3 being survival spectator and 4 being creative spectator. This field may be set to 5 to make the client fall back to the game mode set in the WorldGameMode field. */
+		player_gamemode: GameMode;
+		/** The spawn position of the player in the world. In servers this is often the same as the world's spawn position found below. */
+		player_position: vec3f;
+		/** The pitch and yaw of the player */
+		rotation: vec2f;
+		/** The seed used to generate the world. Unlike in Java edition, the seed is a 32bit Integer here. */
+		seed: number;
+		biome_type: number;
+		biome_name: string;
+		/** Dimension is the ID of the dimension that the player spawns in. It is a value from 0-2, with 0 being the overworld, 1 being the nether and 2 being the end. */
+		dimension: number;
+		/** Generator is the generator used for the world. It is a value from 0-4, with 0 being old limited worlds, 1 being infinite worlds, 2 being flat worlds, 3 being nether worlds and 4 being end worlds. A value of 0 will actually make the client stop rendering chunks you send beyond the world limit. */
+		generator: number;
+		/** The world game mode that a player gets when it first spawns in the world. It is shown in the settings and is used if the Player Gamemode is set to 5. */
+		world_gamemode: GameMode;
+		/** Difficulty is the difficulty of the world. It is a value from 0-3, with 0 being peaceful, 1 being easy, 2 being normal and 3 being hard. */
+		difficulty: number;
+		/** The block on which the world spawn of the world. This coordinate has no effect on the place that the client spawns, but it does have an effect on the direction that a compass poInts. */
+		spawn_position: BlockCoordinates;
+		/** Defines if achievements are disabled in the world. The client crashes if this value is set to true while the player's or the world's game mode is creative, and it's recommended to simply always set this to false as a server. */
+		achievements_disabled: boolean;
+		/** The time at which the day cycle was locked if the day cycle is disabled using the respective game rule. The client will maIntain this time as Boolean as the day cycle is disabled. */
+		day_cycle_stop_time: number;
+		/** Some Minecraft: Education Edition field that specifies what 'region' the world was from, with 0 being None, 1 being RestOfWorld, and 2 being China. The actual use of this field is unknown. */
+		edu_offer: number;
+		/** Specifies if the world has education edition features enabled, such as the blocks or entities specific to education edition. */
+		edu_features_enabled: boolean;
+		edu_product_uuid: string;
+		/** The level specifying the Intensity of the rain falling. When set to 0, no rain falls at all. */
+		rain_level: number;
+		lightning_level: number;
+		/** The level specifying the Intensity of the thunder. This may actually be set independently from the rain level, meaning dark clouds can be produced without rain. */
+		has_confirmed_platform_locked_content: boolean;
+		/** Specifies if the world is a multi-player game. This should always be set to true for servers. */
+		is_multiplayer: boolean;
+		/** Specifies if LAN broadcast was Intended to be enabled for the world. */
+		broadcast_to_lan: boolean;
+		/** The mode used to broadcast the joined game across XBOX Live. */
+		xbox_live_broadcast_mode: number;
+		/** The mode used to broadcast the joined game across the platform. */
+		platform_broadcast_mode: number;
+		/** If commands are enabled for the player. It is recommended to always set this to true on the server, as setting it to false means the player cannot, under any circumstance, use a command. */
+		enable_commands: boolean;
+		/** Specifies if the texture pack the world might hold is required, meaning the client was forced to download it before joining. */
+		is_texturepacks_required: boolean;
+		/** Defines game rules currently active with their respective values. The value of these game rules may be either 'bool', 'Int32' or 'Float32'. Some game rules are server side only, and don't necessarily need to be sent to the client. */
+		gamerules: GameRules;
+		experiments: Experiments;
+		experiments_previously_used: boolean;
+		/** Specifies if the world had the bonus map setting enabled when generating it. It does not have any effect client-side. */
+		bonus_chest: boolean;
+		/** Specifies if the world has the start with map setting enabled, meaning each joining player obtains a map. This should always be set to false, because the client obtains a map all on its own accord if this is set to true. */
+		map_enabled: boolean;
+		/** The permission level of the player. It is a value from 0-3, with 0 being visitor, 1 being member, 2 being operator and 3 being custom. */
+		permission_level: number;
+		/** The radius around the player in which chunks are ticked. Most servers set this value to a fixed number, as it does not necessarily affect anything client-side. */
+		server_chunk_tick_range: number;
+		/** Specifies if the texture pack of the world is locked, meaning it cannot be disabled from the world. This is typically set for worlds on the marketplace that have a dedicated texture pack. */
+		has_locked_behavior_pack: boolean;
+		/** Specifies if the texture pack of the world is locked, meaning it cannot be disabled from the world. This is typically set for worlds on the marketplace that have a dedicated texture pack. */
+		has_locked_resource_pack: boolean;
+		/** Specifies if the world from the server was from a locked world template. For servers this should always be set to false. */
+		is_from_locked_world_template: boolean;
+		msa_gamertags_only: boolean;
+		/** Specifies if the world from the server was from a locked world template. For servers this should always be set to false. */
+		is_from_world_template: boolean;
+		/** Specifies if the world was a template that locks all settings that change properties above in the settings GUI. It is recommended to set this to true for servers that do not allow things such as setting game rules through the GUI. */
+		is_world_template_option_locked: boolean;
+		/** A hack that Mojang put in place to preserve backwards compatibility with old villagers. The his never actually read though, so it has no functionality. */
+		only_spawn_v1_villagers: boolean;
+		/** The version of the game from which Vanilla features will be used. The exact function of this field isn't clear. */
+		game_version: string;
+		limited_world_width: number;
+		limited_world_length: number;
+		is_new_nether: boolean;
+		experimental_gameplay_override: boolean;
+		/** A base64 encoded world ID that is used to identify the world. */
+		level_id: string;
+		/** The name of the world that the player is joining. Note that this field shows up above the player list for the rest of the game session, and cannot be changed. Setting the server name to this field is recommended. */
+		world_name: string;
+		/** A UUID specific to the premium world template that might have been used to generate the world. Servers should always fill out an empty String for this. */
+		premium_world_template_id: string;
+		/** Specifies if the world was a trial world, meaning features are limited and there is a time limit on the world. */
+		is_trial: boolean;
+		/** MovementType specifies the way the server handles player movement. Available options are packet.AuthoritativeMovementModeClient, packet.AuthoritativeMovementModeServer and packet.AuthoritativeMovementModeServerWithRewind, where server the server authoritative types result in the client sending PlayerAuthInput packets instead of MovePlayer packets and the rewind mode requires sending the tick of movement and several actions.  Specifies if the client or server is authoritative over the movement of the player, meaning it controls the movement of it. # https://github.com/pmmp/PocketMine-MP/blob/a43b46a93cb127f037c879b5d8c29cda251dd60c/src/pocketmine/network/mcpe/protocol/types/PlayerMovementType.php#L26 */
+		movement_authority: "client" | "server" | "server_with_rewind";
+		/** RewindHistorySize is the amount of history to keep at maximum if MovementType is packet.AuthoritativeMovementModeServerWithRewind. */
+		rewind_history_size: number;
+		/** ServerAuthoritativeBlockBreaking specifies if block breaking should be sent through packet.PlayerAuthInput or not. This field is somewhat redundant as it is always enabled if MovementType is packet.AuthoritativeMovementModeServer or packet.AuthoritativeMovementModeServerWithRewind */
+		server_authoritative_block_breaking: boolean;
+		current_tick: bigint;
+		enchantment_seed: number;
+		block_palette: BlockPalette;
+		itemstates: Itemstates;
+		multiplayer_correlation_id: string;
+		server_authoritative_inventory: boolean;
+	};
+	export type packet_add_player = {
+		/** UUID is the UUID of the player. It is the same UUID that the client sent in the Login packet at the start of the session. A player with this UUID must exist in the player list (built up using the Player List packet) for it to show up in-game. */
+		uuid: string;
+		/** Username is the name of the player. This username is the username that will be set as the initial name tag of the player. */
+		username: string;
+		/** The unique ID of the player. The unique ID is a value that remains consistent across different sessions of the same world, but most unoffical servers simply fill the runtime ID of the player out for this field. */
+		entity_id_self: bigint;
+		/** The runtime ID of the player. The runtime ID is unique for each world session, and entities are generally identified in packets using this runtime ID. */
+		runtime_entity_id: bigint;
+		/** An identifier only set for particular platforms when chatting (presumably only for Nintendo Switch). It is otherwise an empty string, and is used to decide which players are able to chat with each other. */
+		platform_chat_id: string;
+		x: number;
+		y: number;
+		z: number;
+		speed_x: number;
+		speed_y: number;
+		speed_z: number;
+		pitch: number;
+		yaw: number;
+		head_yaw: number;
+		held_item: Item;
+		metadata: MetadataDictionary;
+		flags: number;
+		command_permission: number;
+		action_permissions: number;
+		permission_level: number;
+		custom_stored_permissions: number;
+		user_id: bigint;
+		links: Links;
+		device_id: string;
+		device_os: number;
+	};
+	export type packet_add_entity = {
+		entity_id_self: bigint;
+		runtime_entity_id: bigint;
+		entity_type: string;
+		x: number;
+		y: number;
+		z: number;
+		speed_x: number;
+		speed_y: number;
+		speed_z: number;
+		pitch: number;
+		yaw: number;
+		head_yaw: number;
+		attributes: EntityAttributes;
+		metadata: MetadataDictionary;
+		links: Links;
+	};
+	export type packet_remove_entity = {
+		entity_id_self: bigint;
+	};
+	export type packet_add_item_entity = {
+		entity_id_self: bigint;
+		runtime_entity_id: bigint;
+		item: Item;
+		x: number;
+		y: number;
+		z: number;
+		speed_x: number;
+		speed_y: number;
+		speed_z: number;
+		metadata: MetadataDictionary;
+		is_from_fishing: boolean;
+	};
+	export type packet_take_item_entity = {
+		runtime_entity_id: bigint;
+		target: number;
+	};
+	export type packet_move_entity = {
+		runtime_entity_id: bigint;
+		flags: number;
+		position: vec3f;
+		rotation: Rotation;
+	};
+	/**
+	 * MovePlayer is sent by players to send their movement to the server, and by the server to update the
+	 * movement of player entities to other players.
+	 */
+	export type packet_move_player = {
+		/** EntityRuntimeID is the runtime ID of the player. The runtime ID is unique for each world session, and entities are generally identified in packets using this runtime ID. */
+		runtime_id: number;
+		/** Position is the position to spawn the player on. If the player is on a distance that the viewer cannot see it, the player will still show up if the viewer moves closer. */
+		position: vec3f;
+		/** Pitch is the vertical rotation of the player. Facing straight forward yields a pitch of 0. Pitch is measured in degrees. */
+		pitch: number;
+		/** Yaw is the horizontal rotation of the player. Yaw is also measured in degrees */
+		yaw: number;
+		/** HeadYaw is the same as Yaw, except that it applies specifically to the head of the player. A different value for HeadYaw than Yaw means that the player will have its head turned */
+		head_yaw: number;
+		/** Mode is the mode of the movement. It specifies the way the player's movement should be shown to other players. It is one of the constants below. */
+		mode: "normal" | "reset" | "teleport" | "rotation";
+		/** OnGround specifies if the player is considered on the ground. Note that proxies or hacked clients could fake this to always be true, so it should not be taken for granted. */
+		on_ground: boolean;
+		/** RiddenEntityRuntimeID is the runtime ID of the entity that the player might currently be riding. If not riding, this should be left 0. */
+		ridden_runtime_id: number;
+		teleport?: {
+			cause: "unknown" | "projectile" | "chorus_fruit" | "command" | "behavior";
+			source_entity_type: LegacyEntityType;
+		};
+		tick: bigint;
+	};
+	export type packet_rider_jump = {
+		jump_strength: number;
+	};
+	/**
+	 * UpdateBlock is sent by the server to update a block client-side, without resending the entire chunk that
+	 * the block is located in. It is particularly useful for small modifications like block breaking/placing.
+	 */
+	export type packet_update_block = {
+		/** Position is the block position at which a block is updated. */
+		position: BlockCoordinates;
+		/** NewBlockRuntimeID is the runtime ID of the block that is placed at Position after sending the packet to the client. */
+		block_runtime_id: number;
+		/** Flags is a combination of flags that specify the way the block is updated client-side. It is a combination of the flags above, but typically sending only the BlockUpdateNetwork flag is sufficient. */
+		flags: UpdateBlockFlags;
+		/** Layer is the world layer on which the block is updated. For most blocks, this is the first layer, as that layer is the default layer to place blocks on, but for blocks inside of each other, this differs. */
+		layer: number;
+	};
+	export type UpdateBlockFlags = {
+		neighbors?: boolean;
+		network?: boolean;
+		no_graphic?: boolean;
+		unused?: boolean;
+		priority?: boolean;
+	};
+	export type packet_add_painting = {
+		entity_id_self: bigint;
+		runtime_entity_id: bigint;
+		coordinates: BlockCoordinates;
+		direction: number;
+		title: string;
+	};
+	/**
+	 * TickSync is sent by the client and the server to maintain a synchronized, server-authoritative tick between
+	 * the client and the server. The client sends this packet first, and the server should reply with another one
+	 * of these packets, including the response time.
+	 */
+	export type packet_tick_sync = {
+		/** ClientRequestTimestamp is the timestamp on which the client sent this packet to the server. The server should fill out that same value when replying. The ClientRequestTimestamp is always 0 */
+		request_time: bigint;
+		/** ServerReceptionTimestamp is the timestamp on which the server received the packet sent by the client. When the packet is sent by the client, this value is 0. ServerReceptionTimestamp is generally the current tick of the server. It isn't an actual timestamp, as the field implies */
+		response_time: bigint;
+	};
+	export type packet_level_sound_event_old = {
+		sound_id: number;
+		position: vec3f;
+		block_id: number;
+		entity_type: number;
+		is_baby_mob: boolean;
+		is_global: boolean;
+	};
+	export type packet_level_event = {
+		event: "sound_click" | "sound_click_fail" | "sound_shoot" | "sound_door" | "sound_fizz" | "sound_ignite" | "sound_ghast" | "sound_ghast_shoot" | "sound_blaze_shoot" | "sound_door_bump" | "sound_door_crash" | "sound_enderman_teleport" | "sound_anvil_break" | "sound_anvil_use" | "sound_anvil_fall" | "sound_pop" | "sound_portal" | "sound_itemframe_add_item" | "sound_itemframe_remove" | "sound_itemframe_place" | "sound_itemframe_remove_item" | "sound_itemframe_rotate_item" | "sound_camera" | "sound_orb" | "sound_totem" | "sound_armor_stand_break" | "sound_armor_stand_hit" | "sound_armor_stand_fall" | "sound_armor_stand_place" | "particle_shoot" | "particle_destroy" | "particle_splash" | "particle_eye_despawn" | "particle_spawn" | "guardian_curse" | "particle_block_force_field" | "particle_projectile_hit" | "particle_enderman_teleport" | "particle_punch_block" | "start_rain" | "start_thunder" | "stop_rain" | "stop_thunder" | "pause_game" | "pause_game_no_screen" | "set_game_speed" | "redstone_trigger" | "cauldron_explode" | "cauldron_dye_armor" | "cauldron_clean_armor" | "cauldron_fill_potion" | "cauldron_take_potion" | "cauldron_fill_water" | "cauldron_take_water" | "cauldron_add_dye" | "cauldron_clean_banner" | "block_start_break" | "block_stop_break" | "set_data" | "players_sleeping" | "add_particle_mask";
+		position: vec3f;
+		data: number;
+	};
+	export type packet_block_event = {
+		/** Position is the position of the block that an event occurred at. */
+		position: BlockCoordinates;
+		/** EventType is the type of the block event. The event type decides the way the event data that follows is used */
+		type: "sound" | "change_state";
+		/** EventData holds event type specific data. For chests for example, opening the chest means the data must be 1 */
+		data: number;
+	};
+	export type packet_entity_event = {
+		runtime_entity_id: bigint;
+		event_id: "jump" | "hurt_animation" | "death_animation" | "arm_swing" | "stop_attack" | "tame_fail" | "tame_success" | "shake_wet" | "use_item" | "eat_grass_animation" | "fish_hook_bubble" | "fish_hook_position" | "fish_hook_hook" | "fish_hook_tease" | "squid_ink_cloud" | "zombie_villager_cure" | "respawn" | "iron_golem_offer_flower" | "iron_golem_withdraw_flower" | "love_particles" | "villager_angry" | "villager_happy" | "witch_spell_particles" | "firework_particles" | "in_love_particles" | "silverfish_spawn_animation" | "guardian_attack" | "witch_drink_potion" | "witch_throw_potion" | "minecart_tnt_prime_fuse" | "creeper_prime_fuse" | "air_supply_expired" | "player_add_xp_levels" | "elder_guardian_curse" | "agent_arm_swing" | "ender_dragon_death" | "dust_particles" | "arrow_shake" | "eating_item" | "baby_animal_feed" | "death_smoke_cloud" | "complete_trade" | "remove_leash" | "consume_totem" | "player_check_treasure_hunter_achievement" | "entity_spawn" | "dragon_puke" | "item_entity_merge" | "start_swim" | "balloon_pop" | "treasure_hunt" | "agent_summon" | "charged_item" | "fall";
+		data: number;
+	};
+	export type packet_mob_effect = {
+		runtime_entity_id: bigint;
+		event_id: "add" | "update" | "remove";
+		effect_id: number;
+		amplifier: number;
+		particles: boolean;
+		duration: number;
+	};
+	export type packet_update_attributes = {
+		runtime_entity_id: bigint;
+		attributes: PlayerAttributes;
+		tick: bigint;
+	};
+	/**
+	 * InventoryTransaction is a packet sent by the client. It essentially exists out of multiple sub-packets,
+	 * each of which have something to do with the inventory in one way or another. Some of these sub-packets
+	 * directly relate to the inventory, others relate to interaction with the world, that could potentially
+	 * result in a change in the inventory.
+	 */
+	export type packet_inventory_transaction = {
+		transaction: Transaction;
+	};
+	export type packet_mob_equipment = {
+		runtime_entity_id: bigint;
+		item: Item;
+		slot: number;
+		selected_slot: number;
+		window_id: WindowID;
+	};
+	export type packet_mob_armor_equipment = {
+		runtime_entity_id: bigint;
+		helmet: Item;
+		chestplate: Item;
+		leggings: Item;
+		boots: Item;
+	};
+	/**
+	 * Interact is sent by the client when it interacts with another entity in some way. It used to be used for
+	 * normal entity and block interaction, but this is no longer the case now.
+	 */
+	export type packet_interact = {
+		/** Action type is the ID of the action that was executed by the player. It is one of the constants that may be found above. */
+		action_id: "leave_vehicle" | "mouse_over_entity" | "npc_open" | "open_inventory";
+		/** TargetEntityRuntimeID is the runtime ID of the entity that the player interacted with. This is empty for the InteractActionOpenInventory action type. */
+		target_entity_id: bigint;
+		/** Position associated with the ActionType above. For the InteractActionMouseOverEntity, this is the position relative to the entity moused over over which the player hovered with its mouse/touch. For the InteractActionLeaveVehicle, this is the position that the player spawns at after leaving the vehicle. */
+		position?: vec3f;
+	};
+	export type packet_block_pick_request = {
+		x: number;
+		y: number;
+		z: number;
+		add_user_data: boolean;
+		selected_slot: number;
+	};
+	export type packet_entity_pick_request = {
+		runtime_entity_id: bigint;
+		selected_slot: number;
+	};
+	/**
+	 * PlayerAction is sent by the client when it executes any action, for example starting to sprint, swim,
+	 * starting the breaking of a block, dropping an item, etc.
+	 */
+	export type packet_player_action = {
+		/** EntityRuntimeID is the runtime ID of the player. The runtime ID is unique for each world session, and entities are generally identified in packets using this runtime ID. */
+		runtime_entity_id: bigint;
+		/** ActionType is the ID of the action that was executed by the player. It is one of the constants that may be found above. */
+		action: Action;
+		/** BlockPosition is the position of the target block, if the action with the ActionType set concerned a block. If that is not the case, the block position will be zero. */
+		position: BlockCoordinates;
+		/** BlockFace is the face of the target block that was touched. If the action with the ActionType set concerned a block. If not, the face is always 0. */
+		face: number;
+	};
+	export type packet_hurt_armor = {
+		health: number;
+	};
+	export type packet_set_entity_data = {
+		runtime_entity_id: bigint;
+		metadata: MetadataDictionary;
+		tick: bigint;
+	};
+	/**
+	 * SetActorMotion is sent by the server to change the client-side velocity of an entity. It is usually used
+	 * in combination with server-side movement calculation.
+	 */
+	export type packet_set_entity_motion = {
+		/** EntityRuntimeID is the runtime ID of the entity. The runtime ID is unique for each world session, and entities are generally identified in packets using this runtime ID. */
+		runtime_entity_id: bigint;
+		/** Velocity is the new velocity the entity gets. This velocity will initiate the client-side movement of the entity. */
+		velocity: vec3f;
+	};
+	/**
+	 * SetActorLink is sent by the server to initiate an entity link client-side, meaning one entity will start
+	 * riding another.
+	 */
+	export type packet_set_entity_link = {
+		link: Link;
+	};
+	export type packet_set_health = {
+		health: number;
+	};
+	export type packet_set_spawn_position = {
+		spawn_type: "player" | "world";
+		player_position: BlockCoordinates;
+		dimension: number;
+		world_position: BlockCoordinates;
+	};
+	export type packet_animate = {
+		action_id: "none" | "swing_arm" | "unknown" | "wake_up" | "critical_hit" | "magic_critical_hit" | "row_right" | "row_left";
+		runtime_entity_id: bigint;
+		boat_rowing_time?: number;
+	};
+	export type packet_respawn = {
+		x: number;
+		y: number;
+		z: number;
+		state: number;
+		runtime_entity_id: bigint;
+	};
+	/**
+	 * ContainerOpen is sent by the server to open a container client-side. This container must be physically
+	 * present in the world, for the packet to have any effect. Unlike Java Edition, Bedrock Edition requires that
+	 * chests for example must be present and in range to open its inventory.
+	 */
+	export type packet_container_open = {
+		/** WindowID is the ID representing the window that is being opened. It may be used later to close the container using a ContainerClose packet. */
+		window_id: WindowID;
+		/** ContainerType is the type ID of the container that is being opened when opening the container at the position of the packet. It depends on the block/entity, and could, for example, be the window type of a chest or a hopper, but also a horse inventory. */
+		window_type: WindowType;
+		/** ContainerPosition is the position of the container opened. The position must point to a block entity that actually has a container. If that is not the case, the window will not be opened and the packet will be ignored, if a valid ContainerEntityUniqueID has not also been provided. */
+		coordinates: BlockCoordinates;
+		/** ContainerEntityUniqueID is the unique ID of the entity container that was opened. It is only used if the ContainerType is one that points to an entity, for example a horse. */
+		runtime_entity_id: bigint;
+	};
+	/**
+	 * ContainerClose is sent by the server to close a container the player currently has opened, which was opened
+	 * using the ContainerOpen packet, or by the client to tell the server it closed a particular container, such
+	 * as the crafting grid.
+	 */
+	export type packet_container_close = {
+		/** WindowID is the ID representing the window of the container that should be closed. It must be equal to the one sent in the ContainerOpen packet to close the designated window. */
+		window_id: WindowID;
+		/** ServerSide determines whether or not the container was force-closed by the server. If this value is not set correctly, the client may ignore the packet and respond with a PacketViolationWarning. */
+		server: boolean;
+	};
+	/**
+	 * PlayerHotBar is sent by the server to the client. It used to be used to link hot bar slots of the player to
+	 * actual slots in the inventory, but as of 1.2, this was changed and hot bar slots are no longer a free
+	 * floating part of the inventory.
+	 * Since 1.2, the packet has been re-purposed, but its new functionality is not clear.
+	 */
+	export type packet_player_hotbar = {
+		selected_slot: number;
+		window_id: WindowID;
+		select_slot: boolean;
+	};
+	/**
+	 * InventoryContent is sent by the server to update the full content of a particular inventory. It is usually
+	 * sent for the main inventory of the player, but also works for other inventories that are currently opened
+	 * by the player.
+	 */
+	export type packet_inventory_content = {
+		/** WindowID is the ID that identifies one of the windows that the client currently has opened, or one of the consistent windows such as the main inventory. */
+		window_id: WindowIDVarint;
+		/** Content is the new content of the inventory. The length of this slice must be equal to the full size of the inventory window updated. */
+		input: ItemStacks;
+	};
+	/**
+	 * InventorySlot is sent by the server to update a single slot in one of the inventory windows that the client
+	 * currently has opened. Usually this is the main inventory, but it may also be the off hand or, for example,
+	 * a chest inventory.
+	 */
+	export type packet_inventory_slot = {
+		/** WindowID is the ID of the window that the packet modifies. It must point to one of the windows that the client currently has opened. */
+		window_id: WindowIDVarint;
+		/** Slot is the index of the slot that the packet modifies. The new item will be set to the slot at this index. */
+		slot: number;
+		/** NewItem is the item to be put in the slot at Slot. It will overwrite any item that may currently be present in that slot. */
+		item: ItemStack;
+	};
+	/**
+	 * ContainerSetData is sent by the server to update specific data of a single container, meaning a block such
+	 * as a furnace or a brewing stand. This data is usually used by the client to display certain features
+	 * client-side.
+	 */
+	export type packet_container_set_data = {
+		/** WindowID is the ID of the window that should have its data set. The player must have a window open with the window ID passed, or nothing will happen. */
+		window_id: WindowID;
+		/** Key is the key of the property. It is one of the constants that can be found above. Multiple properties share the same key, but the functionality depends on the type of the container that the data is set to. */
+		property: number;
+		/** Value is the value of the property. Its use differs per property. */
+		value: number;
+	};
+	export type packet_crafting_data = {
+		recipes: Recipes;
+		potion_type_recipes: PotionTypeRecipes;
+		potion_container_recipes: PotionContainerChangeRecipes;
+		is_clean: boolean;
+	};
+	/**
+	 * CraftingEvent is sent by the client when it crafts a particular item. Note that this packet may be fully
+	 * ignored, as the InventoryTransaction packet provides all the information required.
+	 */
+	export type packet_crafting_event = {
+		/** WindowID is the ID representing the window that the player crafted in. */
+		window_id: WindowID;
+		/** CraftingType is a type that indicates the way the crafting was done, for example if a crafting table was used. */
+		recipe_type: "inventory" | "crafting" | "workbench";
+		/** RecipeUUID is the UUID of the recipe that was crafted. It points to the UUID of the recipe that was sent earlier in the CraftingData packet. */
+		recipe_id: string;
+		/** Input is a list of items that the player put into the recipe so that it could create the Output items. These items are consumed in the process. */
+		input: Item[];
+		/** Output is a list of items that were obtained as a result of crafting the recipe. */
+		result: Item[];
+	};
+	/**
+	 * GUIDataPickItem is sent by the server to make the client 'select' a hot bar slot. It currently appears to
+	 * be broken however, and does not actually set the selected slot to the hot bar slot set in the packet.
+	 */
+	export type packet_gui_data_pick_item = {
+		/** ItemName is the name of the item that shows up in the top part of the popup that shows up when selecting an item. It is shown as if an item was selected by the player itself. */
+		item_name: string;
+		/** ItemEffects is the line under the ItemName, where the effects of the item are usually situated. */
+		item_effects: string;
+		/** HotBarSlot is the hot bar slot to be selected/picked. This does not currently work, so it does not matter what number this is. */
+		hotbar_slot: number;
+	};
+	/**
+	 * AdventureSettings is sent by the server to update game-play related features, in particular permissions to
+	 * access these features for the client. It includes allowing the player to fly, build and mine, and attack
+	 * entities. Most of these flags should be checked server-side instead of using this packet only.
+	 * The client may also send this packet to the server when it updates one of these settings through the
+	 * in-game settings interface. The server should verify if the player actually has permission to update those
+	 * settings.
+	 */
+	export type packet_adventure_settings = {
+		/** Flags is a set of flags that specify certain properties of the player, such as whether or not it can fly and/or move through blocks. It is one of the AdventureFlag constants above. */
+		flags: AdventureFlags;
+		/** CommandPermissionLevel is a permission level that specifies the kind of commands that the player is allowed to use. */
+		command_permission: "normal" | "operator" | "host" | "automation" | "admin";
+		/** ActionPermissions is, much like Flags, a set of flags that specify actions that the player is allowed to undertake, such as whether it is allowed to edit blocks, open doors etc. It is a combination of the ActionPermission constants above. */
+		action_permissions: ActionPermissions;
+		/** PermissionLevel is the permission level of the player as it shows up in the player list built up using the PlayerList packet. It is one of the PermissionLevel constants above. */
+		permission_level: "visitor" | "member" | "operator" | "custom";
+		/** Custom permissions */
+		custom_stored_permissions: number;
+		/** PlayerUniqueID is a unique identifier of the player. It appears it is not required to fill this field out with a correct value. Simply writing 0 seems to work. */
+		user_id: bigint;
+	};
+	export type AdventureFlags = {
+		world_immutable?: boolean;
+		no_pvp?: boolean;
+		auto_jump?: boolean;
+		allow_flight?: boolean;
+		no_clip?: boolean;
+		world_builder?: boolean;
+		flying?: boolean;
+		muted?: boolean;
+	};
+	export type ActionPermissions = {
+		mine?: boolean;
+		doors_and_switches?: boolean;
+		open_containers?: boolean;
+		attack_players?: boolean;
+		attack_mobs?: boolean;
+		operator?: boolean;
+		teleport?: boolean;
+		build?: boolean;
+		default?: boolean;
+	};
+	export type packet_block_entity_data = {
+		position: BlockCoordinates;
+		nbt: any;
+	};
+	export type packet_player_input = {
+		motion_x: number;
+		motion_z: number;
+		jumping: boolean;
+		sneaking: boolean;
+	};
+	/**
+	 * LevelChunk is sent by the server to provide the client with a chunk of a world data (16xYx16 blocks).
+	 * Typically a certain amount of chunks is sent to the client before sending it the spawn PlayStatus packet,
+	 * so that the client spawns in a loaded world.
+	 */
+	export type packet_level_chunk = {
+		/** ChunkX is the X coordinate of the chunk sent. (To translate a block's X to a chunk's X: x >> 4) */
+		x: number;
+		/** ChunkZ is the Z coordinate of the chunk sent. (To translate a block's Z to a chunk's Z: z >> 4) */
+		z: number;
+		/** SubChunkCount is the amount of sub chunks that are part of the chunk sent. Depending on if the cache is enabled, a list of blob hashes will be sent, or, if disabled, the sub chunk data. */
+		sub_chunk_count: number;
+		/** CacheEnabled specifies if the client blob cache should be enabled. This system is based on hashes of blobs which are consistent and saved by the client in combination with that blob, so that the server does not have to send the same chunk multiple times. If the client does not yet have a blob with the hash sent, it will send a ClientCacheBlobStatus packet containing the hashes is does not have the data of. */
+		cache_enabled: boolean;
+		blobs?: {
+			hashes: bigint[];
+		};
+		payload: ByteArray;
+	};
+	export type packet_set_commands_enabled = {
+		enabled: boolean;
+	};
+	export type packet_set_difficulty = {
+		difficulty: number;
+	};
+	export type packet_change_dimension = {
+		dimension: number;
+		position: vec3f;
+		respawn: boolean;
+	};
+	/**
+	 * SetPlayerGameType is sent by the server to update the game type (game mode) of the player
+	 */
+	export type packet_set_player_game_type = {
+		/** The new gamemode for the player. Some of these game types require additional flags to be set in an AdventureSettings packet for the game mode to obtain its full functionality. */
+		gamemode: GameMode;
+	};
+	export type packet_player_list = {
+		records: PlayerRecords;
+	};
+	export type packet_simple_event = {
+		event_type: "uninitialized_subtype" | "enable_commands" | "disable_commands" | "unlock_world_template_settings";
+	};
+	/**
+	 * Event is sent by the server to send an event with additional data. It is typically sent to the client for
+	 * telemetry reasons, much like the SimpleEvent packet.
+	 */
+	export type packet_event = {
+		runtime_id: bigint;
+		event_type: "achievement_awarded" | "entity_interact" | "portal_built" | "portal_used" | "mob_killed" | "cauldron_used" | "player_death" | "boss_killed" | "agent_command" | "agent_created" | "banner_pattern_removed" | "command_executed" | "fish_bucketed" | "mob_born" | "pet_died" | "cauldron_block_used" | "composter_block_used" | "bell_block_used" | "actor_definition" | "raid_update" | "player_movement_anomaly" | "player_movement_corrected" | "honey_harvested" | "target_block_hit" | "piglin_barter";
+		use_player_id: number;
+		event_data: Buffer;
+	};
+	export type packet_spawn_experience_orb = {
+		position: vec3f;
+		count: number;
+	};
+	export type packet_clientbound_map_item_data = {
+		mapinfo: any;
+	};
+	export type packet_map_info_request = {
+		map_id: bigint;
+	};
+	export type packet_request_chunk_radius = {
+		chunk_radius: number;
+	};
+	export type packet_chunk_radius_update = {
+		chunk_radius: number;
+	};
+	export type packet_item_frame_drop_item = {
+		coordinates: BlockCoordinates;
+	};
+	export type packet_game_rules_changed = {
+		rules: GameRules;
+	};
+	/**
+	 * Camera is sent by the server to use an Education Edition camera on a player. It produces an image
+	 * client-side.
+	 */
+	export type packet_camera = {
+		/** CameraEntityUniqueID is the unique ID of the camera entity from which the picture was taken. */
+		camera_entity_unique_id: bigint;
+		/** TargetPlayerUniqueID is the unique ID of the target player. The unique ID is a value that remains consistent across different sessions of the same world, but most servers simply fill the runtime ID of the player out for this field. */
+		target_player_unique_id: bigint;
+	};
+	export type packet_boss_event = {
+		boss_entity_id: bigint;
+		type: "show_bar" | "register_player" | "hide_bar" | "unregister_player" | "set_bar_progress" | "set_bar_title" | "update_properties" | "texture";
+		player_id?: bigint;
+		title?: string;
+		bar_progress?: number;
+		darkness_factor?: number;
+		color?: number;
+		overlay?: number;
+	};
+	export type packet_show_credits = {
+		runtime_entity_id: bigint;
+		status: number;
+	};
+	/**
+	 * This packet sends a list of commands to the client. Commands can have
+	 * arguments, and some of those arguments can have 'enum' values, which are a list of possible
+	 * values for the argument. The serialization is rather complex and involves palettes like chunks.
+	 * # In bedrock-protocol, listen to on('client.commands') for a simpler representation
+	 */
+	export type packet_available_commands = {
+		/** The length of the enums for all the command parameters in this packet */
+		values_len: number;
+		/** Not read from stream: instead calculated from the `values_len` field If the values_len < 0xff => byte If the values_len < 0xffff => short If the values_len < 0xffffff => int */
+		_enum_type: enum_size_based_on_values_len;
+		/** Here all the enum values for all of the possible commands are stored to one array palette */
+		enum_values: string[];
+		/** Integer parameters may sometimes have a prefix, such as the XP command: /xp <amount: int> [player: target] <- here, the xp command gives experience points /xp <amount: int>L [player: target] <- here, the xp command gives experience levels This is the palette of suffixes */
+		suffixes: string[];
+		/** The list of enum objects */
+		enums: {
+			/** The name of the enum */
+			name: string;
+			/** The values in the enum */
+			values: number[];
+		}[];
+		command_data: {
+			name: string;
+			description: string;
+			flags: number;
+			permission_level: number;
+			alias: number;
+			overloads: {
+				parameters: {
+					parameter_name: string;
+					value_type: "int" | "float" | "value" | "wildcard_int" | "operator" | "target" | "file_path" | "string" | "position" | "message" | "raw_text" | "json" | "command";
+					enum_type: "valid" | "enum" | "suffixed" | "soft_enum";
+					optional: boolean;
+					options: CommandFlags;
+				}[];
+			}[];
+		}[];
+		dynamic_enums: {
+			name: string;
+			values: string[];
+		}[];
+		enum_constraints: {
+			value_index: number;
+			enum_index: number;
+			constraints: {
+				constraint: "cheats_enabled";
+			}[];
+		}[];
+	};
+	/**
+	 * ParamOptionCollapseEnum specifies if the enum (only if the Type is actually an enum type. If not,
+	 * setting this to true has no effect) should be collapsed. This means that the options of the enum are
+	 * never shown in the actual usage of the command, but only as auto-completion, like it automatically does
+	 * with enums that have a big amount of options. To illustrate, it can make
+	 * <false|true|yes|no> <$Name: bool>.
+	 */
+	export type CommandFlags = {
+		unused?: boolean;
+		has_semantic_constraint?: boolean;
+		collapse_enum?: boolean;
+	};
+	/**
+	 * enum_size_based_on_values_len: native
+	 * CommandRequest is sent by the client to request the execution of a server-side command. Although some
+	 * servers support sending commands using the Text packet, this packet is guaranteed to have the correct
+	 * result.
+	 */
+	export type packet_command_request = {
+		/** CommandLine is the raw entered command line. The client does no parsing of the command line by itself (unlike it did in the early stages), but lets the server do that. */
+		command: string;
+		/** Origin holds information about the command sender that will be returnd back in the command response */
+		origin: CommandOrigin;
+		/** Internal specifies if the command request internal. Setting it to false seems to work and the usage of this field is not known. */
+		internal: boolean;
+	};
+	/**
+	 * CommandBlockUpdate is sent by the client to update a command block at a specific position. The command
+	 * block may be either a physical block or an entity.
+	 */
+	export type packet_command_block_update = {
+		/** Block specifies if the command block updated was an actual physical block. If false, the command block is in a minecart and has an entity runtime ID instead. */
+		is_block: boolean;
+		position?: BlockCoordinates;
+		mode?: "impulse" | "repeat" | "chain";
+		needs_redstone?: boolean;
+		conditional?: boolean;
+		minecart_entity_runtime_id?: bigint;
+		command: string;
+		last_output: string;
+		name: string;
+		should_track_output: boolean;
+		tick_delay: number;
+		execute_on_first_tick: boolean;
+	};
+	export type packet_command_output = {
+		/** CommandOrigin is the data specifying the origin of the command. In other words, the source that the command request was from, such as the player itself or a websocket server. The client forwards the messages in this packet to the right origin, depending on what is sent here. */
+		origin: CommandOrigin;
+		/** OutputType specifies the type of output that is sent. */
+		output_type: "last" | "silent" | "all" | "data_set";
+		/** SuccessCount is the amount of times that a command was executed successfully as a result of the command that was requested. For servers, this is usually a rather meaningless fields, but for vanilla, this is applicable for commands created with Functions. */
+		success_count: number;
+		/** OutputMessages is a list of all output messages that should be sent to the player. Whether they are shown or not, depends on the type of the messages. */
+		output: {
+			/** Success indicates if the output message was one of a successful command execution. If set to true, the output message is by default coloured white, whereas if set to false, the message is by default coloured red. */
+			success: boolean;
+			/** Message is the message that is sent to the client in the chat window. It may either be simply a message or a translated built-in string like 'commands.tp.success.coordinates', combined with specific parameters below. */
+			message_id: string;
+			/** Parameters is a list of parameters that serve to supply the message sent with additional information, such as the position that a player was teleported to or the effect that was applied to an entity. These parameters only apply for the Minecraft built-in command output. */
+			parameters: string[];
+		}[];
+		data_set?: string;
+	};
+	/**
+	 * UpdateTrade is sent by the server to update the trades offered by a villager to a player. It is sent at the
+	 * moment that a player interacts with a villager.
+	 */
+	export type packet_update_trade = {
+		/** WindowID is the ID that identifies the trading window that the client currently has opened. */
+		window_id: WindowID;
+		/** WindowType is an identifier specifying the type of the window opened. In vanilla, it appears this is always filled out with 15. */
+		window_type: WindowType;
+		/** Size is the amount of trading options that the villager has. */
+		size: number;
+		/** TradeTier is the tier of the villager that the player is trading with. The tier starts at 0 with a first two offers being available, after which two additional offers are unlocked each time the tier becomes one higher. */
+		trade_tier: number;
+		/** VillagerUniqueID is the unique ID of the villager entity that the player is trading with. The TradeTier sent above applies to this villager. */
+		villager_unique_id: bigint;
+		/** EntityUniqueID is the unique ID of the entity (usually a player) for which the trades are updated. The updated trades may apply only to this entity. */
+		entity_unique_id: bigint;
+		/** DisplayName is the name displayed at the top of the trading UI. It is usually used to represent the profession of the villager in the UI. */
+		display_name: string;
+		/** NewTradeUI specifies if the villager should be using the new trade UI (The one added in 1.11.) rather than the old one. This should usually be set to true. */
+		new_trading_ui: boolean;
+		/** Trading based on Minecraft economy - specifies if the prices of the villager's offers are modified by an increase in demand for the item. (A mechanic added in 1.11.) Buying more of the same item will increase the price of that particular item. https://minecraft.wiki/w/Trading#Economics */
+		economic_trades: boolean;
+		/** NBT serialised compound of offers that the villager has. */
+		offers: any;
+	};
+	/**
+	 * UpdateEquip is sent by the server to the client upon opening a horse inventory. It is used to set the
+	 * content of the inventory and specify additional properties, such as the items that are allowed to be put
+	 * in slots of the inventory.
+	 */
+	export type packet_update_equipment = {
+		/** WindowID is the identifier associated with the window that the UpdateEquip packet concerns. It is the ID sent for the horse inventory that was opened before this packet was sent. */
+		window_id: WindowID;
+		/** WindowType is the type of the window that was opened. Generally, this is the type of a horse inventory, as the packet is specifically made for that. */
+		window_type: WindowType;
+		/** Size is the size of the horse inventory that should be opened. A bigger size does, in fact, change the amount of slots displayed. */
+		size: number;
+		/** EntityUniqueID is the unique ID of the entity whose equipment was 'updated' to the player. It is typically the horse entity that had its inventory opened. */
+		entity_id: bigint;
+		/** `inventory` is a network NBT serialised compound holding the content of the inventory of the entity (the equipment) and additional data such as the allowed items for a particular slot, used to make sure only saddles can be put in the saddle slot etc. */
+		inventory: any;
+	};
+	export type packet_resource_pack_data_info = {
+		package_id: string;
+		max_chunk_size: number;
+		chunk_count: number;
+		compressed_package_size: bigint;
+		hash: ByteArray;
+		is_premium: boolean;
+		pack_type: number;
+	};
+	export type packet_resource_pack_chunk_data = {
+		package_id: string;
+		chunk_index: number;
+		progress: bigint;
+		payload: ByteArray;
+	};
+	export type packet_resource_pack_chunk_request = {
+		package_id: string;
+		chunk_index: number;
+	};
+	export type packet_transfer = {
+		server_address: string;
+		port: number;
+	};
+	export type packet_play_sound = {
+		name: string;
+		coordinates: BlockCoordinates;
+		volume: number;
+		pitch: number;
+	};
+	export type packet_stop_sound = {
+		name: string;
+		stop_all: boolean;
+	};
+	/**
+	 * SetTitle is sent by the server to make a title, subtitle or action bar shown to a player. It has several
+	 * fields that allow setting the duration of the titles.
+	 */
+	export type packet_set_title = {
+		/** ActionType is the type of the action that should be executed upon the title of a player. It is one of the constants above and specifies the response of the client to the packet. */
+		type: "clear" | "reset" | "set_title" | "set_subtitle" | "action_bar_message" | "set_durations" | "set_title_json" | "set_subtitle_json" | "action_bar_message_json";
+		/** Text is the text of the title, which has a different meaning depending on the ActionType that the packet has. The text is the text of a title, subtitle or action bar, depending on the type set. */
+		text: string;
+		/** FadeInDuration is the duration that the title takes to fade in on the screen of the player. It is measured in 20ths of a second (AKA in ticks). */
+		fade_in_time: number;
+		/** RemainDuration is the duration that the title remains on the screen of the player. It is measured in 20ths of a second (AKA in ticks). */
+		stay_time: number;
+		/** FadeOutDuration is the duration that the title takes to fade out of the screen of the player. It is measured in 20ths of a second (AKA in ticks). */
+		fade_out_time: number;
+	};
+	export type packet_add_behavior_tree = {
+		behaviortree: string;
+	};
+	export type packet_structure_block_update = {
+		
+	};
+	export type packet_show_store_offer = {
+		unknown0: string;
+		unknown1: boolean;
+	};
+	export type packet_purchase_receipt = {
+		receipts: string[];
+	};
+	export type packet_player_skin = {
+		uuid: string;
+		skin: Skin;
+		skin_name: string;
+		old_skin_name: string;
+		is_verified: boolean;
+	};
+	export type packet_sub_client_login = {
+		tokens: LoginTokens;
+	};
+	export type packet_initiate_web_socket_connection = {
+		server: string;
+	};
+	export type packet_set_last_hurt_by = {
+		unknown: number;
+	};
+	export type packet_book_edit = {
+		type: "replace_page" | "add_page" | "delete_page" | "swap_pages" | "sign";
+		slot: number;
+		page_number?: number;
+		text?: string;
+		photo_name?: string;
+		page1?: number;
+		page2?: number;
+		title?: string;
+		author?: string;
+		xuid?: string;
+	};
+	export type packet_npc_request = {
+		runtime_entity_id: bigint;
+		unknown0: number;
+		unknown1: string;
+		unknown2: number;
+	};
+	export type packet_photo_transfer = {
+		file_name: string;
+		image_data: string;
+		unknown2: string;
+	};
+	export type packet_modal_form_request = {
+		form_id: number;
+		data: string;
+	};
+	export type packet_modal_form_response = {
+		form_id: number;
+		data: string;
+	};
+	export type packet_server_settings_request = {
+		
+	};
+	export type packet_server_settings_response = {
+		form_id: number;
+		data: string;
+	};
+	export type packet_show_profile = {
+		xuid: string;
+	};
+	export type packet_set_default_game_type = {
+		gamemode: GameMode;
+	};
+	export type packet_remove_objective = {
+		objective_name: string;
+	};
+	export type packet_set_display_objective = {
+		display_slot: string;
+		objective_name: string;
+		display_name: string;
+		criteria_name: string;
+		sort_order: number;
+	};
+	export type packet_set_score = {
+		entries: ScoreEntries;
+	};
+	export type packet_lab_table = {
+		action_type: "combine" | "react" | "reset";
+		position: vec3i;
+		reaction_type: number;
+	};
+	export type packet_update_block_synced = {
+		position: BlockCoordinates;
+		block_runtime_id: number;
+		flags: UpdateBlockFlags;
+		layer: number;
+		entity_unique_id: bigint;
+		transition_type: "entity" | "create" | "destroy";
+	};
+	/**
+	 * MoveActorDelta is sent by the server to move an entity. The packet is specifically optimised to save as
+	 * much space as possible, by only writing non-zero fields.
+	 * As of 1.16.100, this packet no longer actually contains any deltas.
+	 */
+	export type packet_move_entity_delta = {
+		/** EntityRuntimeID is the runtime ID of the entity that is being moved. The packet works provided a non-player entity with this runtime ID is present. */
+		runtime_entity_id: bigint;
+		/** Flags is a list of flags that specify what data is in the packet. */
+		flags: DeltaMoveFlags;
+		x?: number;
+		y?: number;
+		z?: number;
+		rot_x?: number;
+		rot_y?: number;
+		rot_z?: number;
+	};
+	export type DeltaMoveFlags = {
+		has_x?: boolean;
+		has_y?: boolean;
+		has_z?: boolean;
+		has_rot_x?: boolean;
+		has_rot_y?: boolean;
+		has_rot_z?: boolean;
+		on_ground?: boolean;
+		teleport?: boolean;
+		force_move?: boolean;
+	};
+	export type packet_set_scoreboard_identity = {
+		entries: ScoreboardIdentityEntries;
+	};
+	/**
+	 * SetLocalPlayerAsInitialised is sent by the client in response to a PlayStatus packet with the status set
+	 * to spawn. The packet marks the moment at which the client is fully initialised and can receive any packet
+	 * without discarding it.
+	 */
+	export type packet_set_local_player_as_initialized = {
+		/** EntityRuntimeID is the entity runtime ID the player was assigned earlier in the login sequence in the StartGame packet. */
+		runtime_entity_id: bigint;
+	};
+	/**
+	 * UpdateSoftEnum is sent by the server to update a soft enum, also known as a dynamic enum, previously sent
+	 * in the AvailableCommands packet. It is sent whenever the enum should get new options or when some of its
+	 * options should be removed.
+	 * The UpdateSoftEnum packet will apply for enums that have been set in the AvailableCommands packet with the
+	 * 'Dynamic' field of the CommandEnum set to true.
+	 */
+	export type packet_update_soft_enum = {
+		/** EnumType is the type of the enum. This type must be identical to the one set in the AvailableCommands packet, because the client uses this to recognise which enum to update. */
+		enum_type: string;
+		/** Options is a list of options that should be updated. Depending on the ActionType field, either these options will be added to the enum, the enum options will be set to these options or all of these options will be removed from the enum. */
+		options: string[];
+		/** ActionType is the type of the action to execute on the enum. The Options field has a different result, depending on what ActionType is used. */
+		action_type: "add" | "remove" | "update";
+	};
+	export type packet_network_stack_latency = {
+		timestamp: bigint;
+		unknown_flag: number;
+	};
+	export type packet_script_custom_event = {
+		event_name: string;
+		event_data: string;
+	};
+	export type packet_spawn_particle_effect = {
+		dimension_id: number;
+		entity_id: bigint;
+		position: vec3f;
+		particle_name: string;
+	};
+	export type packet_available_entity_identifiers = {
+		nbt: any;
+	};
+	export type packet_level_sound_event_v2 = {
+		sound_id: number;
+		position: vec3f;
+		block_id: number;
+		entity_type: string;
+		is_baby_mob: boolean;
+		is_global: boolean;
+	};
+	export type packet_network_chunk_publisher_update = {
+		coordinates: BlockCoordinates;
+		radius: number;
+	};
+	export type packet_biome_definition_list = {
+		nbt: any;
+	};
+	export type packet_level_sound_event = {
+		sound_id: number;
+		position: vec3f;
+		block_id: number;
+		entity_type: string;
+		is_baby_mob: boolean;
+		is_global: boolean;
+	};
+	/**
+	 * LevelEventGeneric is sent by the server to send a 'generic' level event to the client. This packet sends an
+	 * NBT serialised object and may for that reason be used for any event holding additional data.
+	 */
+	export type packet_level_event_generic = {
+		/** EventID is a unique identifier that identifies the event called. The data that follows has fields in the NBT depending on what event it is. */
+		event_id: number;
+		/** SerialisedEventData is a network little endian serialised object of event data, with fields that vary depending on EventID. Unlike many other NBT structures, this data is not actually in a compound but just loosely floating NBT tags. To decode using the nbt package, you would need to append 0x0a00 at the start (compound id and name length) and add 0x00 at the end, to manually wrap it in a compound. Likewise, you would have to remove these bytes when encoding. */
+		nbt: any;
+	};
+	/**
+	 * LecternUpdate is sent by the client to update the server on which page was opened in a book on a lectern,
+	 * or if the book should be removed from it.
+	 */
+	export type packet_lectern_update = {
+		/** Page is the page number in the book that was opened by the player on the lectern. */
+		page: number;
+		/** PageCount is the number of pages that the book opened in the lectern has. */
+		page_count: number;
+		/** Position is the position of the lectern that was updated. If no lectern is at the block position, the packet should be ignored. */
+		position: vec3i;
+		/** DropBook specifies if the book currently set on display in the lectern should be dropped server-side. */
+		drop_book: boolean;
+	};
+	export type packet_video_stream_connect = {
+		server_uri: string;
+		frame_send_frequency: number;
+		action: "none" | "close";
+		resolution_x: number;
+		resolution_y: number;
+	};
+	/**
+	 * This is NOT a Minecraft entity, but an entity in the Entity Component System (ECS)
+	 * for the game engine Minecrat Bedrock uses. Internally, all 'Minecraft entities' are
+	 * known as Actors including in packet names and fields. However, these are irrelevant
+	 * internal details so we don't do the renames in these protocol definitions, for simplicity we just use Entity.
+	 * 
+	 * AddEntity is sent by the server to the client. Its function is not entirely clear: It does not add an
+	 * entity in the sense of an in-game entity, but has to do with the ECS that Minecraft uses.
+	 */
+	export type packet_add_ecs_entity = {
+		/** EntityNetworkID is the network ID of the entity that should be added. */
+		network_id: bigint;
+	};
+	/**
+	 * RemoveEntity is sent by the server to the client. Its function is not entirely clear: It does not remove an
+	 * entity in the sense of an in-game entity, but has to do with the ECS that Minecraft uses
+	 */
+	export type packet_remove_ecs_entity = {
+		/** EntityNetworkID is the network ID of the entity that should be removed. */
+		network_id: bigint;
+	};
+	export type packet_client_cache_status = {
+		enabled: boolean;
+	};
+	export type packet_on_screen_texture_animation = {
+		
+	};
+	export type packet_map_create_locked_copy = {
+		
+	};
+	export type packet_structure_template_data_export_request = {
+		
+	};
+	export type packet_structure_template_data_export_response = {
+		
+	};
+	export type packet_update_block_properties = {
+		nbt: any;
+	};
+	export type packet_client_cache_blob_status = {
+		misses: number;
+		haves: number;
+		missing: bigint[];
+		have: bigint[];
+	};
+	export type packet_client_cache_miss_response = {
+		blobs: Blob[];
+	};
+	export type packet_education_settings = {
+		CodeBuilderDefaultURI: string;
+		CodeBuilderTitle: string;
+		CanResizeCodeBuilder: boolean;
+		HasOverrideURI: boolean;
+		OverrideURI?: string;
+		HasQuiz: boolean;
+	};
+	export type packet_emote = {
+		entity_id: bigint;
+		emote_id: string;
+		flags: number;
+	};
+	export type packet_multiplayer_settings = {
+		action_type: "enable_multiplayer" | "disable_multiplayer" | "refresh_join_code";
+	};
+	export type packet_settings_command = {
+		command_line: string;
+		suppress_output: boolean;
+	};
+	export type packet_anvil_damage = {
+		damage: number;
+		position: BlockCoordinates;
+	};
+	export type packet_completed_using_item = {
+		used_item_id: number;
+		use_method: "equip_armor" | "eat" | "attack" | "consume" | "throw" | "shoot" | "place" | "fill_bottle" | "fill_bucket" | "pour_bucket" | "use_tool" | "interact" | "retrieved" | "dyed" | "traded";
+	};
+	export type packet_network_settings = {
+		compression_threshold: number;
+	};
+	export type packet_player_auth_input = {
+		pitch: number;
+		yaw: number;
+		position: vec3f;
+		move_vector: vec2f;
+		head_yaw: number;
+		input_data: InputFlag;
+		input_mode: "unknown" | "mouse" | "touch" | "game_pad" | "motion_controller";
+		play_mode: "normal" | "teaser" | "screen" | "viewer" | "reality" | "placement" | "living_room" | "exit_level" | "exit_level_living_room" | "num_modes";
+		gaze_direction?: vec3f;
+		tick: bigint;
+		delta: vec3f;
+		transaction?: {
+			legacy: TransactionLegacy;
+			actions: TransactionActions;
+			data: TransactionUseItem;
+		};
+		item_stack_request?: ItemStackRequest;
+		block_action?: {
+			action: Action;
+			position?: vec3i;
+			face?: number;
+		}[];
+	};
+	export type InputFlag = {
+		ascend?: boolean;
+		descend?: boolean;
+		north_jump?: boolean;
+		jump_down?: boolean;
+		sprint_down?: boolean;
+		change_height?: boolean;
+		jumping?: boolean;
+		auto_jumping_in_water?: boolean;
+		sneaking?: boolean;
+		sneak_down?: boolean;
+		up?: boolean;
+		down?: boolean;
+		left?: boolean;
+		right?: boolean;
+		up_left?: boolean;
+		up_right?: boolean;
+		want_up?: boolean;
+		want_down?: boolean;
+		want_down_slow?: boolean;
+		want_up_slow?: boolean;
+		sprinting?: boolean;
+		ascend_scaffolding?: boolean;
+		descend_scaffolding?: boolean;
+		sneak_toggle_down?: boolean;
+		persist_sneak?: boolean;
+		start_sprinting?: boolean;
+		stop_sprinting?: boolean;
+		start_sneaking?: boolean;
+		stop_sneaking?: boolean;
+		start_swimming?: boolean;
+		stop_swimming?: boolean;
+		start_jumping?: boolean;
+		start_gliding?: boolean;
+		stop_gliding?: boolean;
+		item_interact?: boolean;
+		block_action?: boolean;
+		item_stack_request?: boolean;
+	};
+	export type packet_creative_content = {
+		items: ItemStacks;
+	};
+	export type packet_player_enchant_options = {
+		enchant_options: EnchantOptions;
+	};
+	/**
+	 * ItemStackRequest is sent by the client to change item stacks in an inventory. It is essentially a
+	 * replacement of the InventoryTransaction packet added in 1.16 for inventory specific actions, such as moving
+	 * items around or crafting. The InventoryTransaction packet is still used for actions such as placing blocks
+	 * and interacting with entities.
+	 */
+	export type packet_item_stack_request = {
+		requests: ItemStackRequest[];
+	};
+	export type packet_item_stack_response = {
+		responses: ItemStackResponses;
+	};
+	/**
+	 * PlayerArmourDamage is sent by the server to damage the armour of a player. It is a very efficient packet,
+	 * but generally it's much easier to just send a slot update for the damaged armour.
+	 */
+	export type packet_player_armor_damage = {
+		/** Bitset holds a bitset of 4 bits that indicate which pieces of armour need to have damage dealt to them. The first bit, when toggled, is for a helmet, the second for the chestplate, the third for the leggings and the fourth for boots. */
+		type: ArmorDamageType;
+		helmet_damage?: number;
+		chestplate_damage?: number;
+		leggings_damage?: number;
+		boots_damage?: number;
+	};
+	export type ArmorDamageType = {
+		head?: boolean;
+		chest?: boolean;
+		legs?: boolean;
+		feet?: boolean;
+	};
+	/**
+	 * CodeBuilder is an Education Edition packet sent by the server to the client to open the URL to a Code
+	 * Builder (websocket) server.
+	 */
+	export type packet_code_builder = {
+		/** URL is the url to the Code Builder (websocket) server. */
+		url: string;
+		/** ShouldOpenCodeBuilder specifies if the client should automatically open the Code Builder app. If set to true, the client will attempt to use the Code Builder app to connect to and interface with the server running at the URL above. */
+		should_open_code_builder: boolean;
+	};
+	/**
+	 * UpdatePlayerGameType is sent by the server to change the game mode of a player. It is functionally
+	 * identical to the SetPlayerGameType packet.
+	 */
+	export type packet_update_player_game_type = {
+		/** GameType is the new game type of the player. It is one of the constants that can be found in set_player_game_type.go. Some of these game types require additional flags to be set in an AdventureSettings packet for the game mode to obtain its full functionality. */
+		gamemode: GameMode;
+		/** PlayerUniqueID is the entity unique ID of the player that should have its game mode updated. If this packet is sent to other clients with the player unique ID of another player, nothing happens. */
+		player_unique_id: bigint;
+	};
+	/**
+	 * EmoteList is sent by the client every time it joins the server and when it equips new emotes. It may be
+	 * used by the server to find out which emotes the client has available. If the player has no emotes equipped,
+	 * this packet is not sent.
+	 * Under certain circumstances, this packet is also sent from the server to the client, but I was unable to
+	 * find when this is done.
+	 */
+	export type packet_emote_list = {
+		/** PlayerRuntimeID is the runtime ID of the player that owns the emote pieces below. If sent by the client, this player runtime ID is always that of the player itself. */
+		player_id: bigint;
+		/** EmotePieces is a list of emote pieces that the player with the runtime ID above has. */
+		emote_pieces: string[];
+	};
+	/**
+	 * PositionTrackingDBClientRequest is a packet sent by the client to request the position and dimension of a
+	 * 'tracking ID'. These IDs are tracked in a database by the server. In 1.16, this is used for lodestones.
+	 * The client will send this request to find the position a lodestone compass needs to point to. If found, it
+	 * will point to the lodestone. If not, it will start spinning around.
+	 * A PositionTrackingDBServerBroadcast packet should be sent in response to this packet.
+	 */
+	export type packet_position_tracking_db_request = {
+		/** RequestAction is the action that should be performed upon the receiving of the packet. It is one of the constants found above. */
+		action: "query";
+		/** TrackingID is a unique ID used to identify the request. The server responds with a PositionTrackingDBServerBroadcast packet holding the same ID, so that the client can find out what that packet was in response to. */
+		tracking_id: number;
+	};
+	/**
+	 * PositionTrackingDBServerBroadcast is sent by the server in response to the
+	 * PositionTrackingDBClientRequest packet. This packet is, as of 1.16, currently only used for lodestones. The
+	 * server maintains a database with tracking IDs and their position and dimension. The client will request
+	 * these tracking IDs, (NBT tag set on the lodestone compass with the tracking ID?) and the server will
+	 * respond with the status of those tracking IDs.
+	 * What is actually done with the data sent depends on what the client chooses to do with it. For the
+	 * lodestone compass, it is used to make the compass point towards lodestones and to make it spin if the
+	 * lodestone at a position is no longer there.
+	 */
+	export type packet_position_tracking_db_broadcast = {
+		/** BroadcastAction specifies the status of the position tracking DB response. It is one of the constants above, specifying the result of the request with the ID below. The Update action is sent for setting the position of a lodestone compass, the Destroy and NotFound to indicate that there is not (no longer) a lodestone at that position. */
+		broadcast_action: "update" | "destory" | "not_found";
+		/** TrackingID is the ID of the PositionTrackingDBClientRequest packet that this packet was in response to. The tracking ID is also present as the 'id' field in the SerialisedData field. */
+		tracking_id: number;
+		nbt: any;
+	};
+	/**
+	 * DebugInfo is a packet sent by the server to the client. It does not seem to do anything when sent to the
+	 * normal client in 1.16.
+	 */
+	export type packet_debug_info = {
+		/** PlayerUniqueID is the unique ID of the player that the packet is sent to. */
+		player_unique_id: bigint;
+		/** Data is the debug data. */
+		data: ByteArray;
+	};
+	/**
+	 * PacketViolationWarning is sent by the client when it receives an invalid packet from the server. It holds
+	 * some information on the error that occurred.
+	 */
+	export type packet_packet_violation_warning = {
+		violation_type: "malformed";
+		/** Severity specifies the severity of the packet violation. The action the client takes after this violation depends on the severity sent. */
+		severity: "warning" | "final_warning" | "terminating";
+		/** PacketID is the ID of the invalid packet that was received. */
+		packet_id: number;
+		/** ViolationContext holds a description on the violation of the packet. */
+		reason: string;
+	};
+	/**
+	 * MotionPredictionHints is sent by the server to the client. There is a predictive movement component for
+	 * entities. This packet fills the "history" of that component and entity movement is computed based on the
+	 * points. Vanilla sends this packet instead of the SetActorMotion packet when 'spatial optimisations' are
+	 * enabled.
+	 */
+	export type packet_motion_prediction_hints = {
+		/** EntityRuntimeID is the runtime ID of the entity whose velocity is sent to the client. */
+		entity_runtime_id: bigint;
+		/** Velocity is the server-calculated velocity of the entity at the point of sending the packet. */
+		velocity: vec3f;
+		/** OnGround specifies if the server currently thinks the entity is on the ground. */
+		on_ground: boolean;
+	};
+	/**
+	 * AnimateEntity is sent by the server to animate an entity client-side. It may be used to play a single
+	 * animation, or to activate a controller which can start a sequence of animations based on different
+	 * conditions specified in an animation controller.
+	 * Much of the documentation of this packet can be found at
+	 * https://learn.microsoft.com/minecraft/creator/reference/content/animationsreference.
+	 */
+	export type packet_animate_entity = {
+		/** Animation is the name of a single animation to start playing. */
+		animation: string;
+		/** NextState is the first state to start with. These states are declared in animation controllers (which, in themselves, are animations too). These states in turn may have animations and transitions to move to a next state. */
+		next_state: string;
+		/** StopCondition is a MoLang expression that specifies when the animation should be stopped. */
+		stop_condition: string;
+		/** Controller is the animation controller that is used to manage animations. These controllers decide when to play which animation. */
+		controller: string;
+		/** BlendOutTime does not currently seem to be used. */
+		blend_out_time: number;
+		/** EntityRuntimeIDs is list of runtime IDs of entities that the animation should be applied to. */
+		runtime_entity_ids: bigint[];
+	};
+	/**
+	 * CameraShake is sent by the server to make the camera shake client-side. This feature was added for map-
+	 * making partners.
+	 */
+	export type packet_camera_shake = {
+		/** Intensity is the intensity of the shaking. The client limits this value to 4, so anything higher may not work. */
+		intensity: number;
+		/** Duration is the number of seconds the camera will shake for. */
+		duration: number;
+		/** Type is the type of shake, and is one of the constants listed above. The different type affects how the shake looks in game. */
+		type: number;
+		/** Action is the action to be performed, and is one of the constants listed above. Currently the different actions will either add or stop shaking the client. */
+		action: "add" | "stop";
+	};
+	/**
+	 * PlayerFog is sent by the server to render the different fogs in the Stack. The types of fog are controlled
+	 * by resource packs to change how they are rendered, and the ability to create custom fog.
+	 */
+	export type packet_player_fog = {
+		/** Stack is a list of fog identifiers to be sent to the client. Examples of fog identifiers are "minecraft:fog_ocean" and "minecraft:fog_hell". */
+		stack: string[];
+	};
+	/**
+	 * CorrectPlayerMovePrediction is sent by the server if and only if StartGame.ServerAuthoritativeMovementMode
+	 * is set to AuthoritativeMovementModeServerWithRewind. The packet is used to correct movement at a specific
+	 * point in time.
+	 */
+	export type packet_correct_player_move_prediction = {
+		/** Position is the position that the player is supposed to be at at the tick written in the field below. The client will change its current position based on movement after that tick starting from the Position. */
+		position: vec3f;
+		/** Delta is the change in position compared to what the client sent as its position at that specific tick. */
+		delta: vec3f;
+		/** OnGround specifies if the player was on the ground at the time of the tick below. */
+		on_ground: boolean;
+		/** Tick is the tick of the movement which was corrected by this packet. */
+		tick: bigint;
+	};
+	/**
+	 * ItemComponent is sent by the server to attach client-side components to a custom item.
+	 */
+	export type packet_item_component = {
+		/** `entries` holds a list of all custom items with their respective components set. */
+		entries: ItemComponentList;
+	};
+	/**
+	 * FilterText is sent by the both the client and the server. The client sends the packet to the server to
+	 * allow the server to filter the text server-side. The server then responds with the same packet and the
+	 * safer version of the text.
+	 */
+	export type packet_filter_text_packet = {
+		/** Text is either the text from the client or the safer version of the text sent by the server. */
+		text: string;
+		/** FromServer indicates if the packet was sent by the server or not. */
+		from_server: boolean;
+	};
+	/**
+	 * ClientBoundDebugRenderer is sent by the server to spawn an outlined cube on client-side.
+	 */
+	export type packet_debug_renderer = {
+		/** Type is the type of action. It is one of the constants above. */
+		type: "clear" | "add_cube";
+		text?: string;
+		position?: vec3f;
+		red?: number;
+		green?: number;
+		blue?: number;
+		alpha?: number;
+		duration?: bigint;
+	};
+
+
+	/**
+	 * Event map for client-bound packets.
+	 * Use with TypedEmitter to get type-safe event handling.
+	 */
+	export interface ClientboundPacketEventMap {
+		add_behavior_tree: (packet: packet_add_behavior_tree) => void;
+		add_ecs_entity: (packet: packet_add_ecs_entity) => void;
+		add_entity: (packet: packet_add_entity) => void;
+		add_item_entity: (packet: packet_add_item_entity) => void;
+		add_painting: (packet: packet_add_painting) => void;
+		add_player: (packet: packet_add_player) => void;
+		adventure_settings: (packet: packet_adventure_settings) => void;
+		animate: (packet: packet_animate) => void;
+		animate_entity: (packet: packet_animate_entity) => void;
+		available_commands: (packet: packet_available_commands) => void;
+		available_entity_identifiers: (packet: packet_available_entity_identifiers) => void;
+		biome_definition_list: (packet: packet_biome_definition_list) => void;
+		block_entity_data: (packet: packet_block_entity_data) => void;
+		block_event: (packet: packet_block_event) => void;
+		boss_event: (packet: packet_boss_event) => void;
+		camera: (packet: packet_camera) => void;
+		camera_shake: (packet: packet_camera_shake) => void;
+		change_dimension: (packet: packet_change_dimension) => void;
+		chunk_radius_update: (packet: packet_chunk_radius_update) => void;
+		client_cache_miss_response: (packet: packet_client_cache_miss_response) => void;
+		client_cache_status: (packet: packet_client_cache_status) => void;
+		clientbound_map_item_data: (packet: packet_clientbound_map_item_data) => void;
+		code_builder: (packet: packet_code_builder) => void;
+		command_output: (packet: packet_command_output) => void;
+		completed_using_item: (packet: packet_completed_using_item) => void;
+		container_close: (packet: packet_container_close) => void;
+		container_open: (packet: packet_container_open) => void;
+		container_set_data: (packet: packet_container_set_data) => void;
+		correct_player_move_prediction: (packet: packet_correct_player_move_prediction) => void;
+		crafting_data: (packet: packet_crafting_data) => void;
+		crafting_event: (packet: packet_crafting_event) => void;
+		creative_content: (packet: packet_creative_content) => void;
+		debug_info: (packet: packet_debug_info) => void;
+		debug_renderer: (packet: packet_debug_renderer) => void;
+		disconnect: (packet: packet_disconnect) => void;
+		education_settings: (packet: packet_education_settings) => void;
+		emote: (packet: packet_emote) => void;
+		entity_event: (packet: packet_entity_event) => void;
+		event: (packet: packet_event) => void;
+		filter_text_packet: (packet: packet_filter_text_packet) => void;
+		game_rules_changed: (packet: packet_game_rules_changed) => void;
+		gui_data_pick_item: (packet: packet_gui_data_pick_item) => void;
+		hurt_armor: (packet: packet_hurt_armor) => void;
+		initiate_web_socket_connection: (packet: packet_initiate_web_socket_connection) => void;
+		interact: (packet: packet_interact) => void;
+		inventory_content: (packet: packet_inventory_content) => void;
+		inventory_slot: (packet: packet_inventory_slot) => void;
+		inventory_transaction: (packet: packet_inventory_transaction) => void;
+		item_component: (packet: packet_item_component) => void;
+		item_frame_drop_item: (packet: packet_item_frame_drop_item) => void;
+		item_stack_response: (packet: packet_item_stack_response) => void;
+		lab_table: (packet: packet_lab_table) => void;
+		level_chunk: (packet: packet_level_chunk) => void;
+		level_event: (packet: packet_level_event) => void;
+		level_event_generic: (packet: packet_level_event_generic) => void;
+		level_sound_event: (packet: packet_level_sound_event) => void;
+		level_sound_event_old: (packet: packet_level_sound_event_old) => void;
+		level_sound_event_v2: (packet: packet_level_sound_event_v2) => void;
+		map_create_locked_copy: (packet: packet_map_create_locked_copy) => void;
+		map_info_request: (packet: packet_map_info_request) => void;
+		mob_armor_equipment: (packet: packet_mob_armor_equipment) => void;
+		mob_effect: (packet: packet_mob_effect) => void;
+		mob_equipment: (packet: packet_mob_equipment) => void;
+		modal_form_request: (packet: packet_modal_form_request) => void;
+		motion_prediction_hints: (packet: packet_motion_prediction_hints) => void;
+		move_entity: (packet: packet_move_entity) => void;
+		move_entity_delta: (packet: packet_move_entity_delta) => void;
+		move_player: (packet: packet_move_player) => void;
+		network_chunk_publisher_update: (packet: packet_network_chunk_publisher_update) => void;
+		network_settings: (packet: packet_network_settings) => void;
+		network_stack_latency: (packet: packet_network_stack_latency) => void;
+		npc_request: (packet: packet_npc_request) => void;
+		on_screen_texture_animation: (packet: packet_on_screen_texture_animation) => void;
+		play_sound: (packet: packet_play_sound) => void;
+		play_status: (packet: packet_play_status) => void;
+		player_armor_damage: (packet: packet_player_armor_damage) => void;
+		player_enchant_options: (packet: packet_player_enchant_options) => void;
+		player_fog: (packet: packet_player_fog) => void;
+		player_hotbar: (packet: packet_player_hotbar) => void;
+		player_list: (packet: packet_player_list) => void;
+		player_skin: (packet: packet_player_skin) => void;
+		position_tracking_db_broadcast: (packet: packet_position_tracking_db_broadcast) => void;
+		remove_ecs_entity: (packet: packet_remove_ecs_entity) => void;
+		remove_entity: (packet: packet_remove_entity) => void;
+		remove_objective: (packet: packet_remove_objective) => void;
+		request_chunk_radius: (packet: packet_request_chunk_radius) => void;
+		resource_pack_chunk_data: (packet: packet_resource_pack_chunk_data) => void;
+		resource_pack_data_info: (packet: packet_resource_pack_data_info) => void;
+		resource_pack_stack: (packet: packet_resource_pack_stack) => void;
+		resource_packs_info: (packet: packet_resource_packs_info) => void;
+		respawn: (packet: packet_respawn) => void;
+		rider_jump: (packet: packet_rider_jump) => void;
+		script_custom_event: (packet: packet_script_custom_event) => void;
+		server_settings_response: (packet: packet_server_settings_response) => void;
+		server_to_client_handshake: (packet: packet_server_to_client_handshake) => void;
+		set_commands_enabled: (packet: packet_set_commands_enabled) => void;
+		set_difficulty: (packet: packet_set_difficulty) => void;
+		set_display_objective: (packet: packet_set_display_objective) => void;
+		set_entity_data: (packet: packet_set_entity_data) => void;
+		set_entity_link: (packet: packet_set_entity_link) => void;
+		set_entity_motion: (packet: packet_set_entity_motion) => void;
+		set_health: (packet: packet_set_health) => void;
+		set_last_hurt_by: (packet: packet_set_last_hurt_by) => void;
+		set_player_game_type: (packet: packet_set_player_game_type) => void;
+		set_score: (packet: packet_set_score) => void;
+		set_scoreboard_identity: (packet: packet_set_scoreboard_identity) => void;
+		set_spawn_position: (packet: packet_set_spawn_position) => void;
+		set_time: (packet: packet_set_time) => void;
+		set_title: (packet: packet_set_title) => void;
+		show_credits: (packet: packet_show_credits) => void;
+		show_profile: (packet: packet_show_profile) => void;
+		show_store_offer: (packet: packet_show_store_offer) => void;
+		simple_event: (packet: packet_simple_event) => void;
+		spawn_experience_orb: (packet: packet_spawn_experience_orb) => void;
+		spawn_particle_effect: (packet: packet_spawn_particle_effect) => void;
+		start_game: (packet: packet_start_game) => void;
+		stop_sound: (packet: packet_stop_sound) => void;
+		structure_block_update: (packet: packet_structure_block_update) => void;
+		structure_template_data_export_response: (packet: packet_structure_template_data_export_response) => void;
+		take_item_entity: (packet: packet_take_item_entity) => void;
+		text: (packet: packet_text) => void;
+		tick_sync: (packet: packet_tick_sync) => void;
+		transfer: (packet: packet_transfer) => void;
+		update_attributes: (packet: packet_update_attributes) => void;
+		update_block: (packet: packet_update_block) => void;
+		update_block_properties: (packet: packet_update_block_properties) => void;
+		update_block_synced: (packet: packet_update_block_synced) => void;
+		update_equipment: (packet: packet_update_equipment) => void;
+		update_player_game_type: (packet: packet_update_player_game_type) => void;
+		update_soft_enum: (packet: packet_update_soft_enum) => void;
+		update_trade: (packet: packet_update_trade) => void;
+		video_stream_connect: (packet: packet_video_stream_connect) => void;
+	}
+	
+	/**
+	 * Event map for server-bound packets.
+	 * Use with TypedEmitter to get type-safe event handling.
+	 */
+	export interface ServerboundPacketEventMap {
+		adventure_settings: (packet: packet_adventure_settings) => void;
+		animate: (packet: packet_animate) => void;
+		anvil_damage: (packet: packet_anvil_damage) => void;
+		block_entity_data: (packet: packet_block_entity_data) => void;
+		block_pick_request: (packet: packet_block_pick_request) => void;
+		book_edit: (packet: packet_book_edit) => void;
+		boss_event: (packet: packet_boss_event) => void;
+		client_cache_blob_status: (packet: packet_client_cache_blob_status) => void;
+		client_cache_status: (packet: packet_client_cache_status) => void;
+		client_to_server_handshake: (packet: packet_client_to_server_handshake) => void;
+		command_block_update: (packet: packet_command_block_update) => void;
+		command_request: (packet: packet_command_request) => void;
+		container_close: (packet: packet_container_close) => void;
+		crafting_event: (packet: packet_crafting_event) => void;
+		emote: (packet: packet_emote) => void;
+		emote_list: (packet: packet_emote_list) => void;
+		entity_event: (packet: packet_entity_event) => void;
+		entity_pick_request: (packet: packet_entity_pick_request) => void;
+		filter_text_packet: (packet: packet_filter_text_packet) => void;
+		interact: (packet: packet_interact) => void;
+		inventory_content: (packet: packet_inventory_content) => void;
+		inventory_slot: (packet: packet_inventory_slot) => void;
+		inventory_transaction: (packet: packet_inventory_transaction) => void;
+		item_frame_drop_item: (packet: packet_item_frame_drop_item) => void;
+		item_stack_request: (packet: packet_item_stack_request) => void;
+		lab_table: (packet: packet_lab_table) => void;
+		lectern_update: (packet: packet_lectern_update) => void;
+		level_sound_event: (packet: packet_level_sound_event) => void;
+		level_sound_event_old: (packet: packet_level_sound_event_old) => void;
+		level_sound_event_v2: (packet: packet_level_sound_event_v2) => void;
+		login: (packet: packet_login) => void;
+		map_info_request: (packet: packet_map_info_request) => void;
+		mob_armor_equipment: (packet: packet_mob_armor_equipment) => void;
+		mob_equipment: (packet: packet_mob_equipment) => void;
+		modal_form_response: (packet: packet_modal_form_response) => void;
+		move_entity: (packet: packet_move_entity) => void;
+		move_player: (packet: packet_move_player) => void;
+		multiplayer_settings: (packet: packet_multiplayer_settings) => void;
+		network_settings: (packet: packet_network_settings) => void;
+		network_stack_latency: (packet: packet_network_stack_latency) => void;
+		npc_request: (packet: packet_npc_request) => void;
+		packet_violation_warning: (packet: packet_packet_violation_warning) => void;
+		photo_transfer: (packet: packet_photo_transfer) => void;
+		player_action: (packet: packet_player_action) => void;
+		player_auth_input: (packet: packet_player_auth_input) => void;
+		player_hotbar: (packet: packet_player_hotbar) => void;
+		player_input: (packet: packet_player_input) => void;
+		player_skin: (packet: packet_player_skin) => void;
+		position_tracking_db_request: (packet: packet_position_tracking_db_request) => void;
+		purchase_receipt: (packet: packet_purchase_receipt) => void;
+		request_chunk_radius: (packet: packet_request_chunk_radius) => void;
+		resource_pack_chunk_request: (packet: packet_resource_pack_chunk_request) => void;
+		resource_pack_client_response: (packet: packet_resource_pack_client_response) => void;
+		respawn: (packet: packet_respawn) => void;
+		rider_jump: (packet: packet_rider_jump) => void;
+		script_custom_event: (packet: packet_script_custom_event) => void;
+		server_settings_request: (packet: packet_server_settings_request) => void;
+		set_default_game_type: (packet: packet_set_default_game_type) => void;
+		set_entity_data: (packet: packet_set_entity_data) => void;
+		set_entity_motion: (packet: packet_set_entity_motion) => void;
+		set_local_player_as_initialized: (packet: packet_set_local_player_as_initialized) => void;
+		set_player_game_type: (packet: packet_set_player_game_type) => void;
+		settings_command: (packet: packet_settings_command) => void;
+		structure_template_data_export_request: (packet: packet_structure_template_data_export_request) => void;
+		sub_client_login: (packet: packet_sub_client_login) => void;
+		text: (packet: packet_text) => void;
+		tick_sync: (packet: packet_tick_sync) => void;
+	}
+	
+	export type Arguments<T> = [T] extends [(...args: infer U) => any] ? U : [T] extends [void] ? [] : [T];
+	
+	/**
+	 * Status of the Bedrock client connection.
+	 */
+	export enum ClientStatus {
+		Disconnected,
+		Authenticating,
+		Initializing,
+		Initialized
+	}
+	
+	/**
+	 * Bedrock client interface with type-safe packet handling.
+	 */
+	export interface BedrockClient {
+		readonly entityId: bigint;
+		readonly status: ClientStatus;
+		
+		close(reason?: string): void;
+		disconnect(): void;
+		
+		on<E extends keyof ClientboundPacketEventMap>(event: E, listener: ClientboundPacketEventMap[E]): any;
+		off<E extends keyof ClientboundPacketEventMap>(event: E, listener: ClientboundPacketEventMap[E]): any;
+		write<E extends keyof ServerboundPacketEventMap>(event: E, ...args: Arguments<ServerboundPacketEventMap[E]>): boolean;
+		queue<E extends keyof ServerboundPacketEventMap>(event: E, ...args: Arguments<ServerboundPacketEventMap[E]>): boolean;
+		sendBuffer(buffer: Buffer, immediate?: boolean): void;
+	}
+}
