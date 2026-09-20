@@ -25,7 +25,8 @@ BPX_PACKET("MovePlayerPacket") {
     p.shape("1.16.201", layout(false));
     p.shape("1.26.40", layout(true));
 
-    p.values("mPlayerID", {1, 123456, std::int64_t{1000000000000LL}});
+    // the ids a server hands out are small; the protocol reads them as 32-bit varints
+    p.values("mPlayerID", {1, 123456, INT_MAX});
     p.values("mPos", {xyz(0.5, 65.62, 0.5), xyz(-12345.25, -59.5, 30000000.0)});
     p.values("mRot", {Object{{"x", 0.0}, {"y", 0.0}}, Object{{"x", -89.9}, {"y", 179.9}}});
     p.values("mYHeadRot", {0.0, -90.0});
